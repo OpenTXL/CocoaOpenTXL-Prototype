@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/17> .
+
+@snapshot 2011-07-17T19:30Z : POINT(13.03257818450342 47.81383767925982) .
+@snapshot 2011-07-17T22:30Z : POINT(13.03257818450342 47.81383767925982) .
+
+[ a events:Event;
+  events:id 17;
+  events:name "Weinstube Zum alten Suender";
+  events:begin_time "2011-07-17T19:30Z";
+  events:end_time "2011-07-17T22:30Z";
+  events:category categories:Music;
+  events:description "Livemusik im Weinkeller.";
+  events:image_url "http://opentxl.org/events/salzburg/images/2.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

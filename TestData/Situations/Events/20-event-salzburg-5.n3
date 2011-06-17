@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/20> .
+
+@snapshot 2011-07-17T20:00Z : POINT(13.06231905591733 47.81244302416278) .
+@snapshot 2011-07-17T22:00Z : POINT(13.06231905591733 47.81244302416278) .
+
+[ a events:Event;
+  events:id 20;
+  events:name "Eisenbahndrehscheibe";
+  events:begin_time "2011-07-17T20:00Z";
+  events:end_time "2011-07-17T22:00Z";
+  events:category categories:Architecture;
+  events:description "Drehscheibe Salzburg Gnigl";
+  events:image_url "http://opentxl.org/events/salzburg/images/5.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

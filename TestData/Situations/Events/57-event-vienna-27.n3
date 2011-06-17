@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/57> .
+
+@snapshot 2011-07-18T21:00Z : POINT(16.3736296313025 48.20304142093615) .
+@snapshot 2011-07-18T23:00Z : POINT(16.3736296313025 48.20304142093615) .
+
+[ a events:Event;
+  events:id 57;
+  events:name "Schwarzenbergplatz";
+  events:begin_time "2011-07-18T21:00Z";
+  events:end_time "2011-07-18T23:00Z";
+  events:category categories:Architecture;
+  events:description "Spaziergang über den Schwarzenbergplatz";
+  events:image_url "http://static.panoramio.com/photos/original/12723534.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

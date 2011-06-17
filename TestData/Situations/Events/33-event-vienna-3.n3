@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/33> .
+
+@snapshot 2011-07-18T10:00Z : POINT(16.3311290069434 48.22770047014519) .
+@snapshot 2011-07-18T13:30Z : POINT(16.3311290069434 48.22770047014519) .
+
+[ a events:Event;
+  events:id 33;
+  events:name "Weinhauser Kirche";
+  events:begin_time "2011-07-18T10:00Z";
+  events:end_time "2011-07-18T13:30Z";
+  events:category categories:Architecture;
+  events:description "Besichtigung der Kirche";
+  events:image_url "http://static.panoramio.com/photos/original/35581428.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

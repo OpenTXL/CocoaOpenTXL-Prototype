@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/58> .
+
+@snapshot 2011-07-19T20:00Z : POINT(16.35617072302753 48.19829647339829) .
+@snapshot 2011-07-19T22:00Z : POINT(16.35617072302753 48.19829647339829) .
+
+[ a events:Event;
+  events:id 58;
+  events:name "Luckabar";
+  events:begin_time "2011-07-19T20:00Z";
+  events:end_time "2011-07-19T22:00Z";
+  events:category categories:Music;
+  events:description "Bundesliga live";
+  events:image_url "http://opentxl.org/events/vienna/images/28.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

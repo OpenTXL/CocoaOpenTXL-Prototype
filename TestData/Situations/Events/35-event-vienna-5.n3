@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/35> .
+
+@snapshot 2011-07-18T16:00Z : POINT(16.33079956323958 48.21773942905862) .
+@snapshot 2011-07-18T17:00Z : POINT(16.33079956323958 48.21773942905862) .
+
+[ a events:Event;
+  events:id 35;
+  events:name "Kalvarienbergkirche";
+  events:begin_time "2011-07-18T16:00Z";
+  events:end_time "2011-07-18T17:00Z";
+  events:category categories:Architecture;
+  events:description "Aufstieg auf die Kirchturmspitze";
+  events:image_url "http://static.panoramio.com/photos/original/700326.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/13> .
+
+@snapshot 2011-07-21T15:00Z : POINT(15.44287238708184 47.06694411298763) .
+@snapshot 2011-07-21T17:00Z : POINT(15.44287238708184 47.06694411298763) .
+
+[ a events:Event;
+  events:id 13;
+  events:name "Jakominiplatz";
+  events:begin_time "2011-07-21T15:00Z";
+  events:end_time "2011-07-21T17:00Z";
+  events:category categories:Architecture;
+  events:description "Architekturtour rund um den Platz.";
+  events:image_url "http://static.panoramio.com/photos/original/32322575.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

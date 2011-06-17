@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/5> .
+
+@snapshot 2011-07-20T14:30Z : POINT(15.438288 47.070869) .
+@snapshot 2011-07-20T17:00Z : POINT(15.438288 47.070869) .
+
+[ a events:Event;
+  events:id 5;
+  events:name "Event Graz 5";
+  events:begin_time "2011-07-20T14:30Z";
+  events:end_time "2011-07-20T17:00Z";
+  events:category categories:Architecture;
+  events:description "Architekturführung rund um den Hauptplatz.";
+  events:image_url "http://static.panoramio.com/photos/original/42620208.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

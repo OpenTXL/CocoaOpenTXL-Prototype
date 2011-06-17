@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/19> .
+
+@snapshot 2011-07-17T21:00Z : POINT(13.0514517912487 47.81291540629979) .
+@snapshot 2011-07-17T23:00Z : POINT(13.0514517912487 47.81291540629979) .
+
+[ a events:Event;
+  events:id 19;
+  events:name "Salzburg AG";
+  events:begin_time "2011-07-17T21:00Z";
+  events:end_time "2011-07-17T23:00Z";
+  events:category categories:Music;
+  events:description "Konzert im Gebaeude der Salzburg AG.";
+  events:image_url "http://static.panoramio.com/photos/original/9885830.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

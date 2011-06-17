@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/43> .
+
+@snapshot 2011-07-18T20:00Z : POINT(16.33029565496246 48.18954505377726) .
+@snapshot 2011-07-18T22:00Z : POINT(16.33029565496246 48.18954505377726) .
+
+[ a events:Event;
+  events:id 43;
+  events:name "Dadlerpark";
+  events:begin_time "2011-07-18T20:00Z";
+  events:end_time "2011-07-18T22:00Z";
+  events:category categories:Architecture;
+  events:description "Tour durch den Park mit Architekturinformationen zu den umliegenden Gebaeuden.";
+  events:image_url "http://opentxl.org/events/vienna/images/13.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

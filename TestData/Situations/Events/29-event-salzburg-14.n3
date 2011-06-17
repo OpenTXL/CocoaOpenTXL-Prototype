@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/29> .
+
+@snapshot 2011-07-17T15:30Z : POINT(13.06002678266527 47.79773050083293) .
+@snapshot 2011-07-17T16:30Z : POINT(13.06002678266527 47.79773050083293) .
+
+[ a events:Event;
+  events:id 29;
+  events:name "Eisarena Salzburg";
+  events:begin_time "2011-07-17T15:30Z";
+  events:end_time "2011-07-17T16:30Z";
+  events:category categories:Architecture;
+  events:description "Architektur der Eisarena";
+  events:image_url "http://upload.wikimedia.org/wikipedia/en/9/90/EisarenaSalzburg.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

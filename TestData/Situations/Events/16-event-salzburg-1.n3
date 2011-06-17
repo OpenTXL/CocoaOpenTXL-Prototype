@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/16> .
+
+@snapshot 2011-07-17T10:00Z : POINT(13.02456827449809 47.81413044389164) .
+@snapshot 2011-07-17T14:00Z : POINT(13.02456827449809 47.81413044389164) .
+
+[ a events:Event;
+  events:id 16;
+  events:name "Baptistengemeinde Salzburg";
+  events:begin_time "2011-07-17T10:00Z";
+  events:end_time "2011-07-17T14:00Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung Kirchengebaeude.";
+  events:image_url "http://opentxl.org/events/salzburg/images/1.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

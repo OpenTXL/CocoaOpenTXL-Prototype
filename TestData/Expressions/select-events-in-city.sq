@@ -1,0 +1,13 @@
+PREFIX cityEvents: <http://schema.opentxl.org/cityEvents#>
+PREFIX events: <http://schema.opentxl.org/events#> 
+
+SELECT ?event_id ?city_name
+
+FROM <txl://opentxl.org/events-in-city>
+FROM <txl://opentxl.org/events>
+
+WHERE {
+	[cityEvents:eventInCity ?city_name] .
+    [ a events:Event;
+        events:id ?event_id] .
+}

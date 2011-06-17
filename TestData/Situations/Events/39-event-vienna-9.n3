@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/39> .
+
+@snapshot 2011-07-18T10:00Z : POINT(16.33013858405776 48.2044483101223) .
+@snapshot 2011-07-18T13:30Z : POINT(16.33013858405776 48.2044483101223) .
+
+[ a events:Event;
+  events:id 39;
+  events:name "Wiener Stadthalle";
+  events:begin_time "2011-07-18T10:00Z";
+  events:end_time "2011-07-18T13:30Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch die Stadthalle";
+  events:image_url "http://static.panoramio.com/photos/original/451778.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

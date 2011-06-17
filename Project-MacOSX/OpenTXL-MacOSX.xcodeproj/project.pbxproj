@@ -1,0 +1,2132 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DB4534C12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4534B12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m */; };
+		5E010427130E9BB200286B71 /* spatialsituation.lm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C20130D7BB800E8219A /* spatialsituation.lm */; };
+		5E010428130E9BB200286B71 /* spatialsituation.ym in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C21130D7BB800E8219A /* spatialsituation.ym */; };
+		5E010429130E9BB200286B71 /* TXLSpatialSituationImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C23130D7BB800E8219A /* TXLSpatialSituationImporter.m */; };
+		5E01042D130E9BBB00286B71 /* TXLSpatialSituationImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E0C5C22130D7BB800E8219A /* TXLSpatialSituationImporter.h */; };
+		5E01579D131E9C02001302ED /* prog_2-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015792131E9C02001302ED /* prog_2-rain.n3 */; };
+		5E01579E131E9C02001302ED /* prog_2-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015793131E9C02001302ED /* prog_2-sky_cover-overcast.n3 */; };
+		5E01579F131E9C02001302ED /* prog_2-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015794131E9C02001302ED /* prog_2-sky_cover-scattered.n3 */; };
+		5E0157A0131E9C02001302ED /* prog_2-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015795131E9C02001302ED /* prog_2-temp-normal.n3 */; };
+		5E0157A1131E9C02001302ED /* prog_2-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015796131E9C02001302ED /* prog_2-temp-warm.n3 */; };
+		5E0C5C30130D7BB800E8219A /* spatialsituation.lm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C20130D7BB800E8219A /* spatialsituation.lm */; };
+		5E0C5C31130D7BB800E8219A /* spatialsituation.ym in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C21130D7BB800E8219A /* spatialsituation.ym */; };
+		5E0C5C32130D7BB800E8219A /* TXLSpatialSituationImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E0C5C22130D7BB800E8219A /* TXLSpatialSituationImporter.h */; };
+		5E0C5C33130D7BB800E8219A /* TXLSpatialSituationImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5C23130D7BB800E8219A /* TXLSpatialSituationImporter.m */; };
+		5E244453133BA289008587AF /* select-events-in-city.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E244452133BA289008587AF /* select-events-in-city.sq */; };
+		5E244454133BA289008587AF /* select-events-in-city.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E244452133BA289008587AF /* select-events-in-city.sq */; };
+		5E24445C133BA2B9008587AF /* prog_1-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244456133BA2B9008587AF /* prog_1-rain.n3 */; };
+		5E24445D133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244457133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 */; };
+		5E24445E133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244458133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 */; };
+		5E24445F133BA2B9008587AF /* prog_1-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244459133BA2B9008587AF /* prog_1-temp-normal.n3 */; };
+		5E244460133BA2B9008587AF /* prog_1-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E24445A133BA2B9008587AF /* prog_1-temp-warm.n3 */; };
+		5E244461133BA2B9008587AF /* prog_1-wind.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E24445B133BA2B9008587AF /* prog_1-wind.n3 */; };
+		5E244462133BA2B9008587AF /* prog_1-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244456133BA2B9008587AF /* prog_1-rain.n3 */; };
+		5E244463133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244457133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 */; };
+		5E244464133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244458133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 */; };
+		5E244465133BA2B9008587AF /* prog_1-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E244459133BA2B9008587AF /* prog_1-temp-normal.n3 */; };
+		5E244466133BA2B9008587AF /* prog_1-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E24445A133BA2B9008587AF /* prog_1-temp-warm.n3 */; };
+		5E244467133BA2B9008587AF /* prog_1-wind.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E24445B133BA2B9008587AF /* prog_1-wind.n3 */; };
+		5E2D51F813337EBD005F5EDC /* TXLContextSituationDefinitionWithBlankNodesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D51F713337EBD005F5EDC /* TXLContextSituationDefinitionWithBlankNodesTest.m */; };
+		5E2D52581333899E005F5EDC /* construct_events_in_city.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E2D52571333899E005F5EDC /* construct_events_in_city.sq */; };
+		5E35E5D012F2D0EA00B1B69E /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		5E35E5EF12F2D0F600B1B69E /* libspatialite.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81012A8EB9100687F79 /* libspatialite.dylib */; };
+		5E35E5F012F2D0F600B1B69E /* libproj.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81D12A8EC2A00687F79 /* libproj.dylib */; };
+		5E35E5F112F2D0F600B1B69E /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */; };
+		5E35E5F512F2D10400B1B69E /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */; };
+		5E35E5F712F2D10E00B1B69E /* GaiaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C212A8E9AC00687F79 /* GaiaTest.m */; };
+		5E35E5F812F2D10E00B1B69E /* TXLContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C412A8E9AC00687F79 /* TXLContextTest.m */; };
+		5E35E5F912F2D10E00B1B69E /* TXLDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C512A8E9AC00687F79 /* TXLDatabaseTest.m */; };
+		5E35E5FA12F2D10E00B1B69E /* TXLGeometryCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C612A8E9AC00687F79 /* TXLGeometryCollectionTest.m */; };
+		5E35E5FB12F2D10E00B1B69E /* TXLLinestringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C712A8E9AC00687F79 /* TXLLinestringTest.m */; };
+		5E35E5FC12F2D10E00B1B69E /* TXLManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C812A8E9AC00687F79 /* TXLManagerTest.m */; };
+		5E35E5FD12F2D10E00B1B69E /* TXLMovingObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C912A8E9AC00687F79 /* TXLMovingObjectTest.m */; };
+		5E35E5FE12F2D10E00B1B69E /* TXLPolygonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CA12A8E9AC00687F79 /* TXLPolygonTest.m */; };
+		5E35E5FF12F2D10E00B1B69E /* TXLRingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CB12A8E9AC00687F79 /* TXLRingTest.m */; };
+		5E35E60012F2D10E00B1B69E /* TXLTermTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CC12A8E9AC00687F79 /* TXLTermTest.m */; };
+		5E35E60112F2D10E00B1B69E /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA8B12A9059900687F79 /* GHUnitTestMain.m */; };
+		5E35E60212F2D10E00B1B69E /* TXLManagerOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F698446112B0EE8E0048150A /* TXLManagerOperationTest.m */; };
+		5E35E60312F2D10E00B1B69E /* TXLMovingObjectSequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB4534B12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m */; };
+		5E35E60412F2D10E00B1B69E /* TXLSPARQLCompilerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8503312B9036200E8A4DD /* TXLSPARQLCompilerTest.m */; };
+		5E35E60712F2D13600B1B69E /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		5E35E69A12F2DDE500B1B69E /* TXLDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75412A8E8F300687F79 /* TXLDatabase.h */; };
+		5E35E69B12F2DDE500B1B69E /* TXLDBHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75612A8E8F300687F79 /* TXLDBHandle.h */; };
+		5E35E69C12F2DDE500B1B69E /* TXLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75A12A8E8F300687F79 /* TXLManager.h */; };
+		5E35E69D12F2DDE500B1B69E /* TXLBoundingBox.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76012A8E8F300687F79 /* TXLBoundingBox.h */; };
+		5E35E69E12F2DDE500B1B69E /* TXLGeometryCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76212A8E8F300687F79 /* TXLGeometryCollection.h */; };
+		5E35E69F12F2DDE500B1B69E /* TXLGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76412A8E8F400687F79 /* TXLGeometryTypes.h */; };
+		5E35E6A012F2DDE500B1B69E /* TXLLinestring.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76512A8E8F400687F79 /* TXLLinestring.h */; };
+		5E35E6A112F2DDE500B1B69E /* TXLPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76712A8E8F400687F79 /* TXLPoint.h */; };
+		5E35E6A212F2DDE500B1B69E /* TXLPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76912A8E8F400687F79 /* TXLPolygon.h */; };
+		5E35E6A312F2DDE500B1B69E /* TXLRing.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76B12A8E8F400687F79 /* TXLRing.h */; };
+		5E35E6A412F2DDE500B1B69E /* TXLContext.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76D12A8E8F400687F79 /* TXLContext.h */; };
+		5E35E6A512F2DDE500B1B69E /* TXLMovingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77112A8E8F400687F79 /* TXLMovingObject.h */; };
+		5E35E6A612F2DDE500B1B69E /* TXLMovingObjectSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77312A8E8F400687F79 /* TXLMovingObjectSequence.h */; };
+		5E35E6A712F2DDE500B1B69E /* TXLStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77D12A8E8F400687F79 /* TXLStatement.h */; };
+		5E35E6A812F2DDE500B1B69E /* TXLTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77F12A8E8F400687F79 /* TXLTerm.h */; };
+		5E35E6A912F2DDE500B1B69E /* TXLQueryHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78212A8E8F400687F79 /* TXLQueryHandle.h */; };
+		5E35E6AA12F2DDE500B1B69E /* TXLResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78412A8E8F400687F79 /* TXLResultSet.h */; };
+		5E35E6AB12F2DDE500B1B69E /* TXLSPARQLCompiler.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78912A8E8F400687F79 /* TXLSPARQLCompiler.h */; };
+		5E35E6AC12F2DDE500B1B69E /* TXLQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78B12A8E8F400687F79 /* TXLQuery.h */; };
+		5E35E6AD12F2DDE500B1B69E /* TXLPropertiesReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB84DB912B8C6A700E8A4DD /* TXLPropertiesReader.h */; };
+		5E35E6AE12F2DDE500B1B69E /* TXLInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EE697612D714CC00F6C339 /* TXLInteger.h */; };
+		5E35E6AF12F2DDE500B1B69E /* TXLRevision.h in Headers */ = {isa = PBXBuildFile; fileRef = F681A73512E71803002075D9 /* TXLRevision.h */; };
+		5E35E6B012F2DDE500B1B69E /* TXLManagerDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F681A7B712E720C3002075D9 /* TXLManagerDelegateProtocol.h */; };
+		5E35E6B212F2DDE500B1B69E /* TXLManager+Revision.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E2E11F12F033CB00A64A07 /* TXLManager+Revision.h */; };
+		5E35E6B312F2DDFA00B1B69E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		5E35E6B412F2DDFA00B1B69E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DB12A8EA2000687F79 /* README.md */; };
+		5E35E6B512F2DDFA00B1B69E /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DD12A8EA2B00687F79 /* AUTHORS */; };
+		5E35E6B612F2DDFA00B1B69E /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DE12A8EA2B00687F79 /* COPYING */; };
+		5E35E6B712F2DDFA00B1B69E /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */; };
+		5E35E6B812F2DE0B00B1B69E /* TXLDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75512A8E8F300687F79 /* TXLDatabase.m */; };
+		5E35E6B912F2DE0B00B1B69E /* TXLDBHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75712A8E8F300687F79 /* TXLDBHandle.m */; };
+		5E35E6BA12F2DE0B00B1B69E /* TXLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75B12A8E8F300687F79 /* TXLManager.m */; };
+		5E35E6BB12F2DE0B00B1B69E /* TXLBoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76112A8E8F300687F79 /* TXLBoundingBox.m */; };
+		5E35E6BC12F2DE0B00B1B69E /* TXLGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76312A8E8F300687F79 /* TXLGeometryCollection.m */; };
+		5E35E6BD12F2DE0B00B1B69E /* TXLLinestring.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76612A8E8F400687F79 /* TXLLinestring.m */; };
+		5E35E6BE12F2DE0B00B1B69E /* TXLPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76812A8E8F400687F79 /* TXLPoint.m */; };
+		5E35E6BF12F2DE0B00B1B69E /* TXLPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76A12A8E8F400687F79 /* TXLPolygon.m */; };
+		5E35E6C012F2DE0B00B1B69E /* TXLRing.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76C12A8E8F400687F79 /* TXLRing.m */; };
+		5E35E6C112F2DE0B00B1B69E /* TXLMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77212A8E8F400687F79 /* TXLMovingObject.m */; };
+		5E35E6C212F2DE0B00B1B69E /* TXLMovingObjectSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77412A8E8F400687F79 /* TXLMovingObjectSequence.m */; };
+		5E35E6C312F2DE0B00B1B69E /* TXLStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77E12A8E8F400687F79 /* TXLStatement.m */; };
+		5E35E6C412F2DE0B00B1B69E /* TXLTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78012A8E8F400687F79 /* TXLTerm.m */; };
+		5E35E6C512F2DE0B00B1B69E /* TXLQueryHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78312A8E8F400687F79 /* TXLQueryHandle.m */; };
+		5E35E6C612F2DE0B00B1B69E /* TXLResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78512A8E8F400687F79 /* TXLResultSet.m */; };
+		5E35E6C712F2DE0B00B1B69E /* TXLSPARQLCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78A12A8E8F400687F79 /* TXLSPARQLCompiler.m */; };
+		5E35E6C812F2DE0B00B1B69E /* TXLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78C12A8E8F400687F79 /* TXLQuery.m */; };
+		5E35E6C912F2DE0B00B1B69E /* sparql.lm in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8502F12B9035200E8A4DD /* sparql.lm */; };
+		5E35E6CA12F2DE0B00B1B69E /* sparql.ym in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8503012B9035200E8A4DD /* sparql.ym */; };
+		5E35E6CB12F2DE0B00B1B69E /* TXLPropertiesReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB84DBA12B8C6A700E8A4DD /* TXLPropertiesReader.m */; };
+		5E35E6CC12F2DE0B00B1B69E /* TXLInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EE697712D714CC00F6C339 /* TXLInteger.m */; };
+		5E35E6CD12F2DE0B00B1B69E /* TXLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = F681A73412E71803002075D9 /* TXLContext.m */; };
+		5E35E6CE12F2DE0B00B1B69E /* TXLRevision.m in Sources */ = {isa = PBXBuildFile; fileRef = F681A73612E71803002075D9 /* TXLRevision.m */; };
+		5E35E6D012F2DE0B00B1B69E /* TXLManager+Revision.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E2E12012F033CB00A64A07 /* TXLManager+Revision.m */; };
+		5E35E6D412F2DE2600B1B69E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		5E35E6D512F2DE2600B1B69E /* libspatialite.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81012A8EB9100687F79 /* libspatialite.dylib */; };
+		5E35E6D612F2DE2600B1B69E /* libproj.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81D12A8EC2A00687F79 /* libproj.dylib */; };
+		5E35E6D712F2DE2600B1B69E /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */; };
+		5E35E6F212F2DFF700B1B69E /* OpenTXL TestCoverage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E35E66D12F2D9D600B1B69E /* OpenTXL TestCoverage.framework */; };
+		5E5EFC74135C7F0F00B2D23F /* TXLContextSituationDefinitionWithIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAFCD40135C427D00392133 /* TXLContextSituationDefinitionWithIntersectionTest.m */; };
+		5EB84DB512B8C66D00E8A4DD /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */; };
+		5EB84DBB12B8C6A700E8A4DD /* TXLPropertiesReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB84DB912B8C6A700E8A4DD /* TXLPropertiesReader.h */; };
+		5EB84DBC12B8C6A700E8A4DD /* TXLPropertiesReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB84DBA12B8C6A700E8A4DD /* TXLPropertiesReader.m */; };
+		5EB8503112B9035200E8A4DD /* sparql.lm in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8502F12B9035200E8A4DD /* sparql.lm */; };
+		5EB8503212B9035200E8A4DD /* sparql.ym in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8503012B9035200E8A4DD /* sparql.ym */; };
+		5EB8503412B9036200E8A4DD /* TXLSPARQLCompilerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB8503312B9036200E8A4DD /* TXLSPARQLCompilerTest.m */; };
+		5EE029171312A5DB006501C1 /* TXLSpatialSituationImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE029161312A5DB006501C1 /* TXLSpatialSituationImporterTest.m */; };
+		5EE029181312A5DB006501C1 /* TXLSpatialSituationImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE029161312A5DB006501C1 /* TXLSpatialSituationImporterTest.m */; };
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		F619F44113150B7200D49A8C /* graz.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D613150B7200D49A8C /* graz.n3 */; };
+		F619F44213150B7200D49A8C /* salzburg.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D713150B7200D49A8C /* salzburg.n3 */; };
+		F619F44313150B7200D49A8C /* vienna.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D813150B7200D49A8C /* vienna.n3 */; };
+		F619F44413150B7200D49A8C /* 01-event-graz-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DA13150B7200D49A8C /* 01-event-graz-1.n3 */; };
+		F619F44513150B7200D49A8C /* 10-event-graz-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DB13150B7200D49A8C /* 10-event-graz-10.n3 */; };
+		F619F44613150B7200D49A8C /* 11-event-graz-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DC13150B7200D49A8C /* 11-event-graz-11.n3 */; };
+		F619F44713150B7200D49A8C /* 12-event-graz-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DD13150B7200D49A8C /* 12-event-graz-12.n3 */; };
+		F619F44813150B7200D49A8C /* 13-event-graz-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DE13150B7200D49A8C /* 13-event-graz-13.n3 */; };
+		F619F44913150B7200D49A8C /* 14-event-graz-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DF13150B7200D49A8C /* 14-event-graz-14.n3 */; };
+		F619F44A13150B7200D49A8C /* 15-event-graz-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E013150B7200D49A8C /* 15-event-graz-15.n3 */; };
+		F619F44B13150B7200D49A8C /* 02-event-graz-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E113150B7200D49A8C /* 02-event-graz-2.n3 */; };
+		F619F44C13150B7200D49A8C /* 03-event-graz-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E213150B7200D49A8C /* 03-event-graz-3.n3 */; };
+		F619F44D13150B7200D49A8C /* 04-event-graz-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E313150B7200D49A8C /* 04-event-graz-4.n3 */; };
+		F619F44E13150B7200D49A8C /* 05-event-graz-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E413150B7200D49A8C /* 05-event-graz-5.n3 */; };
+		F619F44F13150B7200D49A8C /* 06-event-graz-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E513150B7200D49A8C /* 06-event-graz-6.n3 */; };
+		F619F45013150B7200D49A8C /* 07-event-graz-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E613150B7200D49A8C /* 07-event-graz-7.n3 */; };
+		F619F45113150B7200D49A8C /* 08-event-graz-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E713150B7200D49A8C /* 08-event-graz-8.n3 */; };
+		F619F45213150B7200D49A8C /* 09-event-graz-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E813150B7200D49A8C /* 09-event-graz-9.n3 */; };
+		F619F45313150B7200D49A8C /* 16-event-salzburg-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E913150B7200D49A8C /* 16-event-salzburg-1.n3 */; };
+		F619F45413150B7200D49A8C /* 25-event-salzburg-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EA13150B7200D49A8C /* 25-event-salzburg-10.n3 */; };
+		F619F45513150B7200D49A8C /* 26-event-salzburg-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EB13150B7200D49A8C /* 26-event-salzburg-11.n3 */; };
+		F619F45613150B7200D49A8C /* 27-event-salzburg-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EC13150B7200D49A8C /* 27-event-salzburg-12.n3 */; };
+		F619F45713150B7200D49A8C /* 28-event-salzburg-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3ED13150B7200D49A8C /* 28-event-salzburg-13.n3 */; };
+		F619F45813150B7200D49A8C /* 29-event-salzburg-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EE13150B7200D49A8C /* 29-event-salzburg-14.n3 */; };
+		F619F45913150B7200D49A8C /* 30-event-salzburg-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EF13150B7200D49A8C /* 30-event-salzburg-15.n3 */; };
+		F619F45A13150B7200D49A8C /* 17-event-salzburg-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F013150B7200D49A8C /* 17-event-salzburg-2.n3 */; };
+		F619F45B13150B7200D49A8C /* 18-event-salzburg-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F113150B7200D49A8C /* 18-event-salzburg-3.n3 */; };
+		F619F45C13150B7200D49A8C /* 19-event-salzburg-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F213150B7200D49A8C /* 19-event-salzburg-4.n3 */; };
+		F619F45D13150B7200D49A8C /* 20-event-salzburg-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F313150B7200D49A8C /* 20-event-salzburg-5.n3 */; };
+		F619F45E13150B7200D49A8C /* 21-event-salzburg-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F413150B7200D49A8C /* 21-event-salzburg-6.n3 */; };
+		F619F45F13150B7200D49A8C /* 22-event-salzburg-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F513150B7200D49A8C /* 22-event-salzburg-7.n3 */; };
+		F619F46013150B7200D49A8C /* 23-event-salzburg-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F613150B7200D49A8C /* 23-event-salzburg-8.n3 */; };
+		F619F46113150B7200D49A8C /* 24-event-salzburg-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F713150B7200D49A8C /* 24-event-salzburg-9.n3 */; };
+		F619F46213150B7200D49A8C /* 31-event-vienna-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F813150B7200D49A8C /* 31-event-vienna-1.n3 */; };
+		F619F46313150B7200D49A8C /* 40-event-vienna-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F913150B7200D49A8C /* 40-event-vienna-10.n3 */; };
+		F619F46413150B7200D49A8C /* 41-event-vienna-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FA13150B7200D49A8C /* 41-event-vienna-11.n3 */; };
+		F619F46513150B7200D49A8C /* 42-event-vienna-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FB13150B7200D49A8C /* 42-event-vienna-12.n3 */; };
+		F619F46613150B7200D49A8C /* 43-event-vienna-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FC13150B7200D49A8C /* 43-event-vienna-13.n3 */; };
+		F619F46713150B7200D49A8C /* 44-event-vienna-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FD13150B7200D49A8C /* 44-event-vienna-14.n3 */; };
+		F619F46813150B7200D49A8C /* 45-event-vienna-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FE13150B7200D49A8C /* 45-event-vienna-15.n3 */; };
+		F619F46913150B7200D49A8C /* 46-event-vienna-16.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FF13150B7200D49A8C /* 46-event-vienna-16.n3 */; };
+		F619F46A13150B7200D49A8C /* 47-event-vienna-17.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40013150B7200D49A8C /* 47-event-vienna-17.n3 */; };
+		F619F46B13150B7200D49A8C /* 48-event-vienna-18.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40113150B7200D49A8C /* 48-event-vienna-18.n3 */; };
+		F619F46C13150B7200D49A8C /* 49-event-vienna-19.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40213150B7200D49A8C /* 49-event-vienna-19.n3 */; };
+		F619F46D13150B7200D49A8C /* 32-event-vienna-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40313150B7200D49A8C /* 32-event-vienna-2.n3 */; };
+		F619F46E13150B7200D49A8C /* 50-event-vienna-20.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40413150B7200D49A8C /* 50-event-vienna-20.n3 */; };
+		F619F46F13150B7200D49A8C /* 51-event-vienna-21.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40513150B7200D49A8C /* 51-event-vienna-21.n3 */; };
+		F619F47013150B7200D49A8C /* 52-event-vienna-22.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40613150B7200D49A8C /* 52-event-vienna-22.n3 */; };
+		F619F47113150B7200D49A8C /* 53-event-vienna-23.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40713150B7200D49A8C /* 53-event-vienna-23.n3 */; };
+		F619F47213150B7200D49A8C /* 54-event-vienna-24.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40813150B7200D49A8C /* 54-event-vienna-24.n3 */; };
+		F619F47313150B7200D49A8C /* 55-event-vienna-25.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40913150B7200D49A8C /* 55-event-vienna-25.n3 */; };
+		F619F47413150B7200D49A8C /* 56-event-vienna-26.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40A13150B7200D49A8C /* 56-event-vienna-26.n3 */; };
+		F619F47513150B7200D49A8C /* 57-event-vienna-27.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40B13150B7200D49A8C /* 57-event-vienna-27.n3 */; };
+		F619F47613150B7200D49A8C /* 58-event-vienna-28.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40C13150B7200D49A8C /* 58-event-vienna-28.n3 */; };
+		F619F47713150B7200D49A8C /* 59-event-vienna-29.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40D13150B7200D49A8C /* 59-event-vienna-29.n3 */; };
+		F619F47813150B7200D49A8C /* 33-event-vienna-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40E13150B7200D49A8C /* 33-event-vienna-3.n3 */; };
+		F619F47913150B7200D49A8C /* 60-event-vienna-30.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40F13150B7200D49A8C /* 60-event-vienna-30.n3 */; };
+		F619F47A13150B7200D49A8C /* 34-event-vienna-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41013150B7200D49A8C /* 34-event-vienna-4.n3 */; };
+		F619F47B13150B7200D49A8C /* 35-event-vienna-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41113150B7200D49A8C /* 35-event-vienna-5.n3 */; };
+		F619F47C13150B7200D49A8C /* 36-event-vienna-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41213150B7200D49A8C /* 36-event-vienna-6.n3 */; };
+		F619F47D13150B7200D49A8C /* 37-event-vienna-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41313150B7200D49A8C /* 37-event-vienna-7.n3 */; };
+		F619F47E13150B7200D49A8C /* 38-event-vienna-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41413150B7200D49A8C /* 38-event-vienna-8.n3 */; };
+		F619F47F13150B7200D49A8C /* 39-event-vienna-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41513150B7200D49A8C /* 39-event-vienna-9.n3 */; };
+		F619F48013150B7200D49A8C /* travel-route.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41713150B7200D49A8C /* travel-route.n3 */; };
+		F619F51613154CE300D49A8C /* events_in_cities.sq in Resources */ = {isa = PBXBuildFile; fileRef = F619F51413154CE300D49A8C /* events_in_cities.sq */; };
+		F619F51713154CE300D49A8C /* events_on_tour.sq in Resources */ = {isa = PBXBuildFile; fileRef = F619F51513154CE300D49A8C /* events_on_tour.sq */; };
+		F62E6D8712F2D5B0000CC6DE /* TXLSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = F62E6D8512F2D5B0000CC6DE /* TXLSnapshot.h */; };
+		F62E6D8812F2D5B0000CC6DE /* TXLSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = F62E6D8612F2D5B0000CC6DE /* TXLSnapshot.m */; };
+		F6509B031314122200EF915E /* TXLManager+Importer.h in Headers */ = {isa = PBXBuildFile; fileRef = F6509B011314122200EF915E /* TXLManager+Importer.h */; };
+		F6509B041314122200EF915E /* TXLManager+Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = F6509B021314122200EF915E /* TXLManager+Importer.m */; };
+		F669F4B912F9981C00AEA42D /* TXLMovingObjectTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F669F4B812F9981C00AEA42D /* TXLMovingObjectTestData.m */; };
+		F669F4E312F9A3FB00AEA42D /* NSDate+Interval.h in Headers */ = {isa = PBXBuildFile; fileRef = F669F4E112F9A3FB00AEA42D /* NSDate+Interval.h */; };
+		F669F4E412F9A3FB00AEA42D /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = F669F4E212F9A3FB00AEA42D /* NSDate+Interval.m */; };
+		F67316D1132E609F0074A2E3 /* events_on_tour.res in Resources */ = {isa = PBXBuildFile; fileRef = FBFDAC8A131FE8130025D305 /* events_on_tour.res */; };
+		F681A73712E71803002075D9 /* TXLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = F681A73412E71803002075D9 /* TXLContext.m */; };
+		F681A73812E71803002075D9 /* TXLRevision.h in Headers */ = {isa = PBXBuildFile; fileRef = F681A73512E71803002075D9 /* TXLRevision.h */; };
+		F681A73912E71803002075D9 /* TXLRevision.m in Sources */ = {isa = PBXBuildFile; fileRef = F681A73612E71803002075D9 /* TXLRevision.m */; };
+		F681A7B812E720C3002075D9 /* TXLManagerDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F681A7B712E720C3002075D9 /* TXLManagerDelegateProtocol.h */; };
+		F68E25851316897000EA0D21 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = F68E25831316897000EA0D21 /* NSString+UUID.h */; };
+		F68E25861316897000EA0D21 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F68E25841316897000EA0D21 /* NSString+UUID.m */; };
+		F698446212B0EE8E0048150A /* TXLManagerOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F698446112B0EE8E0048150A /* TXLManagerOperationTest.m */; };
+		F69A660013126CDA005F5DC5 /* TXLManagerTestUpdateResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F69A65FF13126CDA005F5DC5 /* TXLManagerTestUpdateResultSet.m */; };
+		F69B1CC91327A0610058DD12 /* TXLContextSituationDefinitionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F69B1CC81327A0610058DD12 /* TXLContextSituationDefinitionTest.m */; };
+		F69B1CFF1327B7710058DD12 /* construct_events_on_tour.sq in Resources */ = {isa = PBXBuildFile; fileRef = F69B1CE71327B5A10058DD12 /* construct_events_on_tour.sq */; };
+		F69B1D3E1327BB9B0058DD12 /* tour-events.sq in Resources */ = {isa = PBXBuildFile; fileRef = F69B1D3D1327BB410058DD12 /* tour-events.sq */; };
+		F6B15B2D1349C8FC00E1948B /* TXLSituation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B15B2B1349C8FC00E1948B /* TXLSituation.h */; };
+		F6B15B2E1349C8FC00E1948B /* TXLSituation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B15B2C1349C8FC00E1948B /* TXLSituation.m */; };
+		F6B15B371349CC9200E1948B /* TXLManagerUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B15B351349CC9200E1948B /* TXLManagerUpdateOperation.h */; };
+		F6B15B381349CC9200E1948B /* TXLManagerUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B15B361349CC9200E1948B /* TXLManagerUpdateOperation.m */; };
+		F6C07C53134B0DB4003B2464 /* TXLManagerImportOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6C07C51134B0DB4003B2464 /* TXLManagerImportOperation.h */; };
+		F6C07C54134B0DB4003B2464 /* TXLManagerImportOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C07C52134B0DB4003B2464 /* TXLManagerImportOperation.m */; };
+		F6C53C8F12B9122400460959 /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */; };
+		F6E2E12112F033CB00A64A07 /* TXLManager+Revision.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E2E11F12F033CB00A64A07 /* TXLManager+Revision.h */; };
+		F6E2E12212F033CB00A64A07 /* TXLManager+Revision.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E2E12012F033CB00A64A07 /* TXLManager+Revision.m */; };
+		F6E4A78D12A8E8F400687F79 /* TXLDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75412A8E8F300687F79 /* TXLDatabase.h */; };
+		F6E4A78E12A8E8F400687F79 /* TXLDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75512A8E8F300687F79 /* TXLDatabase.m */; };
+		F6E4A78F12A8E8F400687F79 /* TXLDBHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75612A8E8F300687F79 /* TXLDBHandle.h */; };
+		F6E4A79012A8E8F400687F79 /* TXLDBHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75712A8E8F300687F79 /* TXLDBHandle.m */; };
+		F6E4A79112A8E8F400687F79 /* TXLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A75A12A8E8F300687F79 /* TXLManager.h */; };
+		F6E4A79212A8E8F400687F79 /* TXLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A75B12A8E8F300687F79 /* TXLManager.m */; };
+		F6E4A79512A8E8F400687F79 /* TXLBoundingBox.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76012A8E8F300687F79 /* TXLBoundingBox.h */; };
+		F6E4A79612A8E8F400687F79 /* TXLBoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76112A8E8F300687F79 /* TXLBoundingBox.m */; };
+		F6E4A79712A8E8F400687F79 /* TXLGeometryCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76212A8E8F300687F79 /* TXLGeometryCollection.h */; };
+		F6E4A79812A8E8F400687F79 /* TXLGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76312A8E8F300687F79 /* TXLGeometryCollection.m */; };
+		F6E4A79912A8E8F400687F79 /* TXLGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76412A8E8F400687F79 /* TXLGeometryTypes.h */; };
+		F6E4A79A12A8E8F400687F79 /* TXLLinestring.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76512A8E8F400687F79 /* TXLLinestring.h */; };
+		F6E4A79B12A8E8F400687F79 /* TXLLinestring.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76612A8E8F400687F79 /* TXLLinestring.m */; };
+		F6E4A79C12A8E8F400687F79 /* TXLPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76712A8E8F400687F79 /* TXLPoint.h */; };
+		F6E4A79D12A8E8F400687F79 /* TXLPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76812A8E8F400687F79 /* TXLPoint.m */; };
+		F6E4A79E12A8E8F400687F79 /* TXLPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76912A8E8F400687F79 /* TXLPolygon.h */; };
+		F6E4A79F12A8E8F400687F79 /* TXLPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76A12A8E8F400687F79 /* TXLPolygon.m */; };
+		F6E4A7A012A8E8F400687F79 /* TXLRing.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76B12A8E8F400687F79 /* TXLRing.h */; };
+		F6E4A7A112A8E8F400687F79 /* TXLRing.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A76C12A8E8F400687F79 /* TXLRing.m */; };
+		F6E4A7A212A8E8F400687F79 /* TXLContext.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A76D12A8E8F400687F79 /* TXLContext.h */; };
+		F6E4A7A612A8E8F400687F79 /* TXLMovingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77112A8E8F400687F79 /* TXLMovingObject.h */; };
+		F6E4A7A712A8E8F400687F79 /* TXLMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77212A8E8F400687F79 /* TXLMovingObject.m */; };
+		F6E4A7A812A8E8F400687F79 /* TXLMovingObjectSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77312A8E8F400687F79 /* TXLMovingObjectSequence.h */; };
+		F6E4A7A912A8E8F400687F79 /* TXLMovingObjectSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77412A8E8F400687F79 /* TXLMovingObjectSequence.m */; };
+		F6E4A7B212A8E8F400687F79 /* TXLStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77D12A8E8F400687F79 /* TXLStatement.h */; };
+		F6E4A7B312A8E8F400687F79 /* TXLStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A77E12A8E8F400687F79 /* TXLStatement.m */; };
+		F6E4A7B412A8E8F400687F79 /* TXLTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A77F12A8E8F400687F79 /* TXLTerm.h */; };
+		F6E4A7B512A8E8F400687F79 /* TXLTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78012A8E8F400687F79 /* TXLTerm.m */; };
+		F6E4A7B612A8E8F400687F79 /* TXLQueryHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78212A8E8F400687F79 /* TXLQueryHandle.h */; };
+		F6E4A7B712A8E8F400687F79 /* TXLQueryHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78312A8E8F400687F79 /* TXLQueryHandle.m */; };
+		F6E4A7B812A8E8F400687F79 /* TXLResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78412A8E8F400687F79 /* TXLResultSet.h */; };
+		F6E4A7B912A8E8F400687F79 /* TXLResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78512A8E8F400687F79 /* TXLResultSet.m */; };
+		F6E4A7BC12A8E8F400687F79 /* TXLSPARQLCompiler.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78912A8E8F400687F79 /* TXLSPARQLCompiler.h */; };
+		F6E4A7BD12A8E8F400687F79 /* TXLSPARQLCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78A12A8E8F400687F79 /* TXLSPARQLCompiler.m */; };
+		F6E4A7BE12A8E8F400687F79 /* TXLQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A78B12A8E8F400687F79 /* TXLQuery.h */; };
+		F6E4A7BF12A8E8F400687F79 /* TXLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A78C12A8E8F400687F79 /* TXLQuery.m */; };
+		F6E4A7DC12A8EA2100687F79 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DB12A8EA2000687F79 /* README.md */; };
+		F6E4A7DF12A8EA2B00687F79 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DD12A8EA2B00687F79 /* AUTHORS */; };
+		F6E4A7E012A8EA2B00687F79 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = F6E4A7DE12A8EA2B00687F79 /* COPYING */; };
+		F6E4A81112A8EB9100687F79 /* libspatialite.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81012A8EB9100687F79 /* libspatialite.dylib */; };
+		F6E4A81E12A8EC2A00687F79 /* libproj.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81D12A8EC2A00687F79 /* libproj.dylib */; };
+		F6E4A82012A8EC3B00687F79 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */; };
+		F6E4A83C12A8EE2300687F79 /* GaiaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C212A8E9AC00687F79 /* GaiaTest.m */; };
+		F6E4A83E12A8EE2400687F79 /* TXLContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C412A8E9AC00687F79 /* TXLContextTest.m */; };
+		F6E4A83F12A8EE2500687F79 /* TXLDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C512A8E9AC00687F79 /* TXLDatabaseTest.m */; };
+		F6E4A84012A8EE2600687F79 /* TXLGeometryCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C612A8E9AC00687F79 /* TXLGeometryCollectionTest.m */; };
+		F6E4A84112A8EE2700687F79 /* TXLLinestringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C712A8E9AC00687F79 /* TXLLinestringTest.m */; };
+		F6E4A84212A8EE2700687F79 /* TXLManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C812A8E9AC00687F79 /* TXLManagerTest.m */; };
+		F6E4A84312A8EE2800687F79 /* TXLMovingObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7C912A8E9AC00687F79 /* TXLMovingObjectTest.m */; };
+		F6E4A84412A8EE2800687F79 /* TXLPolygonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CA12A8E9AC00687F79 /* TXLPolygonTest.m */; };
+		F6E4A84512A8EE2900687F79 /* TXLRingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CB12A8E9AC00687F79 /* TXLRingTest.m */; };
+		F6E4A84612A8EE2A00687F79 /* TXLTermTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A7CC12A8E9AC00687F79 /* TXLTermTest.m */; };
+		F6E4A84E12A8EE6B00687F79 /* OpenTXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OpenTXL.framework */; };
+		F6E4A87212A8F4DF00687F79 /* libspatialite.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81012A8EB9100687F79 /* libspatialite.dylib */; };
+		F6E4A87312A8F4DF00687F79 /* libproj.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81D12A8EC2A00687F79 /* libproj.dylib */; };
+		F6E4A87412A8F4DF00687F79 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */; };
+		F6E4A92112A8FA7100687F79 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		F6E4A94712A8FAD000687F79 /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		F6E4AA8C12A9059900687F79 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA8B12A9059900687F79 /* GHUnitTestMain.m */; };
+		F6EE697812D714CC00F6C339 /* TXLInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EE697612D714CC00F6C339 /* TXLInteger.h */; };
+		F6EE697912D714CC00F6C339 /* TXLInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EE697712D714CC00F6C339 /* TXLInteger.m */; };
+		FB00B50012F1A350002CE643 /* TXLGraphPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = FB00B4FE12F1A350002CE643 /* TXLGraphPattern.h */; };
+		FB00B50112F1A350002CE643 /* TXLGraphPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00B4FF12F1A350002CE643 /* TXLGraphPattern.m */; };
+		FB00B50312F1A35D002CE643 /* TXLGraphPatternTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00B50212F1A35D002CE643 /* TXLGraphPatternTest.m */; };
+		FB0678111316BE7A00AEEA84 /* TXLQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0678101316BE7A00AEEA84 /* TXLQueryTest.m */; };
+		FB0678151316BEB500AEEA84 /* graz.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D613150B7200D49A8C /* graz.n3 */; };
+		FB0678161316BEB500AEEA84 /* salzburg.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D713150B7200D49A8C /* salzburg.n3 */; };
+		FB0678171316BEB500AEEA84 /* vienna.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3D813150B7200D49A8C /* vienna.n3 */; };
+		FB0678541316BEC400AEEA84 /* travel-route.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41713150B7200D49A8C /* travel-route.n3 */; };
+		FB0678551316BECA00AEEA84 /* events_in_cities.sq in Resources */ = {isa = PBXBuildFile; fileRef = F619F51413154CE300D49A8C /* events_in_cities.sq */; };
+		FB0678561316BECA00AEEA84 /* events_on_tour.sq in Resources */ = {isa = PBXBuildFile; fileRef = F619F51513154CE300D49A8C /* events_on_tour.sq */; };
+		FB1B263E1317FCFA00E20838 /* events_in_cities.res in Resources */ = {isa = PBXBuildFile; fileRef = FB1B263D1317FCDE00E20838 /* events_in_cities.res */; };
+		FB6853581321459B0070A8CB /* 01-event-graz-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DA13150B7200D49A8C /* 01-event-graz-1.n3 */; };
+		FB6853591321459B0070A8CB /* 02-event-graz-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E113150B7200D49A8C /* 02-event-graz-2.n3 */; };
+		FB68535A1321459B0070A8CB /* 03-event-graz-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E213150B7200D49A8C /* 03-event-graz-3.n3 */; };
+		FB68535B1321459B0070A8CB /* 04-event-graz-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E313150B7200D49A8C /* 04-event-graz-4.n3 */; };
+		FB68535C1321459B0070A8CB /* 05-event-graz-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E413150B7200D49A8C /* 05-event-graz-5.n3 */; };
+		FB68535D1321459B0070A8CB /* 06-event-graz-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E513150B7200D49A8C /* 06-event-graz-6.n3 */; };
+		FB68535E1321459B0070A8CB /* 07-event-graz-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E613150B7200D49A8C /* 07-event-graz-7.n3 */; };
+		FB68535F1321459B0070A8CB /* 08-event-graz-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E713150B7200D49A8C /* 08-event-graz-8.n3 */; };
+		FB6853601321459B0070A8CB /* 09-event-graz-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E813150B7200D49A8C /* 09-event-graz-9.n3 */; };
+		FB6853611321459B0070A8CB /* 10-event-graz-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DB13150B7200D49A8C /* 10-event-graz-10.n3 */; };
+		FB6853621321459B0070A8CB /* 11-event-graz-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DC13150B7200D49A8C /* 11-event-graz-11.n3 */; };
+		FB6853631321459B0070A8CB /* 12-event-graz-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DD13150B7200D49A8C /* 12-event-graz-12.n3 */; };
+		FB6853641321459B0070A8CB /* 13-event-graz-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DE13150B7200D49A8C /* 13-event-graz-13.n3 */; };
+		FB6853651321459B0070A8CB /* 14-event-graz-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3DF13150B7200D49A8C /* 14-event-graz-14.n3 */; };
+		FB6853661321459B0070A8CB /* 15-event-graz-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E013150B7200D49A8C /* 15-event-graz-15.n3 */; };
+		FB6853671321459B0070A8CB /* 16-event-salzburg-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3E913150B7200D49A8C /* 16-event-salzburg-1.n3 */; };
+		FB6853681321459B0070A8CB /* 17-event-salzburg-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F013150B7200D49A8C /* 17-event-salzburg-2.n3 */; };
+		FB6853691321459B0070A8CB /* 18-event-salzburg-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F113150B7200D49A8C /* 18-event-salzburg-3.n3 */; };
+		FB68536A1321459B0070A8CB /* 19-event-salzburg-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F213150B7200D49A8C /* 19-event-salzburg-4.n3 */; };
+		FB68536B1321459B0070A8CB /* 20-event-salzburg-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F313150B7200D49A8C /* 20-event-salzburg-5.n3 */; };
+		FB68536C1321459B0070A8CB /* 21-event-salzburg-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F413150B7200D49A8C /* 21-event-salzburg-6.n3 */; };
+		FB68536D1321459B0070A8CB /* 22-event-salzburg-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F513150B7200D49A8C /* 22-event-salzburg-7.n3 */; };
+		FB68536E1321459B0070A8CB /* 23-event-salzburg-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F613150B7200D49A8C /* 23-event-salzburg-8.n3 */; };
+		FB68536F1321459B0070A8CB /* 24-event-salzburg-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F713150B7200D49A8C /* 24-event-salzburg-9.n3 */; };
+		FB6853701321459B0070A8CB /* 25-event-salzburg-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EA13150B7200D49A8C /* 25-event-salzburg-10.n3 */; };
+		FB6853711321459B0070A8CB /* 26-event-salzburg-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EB13150B7200D49A8C /* 26-event-salzburg-11.n3 */; };
+		FB6853721321459B0070A8CB /* 27-event-salzburg-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EC13150B7200D49A8C /* 27-event-salzburg-12.n3 */; };
+		FB6853731321459B0070A8CB /* 28-event-salzburg-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3ED13150B7200D49A8C /* 28-event-salzburg-13.n3 */; };
+		FB6853741321459B0070A8CB /* 29-event-salzburg-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EE13150B7200D49A8C /* 29-event-salzburg-14.n3 */; };
+		FB6853751321459B0070A8CB /* 30-event-salzburg-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3EF13150B7200D49A8C /* 30-event-salzburg-15.n3 */; };
+		FB6853761321459B0070A8CB /* 31-event-vienna-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F813150B7200D49A8C /* 31-event-vienna-1.n3 */; };
+		FB6853771321459B0070A8CB /* 32-event-vienna-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40313150B7200D49A8C /* 32-event-vienna-2.n3 */; };
+		FB6853781321459B0070A8CB /* 33-event-vienna-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40E13150B7200D49A8C /* 33-event-vienna-3.n3 */; };
+		FB6853791321459B0070A8CB /* 34-event-vienna-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41013150B7200D49A8C /* 34-event-vienna-4.n3 */; };
+		FB68537A1321459B0070A8CB /* 35-event-vienna-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41113150B7200D49A8C /* 35-event-vienna-5.n3 */; };
+		FB68537B1321459B0070A8CB /* 36-event-vienna-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41213150B7200D49A8C /* 36-event-vienna-6.n3 */; };
+		FB68537C1321459B0070A8CB /* 37-event-vienna-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41313150B7200D49A8C /* 37-event-vienna-7.n3 */; };
+		FB68537D1321459B0070A8CB /* 38-event-vienna-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41413150B7200D49A8C /* 38-event-vienna-8.n3 */; };
+		FB68537E1321459B0070A8CB /* 39-event-vienna-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F41513150B7200D49A8C /* 39-event-vienna-9.n3 */; };
+		FB68537F1321459B0070A8CB /* 40-event-vienna-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3F913150B7200D49A8C /* 40-event-vienna-10.n3 */; };
+		FB6853801321459B0070A8CB /* 41-event-vienna-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FA13150B7200D49A8C /* 41-event-vienna-11.n3 */; };
+		FB6853811321459B0070A8CB /* 42-event-vienna-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FB13150B7200D49A8C /* 42-event-vienna-12.n3 */; };
+		FB6853821321459B0070A8CB /* 43-event-vienna-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FC13150B7200D49A8C /* 43-event-vienna-13.n3 */; };
+		FB6853831321459B0070A8CB /* 44-event-vienna-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FD13150B7200D49A8C /* 44-event-vienna-14.n3 */; };
+		FB6853841321459B0070A8CB /* 45-event-vienna-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FE13150B7200D49A8C /* 45-event-vienna-15.n3 */; };
+		FB6853851321459B0070A8CB /* 46-event-vienna-16.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F3FF13150B7200D49A8C /* 46-event-vienna-16.n3 */; };
+		FB6853861321459B0070A8CB /* 47-event-vienna-17.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40013150B7200D49A8C /* 47-event-vienna-17.n3 */; };
+		FB6853871321459B0070A8CB /* 48-event-vienna-18.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40113150B7200D49A8C /* 48-event-vienna-18.n3 */; };
+		FB6853881321459B0070A8CB /* 49-event-vienna-19.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40213150B7200D49A8C /* 49-event-vienna-19.n3 */; };
+		FB6853891321459B0070A8CB /* 50-event-vienna-20.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40413150B7200D49A8C /* 50-event-vienna-20.n3 */; };
+		FB68538A1321459B0070A8CB /* 51-event-vienna-21.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40513150B7200D49A8C /* 51-event-vienna-21.n3 */; };
+		FB68538B1321459B0070A8CB /* 52-event-vienna-22.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40613150B7200D49A8C /* 52-event-vienna-22.n3 */; };
+		FB68538C1321459B0070A8CB /* 53-event-vienna-23.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40713150B7200D49A8C /* 53-event-vienna-23.n3 */; };
+		FB68538D1321459B0070A8CB /* 54-event-vienna-24.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40813150B7200D49A8C /* 54-event-vienna-24.n3 */; };
+		FB68538E1321459B0070A8CB /* 55-event-vienna-25.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40913150B7200D49A8C /* 55-event-vienna-25.n3 */; };
+		FB68538F1321459B0070A8CB /* 56-event-vienna-26.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40A13150B7200D49A8C /* 56-event-vienna-26.n3 */; };
+		FB6853901321459B0070A8CB /* 57-event-vienna-27.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40B13150B7200D49A8C /* 57-event-vienna-27.n3 */; };
+		FB6853911321459B0070A8CB /* 58-event-vienna-28.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40C13150B7200D49A8C /* 58-event-vienna-28.n3 */; };
+		FB6853921321459B0070A8CB /* 59-event-vienna-29.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40D13150B7200D49A8C /* 59-event-vienna-29.n3 */; };
+		FB6853931321459B0070A8CB /* 60-event-vienna-30.n3 in Resources */ = {isa = PBXBuildFile; fileRef = F619F40F13150B7200D49A8C /* 60-event-vienna-30.n3 */; };
+		FB908CB713154511008313C1 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		FB908CD013154731008313C1 /* GHUnit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E4A92012A8FA7100687F79 /* GHUnit.framework */; };
+		FB908CD41315485C008313C1 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA8B12A9059900687F79 /* GHUnitTestMain.m */; };
+		FB908CD5131548AA008313C1 /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */; };
+		FB908CD6131548E3008313C1 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */; };
+		FB908CD7131548E3008313C1 /* libproj.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81D12A8EC2A00687F79 /* libproj.dylib */; };
+		FB908CD8131548E3008313C1 /* libspatialite.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4A81012A8EB9100687F79 /* libspatialite.dylib */; };
+		FB908CDC13154922008313C1 /* OpenTXL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OpenTXL.framework */; };
+		FBFDAC8C131FE8230025D305 /* events_on_tour.res in Resources */ = {isa = PBXBuildFile; fileRef = FBFDAC8A131FE8130025D305 /* events_on_tour.res */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		5E0103C9130E90A200286B71 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.yacc;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.m",
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.h",
+			);
+			script = "${DEVELOPER_BIN_DIR}/yacc --defines=${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.h -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.m ${INPUT_FILE_PATH}";
+		};
+		5E010445130E9CA000286B71 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.yacc;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.m",
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.h",
+			);
+			script = "/usr/bin/yacc --defines=${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.h -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.m ${INPUT_FILE_PATH}";
+		};
+		5E010555130EAA1000286B71 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.lex;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).yy.m",
+			);
+			script = "/usr/bin/flex --header-file=${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h -o${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.yy.m ${INPUT_FILE_PATH}";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		5E35E6E212F2DF6300B1B69E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E35E66C12F2D9D600B1B69E;
+			remoteInfo = "OpenTXL TestCoverage";
+		};
+		F6E4A85212A8EE8300687F79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = OpenTXL;
+		};
+		FB908CD913154902008313C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = OpenTXL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E35E60912F2D15B00B1B69E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5E35E60712F2D13600B1B69E /* GHUnit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4A94912A8FAD300687F79 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6E4A94712A8FAD000687F79 /* GHUnit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB908CCE1315467A008313C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FB908CD013154731008313C1 /* GHUnit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0DB4534B12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectSequenceTest.m; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF5E0370ADEE00C91783 /* OpenTXL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenTXL_Prefix.pch; sourceTree = "<group>"; };
+		5E015792131E9C02001302ED /* prog_2-rain.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-rain.n3"; sourceTree = "<group>"; };
+		5E015793131E9C02001302ED /* prog_2-sky_cover-overcast.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-sky_cover-overcast.n3"; sourceTree = "<group>"; };
+		5E015794131E9C02001302ED /* prog_2-sky_cover-scattered.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-sky_cover-scattered.n3"; sourceTree = "<group>"; };
+		5E015795131E9C02001302ED /* prog_2-temp-normal.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-temp-normal.n3"; sourceTree = "<group>"; };
+		5E015796131E9C02001302ED /* prog_2-temp-warm.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-temp-warm.n3"; sourceTree = "<group>"; };
+		5E0157A3131E9C0C001302ED /* expectedResults */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expectedResults; sourceTree = "<group>"; };
+		5E0C5C20130D7BB800E8219A /* spatialsituation.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = spatialsituation.lm; sourceTree = "<group>"; };
+		5E0C5C21130D7BB800E8219A /* spatialsituation.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = spatialsituation.ym; sourceTree = "<group>"; };
+		5E0C5C22130D7BB800E8219A /* TXLSpatialSituationImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSpatialSituationImporter.h; sourceTree = "<group>"; };
+		5E0C5C23130D7BB800E8219A /* TXLSpatialSituationImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSpatialSituationImporter.m; sourceTree = "<group>"; };
+		5E244452133BA289008587AF /* select-events-in-city.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "select-events-in-city.sq"; sourceTree = "<group>"; };
+		5E244456133BA2B9008587AF /* prog_1-rain.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-rain.n3"; sourceTree = "<group>"; };
+		5E244457133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-sky_cover-overcast.n3"; sourceTree = "<group>"; };
+		5E244458133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-sky_cover-scattered.n3"; sourceTree = "<group>"; };
+		5E244459133BA2B9008587AF /* prog_1-temp-normal.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-temp-normal.n3"; sourceTree = "<group>"; };
+		5E24445A133BA2B9008587AF /* prog_1-temp-warm.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-temp-warm.n3"; sourceTree = "<group>"; };
+		5E24445B133BA2B9008587AF /* prog_1-wind.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-wind.n3"; sourceTree = "<group>"; };
+		5E2D51F713337EBD005F5EDC /* TXLContextSituationDefinitionWithBlankNodesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionWithBlankNodesTest.m; sourceTree = "<group>"; };
+		5E2D52571333899E005F5EDC /* construct_events_in_city.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = construct_events_in_city.sq; sourceTree = "<group>"; };
+		5E35E5C812F2D0C800B1B69E /* OpenTXL Tests TestCoverage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenTXL Tests TestCoverage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E35E66D12F2D9D600B1B69E /* OpenTXL TestCoverage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "OpenTXL TestCoverage.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EAFCD40135C427D00392133 /* TXLContextSituationDefinitionWithIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionWithIntersectionTest.m; sourceTree = "<group>"; };
+		5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = OpenTXLConfig.plist; path = ../OpenTXLConfig.plist; sourceTree = "<group>"; };
+		5EB84DB912B8C6A700E8A4DD /* TXLPropertiesReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPropertiesReader.h; sourceTree = "<group>"; };
+		5EB84DBA12B8C6A700E8A4DD /* TXLPropertiesReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPropertiesReader.m; sourceTree = "<group>"; };
+		5EB8502F12B9035200E8A4DD /* sparql.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = sparql.lm; sourceTree = "<group>"; };
+		5EB8503012B9035200E8A4DD /* sparql.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = sparql.ym; sourceTree = "<group>"; };
+		5EB8503312B9036200E8A4DD /* TXLSPARQLCompilerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSPARQLCompilerTest.m; sourceTree = "<group>"; };
+		5EE029161312A5DB006501C1 /* TXLSpatialSituationImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSpatialSituationImporterTest.m; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* OpenTXL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenTXL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		F619F3D613150B7200D49A8C /* graz.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graz.n3; sourceTree = "<group>"; };
+		F619F3D713150B7200D49A8C /* salzburg.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = salzburg.n3; sourceTree = "<group>"; };
+		F619F3D813150B7200D49A8C /* vienna.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vienna.n3; sourceTree = "<group>"; };
+		F619F3DA13150B7200D49A8C /* 01-event-graz-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "01-event-graz-1.n3"; sourceTree = "<group>"; };
+		F619F3DB13150B7200D49A8C /* 10-event-graz-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "10-event-graz-10.n3"; sourceTree = "<group>"; };
+		F619F3DC13150B7200D49A8C /* 11-event-graz-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "11-event-graz-11.n3"; sourceTree = "<group>"; };
+		F619F3DD13150B7200D49A8C /* 12-event-graz-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "12-event-graz-12.n3"; sourceTree = "<group>"; };
+		F619F3DE13150B7200D49A8C /* 13-event-graz-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "13-event-graz-13.n3"; sourceTree = "<group>"; };
+		F619F3DF13150B7200D49A8C /* 14-event-graz-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14-event-graz-14.n3"; sourceTree = "<group>"; };
+		F619F3E013150B7200D49A8C /* 15-event-graz-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "15-event-graz-15.n3"; sourceTree = "<group>"; };
+		F619F3E113150B7200D49A8C /* 02-event-graz-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "02-event-graz-2.n3"; sourceTree = "<group>"; };
+		F619F3E213150B7200D49A8C /* 03-event-graz-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03-event-graz-3.n3"; sourceTree = "<group>"; };
+		F619F3E313150B7200D49A8C /* 04-event-graz-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "04-event-graz-4.n3"; sourceTree = "<group>"; };
+		F619F3E413150B7200D49A8C /* 05-event-graz-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "05-event-graz-5.n3"; sourceTree = "<group>"; };
+		F619F3E513150B7200D49A8C /* 06-event-graz-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "06-event-graz-6.n3"; sourceTree = "<group>"; };
+		F619F3E613150B7200D49A8C /* 07-event-graz-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "07-event-graz-7.n3"; sourceTree = "<group>"; };
+		F619F3E713150B7200D49A8C /* 08-event-graz-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "08-event-graz-8.n3"; sourceTree = "<group>"; };
+		F619F3E813150B7200D49A8C /* 09-event-graz-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "09-event-graz-9.n3"; sourceTree = "<group>"; };
+		F619F3E913150B7200D49A8C /* 16-event-salzburg-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "16-event-salzburg-1.n3"; sourceTree = "<group>"; };
+		F619F3EA13150B7200D49A8C /* 25-event-salzburg-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "25-event-salzburg-10.n3"; sourceTree = "<group>"; };
+		F619F3EB13150B7200D49A8C /* 26-event-salzburg-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "26-event-salzburg-11.n3"; sourceTree = "<group>"; };
+		F619F3EC13150B7200D49A8C /* 27-event-salzburg-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "27-event-salzburg-12.n3"; sourceTree = "<group>"; };
+		F619F3ED13150B7200D49A8C /* 28-event-salzburg-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "28-event-salzburg-13.n3"; sourceTree = "<group>"; };
+		F619F3EE13150B7200D49A8C /* 29-event-salzburg-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "29-event-salzburg-14.n3"; sourceTree = "<group>"; };
+		F619F3EF13150B7200D49A8C /* 30-event-salzburg-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "30-event-salzburg-15.n3"; sourceTree = "<group>"; };
+		F619F3F013150B7200D49A8C /* 17-event-salzburg-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "17-event-salzburg-2.n3"; sourceTree = "<group>"; };
+		F619F3F113150B7200D49A8C /* 18-event-salzburg-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "18-event-salzburg-3.n3"; sourceTree = "<group>"; };
+		F619F3F213150B7200D49A8C /* 19-event-salzburg-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "19-event-salzburg-4.n3"; sourceTree = "<group>"; };
+		F619F3F313150B7200D49A8C /* 20-event-salzburg-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "20-event-salzburg-5.n3"; sourceTree = "<group>"; };
+		F619F3F413150B7200D49A8C /* 21-event-salzburg-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "21-event-salzburg-6.n3"; sourceTree = "<group>"; };
+		F619F3F513150B7200D49A8C /* 22-event-salzburg-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "22-event-salzburg-7.n3"; sourceTree = "<group>"; };
+		F619F3F613150B7200D49A8C /* 23-event-salzburg-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "23-event-salzburg-8.n3"; sourceTree = "<group>"; };
+		F619F3F713150B7200D49A8C /* 24-event-salzburg-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "24-event-salzburg-9.n3"; sourceTree = "<group>"; };
+		F619F3F813150B7200D49A8C /* 31-event-vienna-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "31-event-vienna-1.n3"; sourceTree = "<group>"; };
+		F619F3F913150B7200D49A8C /* 40-event-vienna-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "40-event-vienna-10.n3"; sourceTree = "<group>"; };
+		F619F3FA13150B7200D49A8C /* 41-event-vienna-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "41-event-vienna-11.n3"; sourceTree = "<group>"; };
+		F619F3FB13150B7200D49A8C /* 42-event-vienna-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "42-event-vienna-12.n3"; sourceTree = "<group>"; };
+		F619F3FC13150B7200D49A8C /* 43-event-vienna-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "43-event-vienna-13.n3"; sourceTree = "<group>"; };
+		F619F3FD13150B7200D49A8C /* 44-event-vienna-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "44-event-vienna-14.n3"; sourceTree = "<group>"; };
+		F619F3FE13150B7200D49A8C /* 45-event-vienna-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "45-event-vienna-15.n3"; sourceTree = "<group>"; };
+		F619F3FF13150B7200D49A8C /* 46-event-vienna-16.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "46-event-vienna-16.n3"; sourceTree = "<group>"; };
+		F619F40013150B7200D49A8C /* 47-event-vienna-17.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "47-event-vienna-17.n3"; sourceTree = "<group>"; };
+		F619F40113150B7200D49A8C /* 48-event-vienna-18.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "48-event-vienna-18.n3"; sourceTree = "<group>"; };
+		F619F40213150B7200D49A8C /* 49-event-vienna-19.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "49-event-vienna-19.n3"; sourceTree = "<group>"; };
+		F619F40313150B7200D49A8C /* 32-event-vienna-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "32-event-vienna-2.n3"; sourceTree = "<group>"; };
+		F619F40413150B7200D49A8C /* 50-event-vienna-20.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "50-event-vienna-20.n3"; sourceTree = "<group>"; };
+		F619F40513150B7200D49A8C /* 51-event-vienna-21.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "51-event-vienna-21.n3"; sourceTree = "<group>"; };
+		F619F40613150B7200D49A8C /* 52-event-vienna-22.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "52-event-vienna-22.n3"; sourceTree = "<group>"; };
+		F619F40713150B7200D49A8C /* 53-event-vienna-23.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "53-event-vienna-23.n3"; sourceTree = "<group>"; };
+		F619F40813150B7200D49A8C /* 54-event-vienna-24.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "54-event-vienna-24.n3"; sourceTree = "<group>"; };
+		F619F40913150B7200D49A8C /* 55-event-vienna-25.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "55-event-vienna-25.n3"; sourceTree = "<group>"; };
+		F619F40A13150B7200D49A8C /* 56-event-vienna-26.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "56-event-vienna-26.n3"; sourceTree = "<group>"; };
+		F619F40B13150B7200D49A8C /* 57-event-vienna-27.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "57-event-vienna-27.n3"; sourceTree = "<group>"; };
+		F619F40C13150B7200D49A8C /* 58-event-vienna-28.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "58-event-vienna-28.n3"; sourceTree = "<group>"; };
+		F619F40D13150B7200D49A8C /* 59-event-vienna-29.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "59-event-vienna-29.n3"; sourceTree = "<group>"; };
+		F619F40E13150B7200D49A8C /* 33-event-vienna-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "33-event-vienna-3.n3"; sourceTree = "<group>"; };
+		F619F40F13150B7200D49A8C /* 60-event-vienna-30.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "60-event-vienna-30.n3"; sourceTree = "<group>"; };
+		F619F41013150B7200D49A8C /* 34-event-vienna-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "34-event-vienna-4.n3"; sourceTree = "<group>"; };
+		F619F41113150B7200D49A8C /* 35-event-vienna-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "35-event-vienna-5.n3"; sourceTree = "<group>"; };
+		F619F41213150B7200D49A8C /* 36-event-vienna-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "36-event-vienna-6.n3"; sourceTree = "<group>"; };
+		F619F41313150B7200D49A8C /* 37-event-vienna-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "37-event-vienna-7.n3"; sourceTree = "<group>"; };
+		F619F41413150B7200D49A8C /* 38-event-vienna-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "38-event-vienna-8.n3"; sourceTree = "<group>"; };
+		F619F41513150B7200D49A8C /* 39-event-vienna-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "39-event-vienna-9.n3"; sourceTree = "<group>"; };
+		F619F41713150B7200D49A8C /* travel-route.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "travel-route.n3"; sourceTree = "<group>"; };
+		F619F51413154CE300D49A8C /* events_in_cities.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_in_cities.sq; sourceTree = "<group>"; };
+		F619F51513154CE300D49A8C /* events_on_tour.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_on_tour.sq; sourceTree = "<group>"; };
+		F62E6D8512F2D5B0000CC6DE /* TXLSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSnapshot.h; sourceTree = "<group>"; };
+		F62E6D8612F2D5B0000CC6DE /* TXLSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSnapshot.m; sourceTree = "<group>"; };
+		F6509B011314122200EF915E /* TXLManager+Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TXLManager+Importer.h"; sourceTree = "<group>"; };
+		F6509B021314122200EF915E /* TXLManager+Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TXLManager+Importer.m"; sourceTree = "<group>"; };
+		F669F4B712F9981C00AEA42D /* TXLMovingObjectTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObjectTestData.h; sourceTree = "<group>"; };
+		F669F4B812F9981C00AEA42D /* TXLMovingObjectTestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectTestData.m; sourceTree = "<group>"; };
+		F669F4E112F9A3FB00AEA42D /* NSDate+Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Interval.h"; sourceTree = "<group>"; };
+		F669F4E212F9A3FB00AEA42D /* NSDate+Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Interval.m"; sourceTree = "<group>"; };
+		F681A73412E71803002075D9 /* TXLContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContext.m; sourceTree = "<group>"; };
+		F681A73512E71803002075D9 /* TXLRevision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLRevision.h; sourceTree = "<group>"; };
+		F681A73612E71803002075D9 /* TXLRevision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRevision.m; sourceTree = "<group>"; };
+		F681A7B712E720C3002075D9 /* TXLManagerDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerDelegateProtocol.h; sourceTree = "<group>"; };
+		F68E25831316897000EA0D21 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		F68E25841316897000EA0D21 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		F698446112B0EE8E0048150A /* TXLManagerOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerOperationTest.m; sourceTree = "<group>"; };
+		F69A65FF13126CDA005F5DC5 /* TXLManagerTestUpdateResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerTestUpdateResultSet.m; sourceTree = "<group>"; };
+		F69B1CC81327A0610058DD12 /* TXLContextSituationDefinitionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionTest.m; sourceTree = "<group>"; };
+		F69B1CE71327B5A10058DD12 /* construct_events_on_tour.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = construct_events_on_tour.sq; sourceTree = "<group>"; };
+		F69B1D3D1327BB410058DD12 /* tour-events.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tour-events.sq"; sourceTree = "<group>"; };
+		F6B15B2B1349C8FC00E1948B /* TXLSituation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSituation.h; sourceTree = "<group>"; };
+		F6B15B2C1349C8FC00E1948B /* TXLSituation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSituation.m; sourceTree = "<group>"; };
+		F6B15B351349CC9200E1948B /* TXLManagerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerUpdateOperation.h; sourceTree = "<group>"; };
+		F6B15B361349CC9200E1948B /* TXLManagerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerUpdateOperation.m; sourceTree = "<group>"; };
+		F6C07C51134B0DB4003B2464 /* TXLManagerImportOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerImportOperation.h; sourceTree = "<group>"; };
+		F6C07C52134B0DB4003B2464 /* TXLManagerImportOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerImportOperation.m; sourceTree = "<group>"; };
+		F6C7E176131D3A3000CA70D7 /* OpenTXL Test Data.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "OpenTXL Test Data.kml"; sourceTree = "<group>"; };
+		F6C7E177131D3A3000CA70D7 /* opentxl.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = opentxl.kml; sourceTree = "<group>"; };
+		F6E2E11F12F033CB00A64A07 /* TXLManager+Revision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TXLManager+Revision.h"; sourceTree = "<group>"; };
+		F6E2E12012F033CB00A64A07 /* TXLManager+Revision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TXLManager+Revision.m"; sourceTree = "<group>"; };
+		F6E4A75412A8E8F300687F79 /* TXLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLDatabase.h; sourceTree = "<group>"; };
+		F6E4A75512A8E8F300687F79 /* TXLDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDatabase.m; sourceTree = "<group>"; };
+		F6E4A75612A8E8F300687F79 /* TXLDBHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLDBHandle.h; sourceTree = "<group>"; };
+		F6E4A75712A8E8F300687F79 /* TXLDBHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDBHandle.m; sourceTree = "<group>"; };
+		F6E4A75A12A8E8F300687F79 /* TXLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManager.h; sourceTree = "<group>"; };
+		F6E4A75B12A8E8F300687F79 /* TXLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManager.m; sourceTree = "<group>"; };
+		F6E4A76012A8E8F300687F79 /* TXLBoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLBoundingBox.h; sourceTree = "<group>"; };
+		F6E4A76112A8E8F300687F79 /* TXLBoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLBoundingBox.m; sourceTree = "<group>"; };
+		F6E4A76212A8E8F300687F79 /* TXLGeometryCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGeometryCollection.h; sourceTree = "<group>"; };
+		F6E4A76312A8E8F300687F79 /* TXLGeometryCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGeometryCollection.m; sourceTree = "<group>"; };
+		F6E4A76412A8E8F400687F79 /* TXLGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGeometryTypes.h; sourceTree = "<group>"; };
+		F6E4A76512A8E8F400687F79 /* TXLLinestring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLLinestring.h; sourceTree = "<group>"; };
+		F6E4A76612A8E8F400687F79 /* TXLLinestring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLLinestring.m; sourceTree = "<group>"; };
+		F6E4A76712A8E8F400687F79 /* TXLPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPoint.h; sourceTree = "<group>"; };
+		F6E4A76812A8E8F400687F79 /* TXLPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPoint.m; sourceTree = "<group>"; };
+		F6E4A76912A8E8F400687F79 /* TXLPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPolygon.h; sourceTree = "<group>"; };
+		F6E4A76A12A8E8F400687F79 /* TXLPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPolygon.m; sourceTree = "<group>"; };
+		F6E4A76B12A8E8F400687F79 /* TXLRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLRing.h; sourceTree = "<group>"; };
+		F6E4A76C12A8E8F400687F79 /* TXLRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRing.m; sourceTree = "<group>"; };
+		F6E4A76D12A8E8F400687F79 /* TXLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLContext.h; sourceTree = "<group>"; };
+		F6E4A77112A8E8F400687F79 /* TXLMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObject.h; sourceTree = "<group>"; };
+		F6E4A77212A8E8F400687F79 /* TXLMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObject.m; sourceTree = "<group>"; };
+		F6E4A77312A8E8F400687F79 /* TXLMovingObjectSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObjectSequence.h; sourceTree = "<group>"; };
+		F6E4A77412A8E8F400687F79 /* TXLMovingObjectSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectSequence.m; sourceTree = "<group>"; };
+		F6E4A77D12A8E8F400687F79 /* TXLStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLStatement.h; sourceTree = "<group>"; };
+		F6E4A77E12A8E8F400687F79 /* TXLStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLStatement.m; sourceTree = "<group>"; };
+		F6E4A77F12A8E8F400687F79 /* TXLTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLTerm.h; sourceTree = "<group>"; };
+		F6E4A78012A8E8F400687F79 /* TXLTerm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLTerm.m; sourceTree = "<group>"; };
+		F6E4A78212A8E8F400687F79 /* TXLQueryHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLQueryHandle.h; sourceTree = "<group>"; };
+		F6E4A78312A8E8F400687F79 /* TXLQueryHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLQueryHandle.m; sourceTree = "<group>"; };
+		F6E4A78412A8E8F400687F79 /* TXLResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLResultSet.h; sourceTree = "<group>"; };
+		F6E4A78512A8E8F400687F79 /* TXLResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLResultSet.m; sourceTree = "<group>"; };
+		F6E4A78912A8E8F400687F79 /* TXLSPARQLCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSPARQLCompiler.h; sourceTree = "<group>"; };
+		F6E4A78A12A8E8F400687F79 /* TXLSPARQLCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSPARQLCompiler.m; sourceTree = "<group>"; };
+		F6E4A78B12A8E8F400687F79 /* TXLQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLQuery.h; sourceTree = "<group>"; };
+		F6E4A78C12A8E8F400687F79 /* TXLQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLQuery.m; sourceTree = "<group>"; };
+		F6E4A7C212A8E9AC00687F79 /* GaiaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaiaTest.m; sourceTree = "<group>"; };
+		F6E4A7C412A8E9AC00687F79 /* TXLContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextTest.m; sourceTree = "<group>"; };
+		F6E4A7C512A8E9AC00687F79 /* TXLDatabaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDatabaseTest.m; sourceTree = "<group>"; };
+		F6E4A7C612A8E9AC00687F79 /* TXLGeometryCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGeometryCollectionTest.m; sourceTree = "<group>"; };
+		F6E4A7C712A8E9AC00687F79 /* TXLLinestringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLLinestringTest.m; sourceTree = "<group>"; };
+		F6E4A7C812A8E9AC00687F79 /* TXLManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerTest.m; sourceTree = "<group>"; };
+		F6E4A7C912A8E9AC00687F79 /* TXLMovingObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectTest.m; sourceTree = "<group>"; };
+		F6E4A7CA12A8E9AC00687F79 /* TXLPolygonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPolygonTest.m; sourceTree = "<group>"; };
+		F6E4A7CB12A8E9AC00687F79 /* TXLRingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRingTest.m; sourceTree = "<group>"; };
+		F6E4A7CC12A8E9AC00687F79 /* TXLTermTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLTermTest.m; sourceTree = "<group>"; };
+		F6E4A7DB12A8EA2000687F79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F6E4A7DD12A8EA2B00687F79 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AUTHORS; path = ../AUTHORS; sourceTree = "<group>"; };
+		F6E4A7DE12A8EA2B00687F79 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = COPYING; path = ../COPYING; sourceTree = "<group>"; };
+		F6E4A81012A8EB9100687F79 /* libspatialite.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libspatialite.dylib; path = /usr/local/lib/libspatialite.dylib; sourceTree = "<absolute>"; };
+		F6E4A81D12A8EC2A00687F79 /* libproj.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libproj.dylib; path = /usr/local/lib/libproj.dylib; sourceTree = "<absolute>"; };
+		F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgeos_c.dylib; path = /usr/local/lib/libgeos_c.dylib; sourceTree = "<absolute>"; };
+		F6E4A83612A8EDF900687F79 /* OpenTXL Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenTXL Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E4A83812A8EDFA00687F79 /* OpenTXL Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenTXL Tests-Info.plist"; sourceTree = "<group>"; };
+		F6E4A92012A8FA7100687F79 /* GHUnit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
+		F6E4AA8B12A9059900687F79 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		F6EE697612D714CC00F6C339 /* TXLInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLInteger.h; sourceTree = "<group>"; };
+		F6EE697712D714CC00F6C339 /* TXLInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLInteger.m; sourceTree = "<group>"; };
+		FB00B4FE12F1A350002CE643 /* TXLGraphPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGraphPattern.h; sourceTree = "<group>"; };
+		FB00B4FF12F1A350002CE643 /* TXLGraphPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGraphPattern.m; sourceTree = "<group>"; };
+		FB00B50212F1A35D002CE643 /* TXLGraphPatternTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGraphPatternTest.m; sourceTree = "<group>"; };
+		FB0678101316BE7A00AEEA84 /* TXLQueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLQueryTest.m; sourceTree = "<group>"; };
+		FB1B263D1317FCDE00E20838 /* events_in_cities.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_in_cities.res; sourceTree = "<group>"; };
+		FB908C9313154459008313C1 /* OpenTXL Tests Integration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenTXL Tests Integration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB908C9513154459008313C1 /* OpenTXL Integrationtest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenTXL Integrationtest-Info.plist"; sourceTree = "<group>"; };
+		FBFDAC8A131FE8130025D305 /* events_on_tour.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_on_tour.res; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E35E5C612F2D0C800B1B69E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E5EF12F2D0F600B1B69E /* libspatialite.dylib in Frameworks */,
+				5E35E5F012F2D0F600B1B69E /* libproj.dylib in Frameworks */,
+				5E35E5F112F2D0F600B1B69E /* libgeos_c.dylib in Frameworks */,
+				5E35E5D012F2D0EA00B1B69E /* GHUnit.framework in Frameworks */,
+				5E35E6F212F2DFF700B1B69E /* OpenTXL TestCoverage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E35E66B12F2D9D600B1B69E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E6D412F2DE2600B1B69E /* Cocoa.framework in Frameworks */,
+				5E35E6D512F2DE2600B1B69E /* libspatialite.dylib in Frameworks */,
+				5E35E6D612F2DE2600B1B69E /* libproj.dylib in Frameworks */,
+				5E35E6D712F2DE2600B1B69E /* libgeos_c.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				F6E4A81112A8EB9100687F79 /* libspatialite.dylib in Frameworks */,
+				F6E4A81E12A8EC2A00687F79 /* libproj.dylib in Frameworks */,
+				F6E4A82012A8EC3B00687F79 /* libgeos_c.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4A83412A8EDF900687F79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4A87212A8F4DF00687F79 /* libspatialite.dylib in Frameworks */,
+				F6E4A87312A8F4DF00687F79 /* libproj.dylib in Frameworks */,
+				F6E4A87412A8F4DF00687F79 /* libgeos_c.dylib in Frameworks */,
+				F6E4A84E12A8EE6B00687F79 /* OpenTXL.framework in Frameworks */,
+				F6E4A92112A8FA7100687F79 /* GHUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB908C9113154459008313C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB908CDC13154922008313C1 /* OpenTXL.framework in Frameworks */,
+				FB908CD6131548E3008313C1 /* libgeos_c.dylib in Frameworks */,
+				FB908CD7131548E3008313C1 /* libproj.dylib in Frameworks */,
+				FB908CD8131548E3008313C1 /* libspatialite.dylib in Frameworks */,
+				FB908CB713154511008313C1 /* GHUnit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* OpenTXL.framework */,
+				F6E4A83612A8EDF900687F79 /* OpenTXL Tests.app */,
+				5E35E5C812F2D0C800B1B69E /* OpenTXL Tests TestCoverage.app */,
+				5E35E66D12F2D9D600B1B69E /* OpenTXL TestCoverage.framework */,
+				FB908C9313154459008313C1 /* OpenTXL Tests Integration.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* OpenTXL */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A7DD12A8EA2B00687F79 /* AUTHORS */,
+				F6E4A7DE12A8EA2B00687F79 /* COPYING */,
+				F6E4A7DB12A8EA2000687F79 /* README.md */,
+				F6E4A7C112A8E98600687F79 /* Tests */,
+				F6E4AA8A12A9059900687F79 /* Tests-MacOSX */,
+				F619F3CA13150B7200D49A8C /* TestData */,
+				FBE3B86C131555B60097991D /* Integrationtests */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				F6E4A7D912A8E9BE00687F79 /* XcodeConfig */,
+				F6E4A7DA12A8E9EE00687F79 /* Scripts */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				F6E4A7EC12A8EA9800687F79 /* Frameworks */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = OpenTXL;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5EB84DB412B8C66D00E8A4DD /* OpenTXLConfig.plist */,
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+				F6E4A83812A8EDFA00687F79 /* OpenTXL Tests-Info.plist */,
+				FB908C9513154459008313C1 /* OpenTXL Integrationtest-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A75312A8E8F300687F79 /* Database */,
+				F6E4A75912A8E8F300687F79 /* Manager */,
+				F6E4A75E12A8E8F300687F79 /* Model */,
+				F6E4A78112A8E8F400687F79 /* Query */,
+				F6E4A78612A8E8F400687F79 /* SPARQL */,
+				5E0C5C1D130D7BB800E8219A /* SpatialSituation */,
+				5EB84DB812B8C6A700E8A4DD /* Utilities */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A81F12A8EC3B00687F79 /* libgeos_c.dylib */,
+				F6E4A81D12A8EC2A00687F79 /* libproj.dylib */,
+				F6E4A81012A8EB9100687F79 /* libspatialite.dylib */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E79907B2D74100F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* OpenTXL_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		5E015789131E9C02001302ED /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5E244455133BA2B9008587AF /* Prognosis-1 */,
+				5E015791131E9C02001302ED /* Prognosis-2 */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		5E015791131E9C02001302ED /* Prognosis-2 */ = {
+			isa = PBXGroup;
+			children = (
+				5E015792131E9C02001302ED /* prog_2-rain.n3 */,
+				5E015793131E9C02001302ED /* prog_2-sky_cover-overcast.n3 */,
+				5E015794131E9C02001302ED /* prog_2-sky_cover-scattered.n3 */,
+				5E015795131E9C02001302ED /* prog_2-temp-normal.n3 */,
+				5E015796131E9C02001302ED /* prog_2-temp-warm.n3 */,
+			);
+			path = "Prognosis-2";
+			sourceTree = "<group>";
+		};
+		5E0C5C1D130D7BB800E8219A /* SpatialSituation */ = {
+			isa = PBXGroup;
+			children = (
+				5E0C5C20130D7BB800E8219A /* spatialsituation.lm */,
+				5E0C5C21130D7BB800E8219A /* spatialsituation.ym */,
+				5E0C5C22130D7BB800E8219A /* TXLSpatialSituationImporter.h */,
+				5E0C5C23130D7BB800E8219A /* TXLSpatialSituationImporter.m */,
+			);
+			path = SpatialSituation;
+			sourceTree = "<group>";
+		};
+		5E244455133BA2B9008587AF /* Prognosis-1 */ = {
+			isa = PBXGroup;
+			children = (
+				5E244456133BA2B9008587AF /* prog_1-rain.n3 */,
+				5E244457133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 */,
+				5E244458133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 */,
+				5E244459133BA2B9008587AF /* prog_1-temp-normal.n3 */,
+				5E24445A133BA2B9008587AF /* prog_1-temp-warm.n3 */,
+				5E24445B133BA2B9008587AF /* prog_1-wind.n3 */,
+			);
+			path = "Prognosis-1";
+			sourceTree = "<group>";
+		};
+		5EB84DB812B8C6A700E8A4DD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5EB84DB912B8C6A700E8A4DD /* TXLPropertiesReader.h */,
+				5EB84DBA12B8C6A700E8A4DD /* TXLPropertiesReader.m */,
+				F669F4E112F9A3FB00AEA42D /* NSDate+Interval.h */,
+				F669F4E212F9A3FB00AEA42D /* NSDate+Interval.m */,
+				F68E25831316897000EA0D21 /* NSString+UUID.h */,
+				F68E25841316897000EA0D21 /* NSString+UUID.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F619F3CA13150B7200D49A8C /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				5E0157A3131E9C0C001302ED /* expectedResults */,
+				F6C7E177131D3A3000CA70D7 /* opentxl.kml */,
+				F6C7E176131D3A3000CA70D7 /* OpenTXL Test Data.kml */,
+				F619F51313154CE300D49A8C /* Expressions */,
+				F619F3D413150B7200D49A8C /* Situations */,
+			);
+			name = TestData;
+			path = ../TestData;
+			sourceTree = "<group>";
+		};
+		F619F3D413150B7200D49A8C /* Situations */ = {
+			isa = PBXGroup;
+			children = (
+				F619F3D513150B7200D49A8C /* Cities */,
+				F619F3D913150B7200D49A8C /* Events */,
+				F619F41613150B7200D49A8C /* Traveller */,
+				5E015789131E9C02001302ED /* Weather */,
+			);
+			path = Situations;
+			sourceTree = "<group>";
+		};
+		F619F3D513150B7200D49A8C /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				F619F3D613150B7200D49A8C /* graz.n3 */,
+				F619F3D713150B7200D49A8C /* salzburg.n3 */,
+				F619F3D813150B7200D49A8C /* vienna.n3 */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		F619F3D913150B7200D49A8C /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				F619F3DA13150B7200D49A8C /* 01-event-graz-1.n3 */,
+				F619F3E113150B7200D49A8C /* 02-event-graz-2.n3 */,
+				F619F3E213150B7200D49A8C /* 03-event-graz-3.n3 */,
+				F619F3E313150B7200D49A8C /* 04-event-graz-4.n3 */,
+				F619F3E413150B7200D49A8C /* 05-event-graz-5.n3 */,
+				F619F3E513150B7200D49A8C /* 06-event-graz-6.n3 */,
+				F619F3E613150B7200D49A8C /* 07-event-graz-7.n3 */,
+				F619F3E713150B7200D49A8C /* 08-event-graz-8.n3 */,
+				F619F3E813150B7200D49A8C /* 09-event-graz-9.n3 */,
+				F619F3DB13150B7200D49A8C /* 10-event-graz-10.n3 */,
+				F619F3DC13150B7200D49A8C /* 11-event-graz-11.n3 */,
+				F619F3DD13150B7200D49A8C /* 12-event-graz-12.n3 */,
+				F619F3DE13150B7200D49A8C /* 13-event-graz-13.n3 */,
+				F619F3DF13150B7200D49A8C /* 14-event-graz-14.n3 */,
+				F619F3E013150B7200D49A8C /* 15-event-graz-15.n3 */,
+				F619F3E913150B7200D49A8C /* 16-event-salzburg-1.n3 */,
+				F619F3F013150B7200D49A8C /* 17-event-salzburg-2.n3 */,
+				F619F3F113150B7200D49A8C /* 18-event-salzburg-3.n3 */,
+				F619F3F213150B7200D49A8C /* 19-event-salzburg-4.n3 */,
+				F619F3F313150B7200D49A8C /* 20-event-salzburg-5.n3 */,
+				F619F3F413150B7200D49A8C /* 21-event-salzburg-6.n3 */,
+				F619F3F513150B7200D49A8C /* 22-event-salzburg-7.n3 */,
+				F619F3F613150B7200D49A8C /* 23-event-salzburg-8.n3 */,
+				F619F3F713150B7200D49A8C /* 24-event-salzburg-9.n3 */,
+				F619F3EA13150B7200D49A8C /* 25-event-salzburg-10.n3 */,
+				F619F3EB13150B7200D49A8C /* 26-event-salzburg-11.n3 */,
+				F619F3EC13150B7200D49A8C /* 27-event-salzburg-12.n3 */,
+				F619F3ED13150B7200D49A8C /* 28-event-salzburg-13.n3 */,
+				F619F3EE13150B7200D49A8C /* 29-event-salzburg-14.n3 */,
+				F619F3EF13150B7200D49A8C /* 30-event-salzburg-15.n3 */,
+				F619F3F813150B7200D49A8C /* 31-event-vienna-1.n3 */,
+				F619F40313150B7200D49A8C /* 32-event-vienna-2.n3 */,
+				F619F40E13150B7200D49A8C /* 33-event-vienna-3.n3 */,
+				F619F41013150B7200D49A8C /* 34-event-vienna-4.n3 */,
+				F619F41113150B7200D49A8C /* 35-event-vienna-5.n3 */,
+				F619F41213150B7200D49A8C /* 36-event-vienna-6.n3 */,
+				F619F41313150B7200D49A8C /* 37-event-vienna-7.n3 */,
+				F619F41413150B7200D49A8C /* 38-event-vienna-8.n3 */,
+				F619F41513150B7200D49A8C /* 39-event-vienna-9.n3 */,
+				F619F3F913150B7200D49A8C /* 40-event-vienna-10.n3 */,
+				F619F3FA13150B7200D49A8C /* 41-event-vienna-11.n3 */,
+				F619F3FB13150B7200D49A8C /* 42-event-vienna-12.n3 */,
+				F619F3FC13150B7200D49A8C /* 43-event-vienna-13.n3 */,
+				F619F3FD13150B7200D49A8C /* 44-event-vienna-14.n3 */,
+				F619F3FE13150B7200D49A8C /* 45-event-vienna-15.n3 */,
+				F619F3FF13150B7200D49A8C /* 46-event-vienna-16.n3 */,
+				F619F40013150B7200D49A8C /* 47-event-vienna-17.n3 */,
+				F619F40113150B7200D49A8C /* 48-event-vienna-18.n3 */,
+				F619F40213150B7200D49A8C /* 49-event-vienna-19.n3 */,
+				F619F40413150B7200D49A8C /* 50-event-vienna-20.n3 */,
+				F619F40513150B7200D49A8C /* 51-event-vienna-21.n3 */,
+				F619F40613150B7200D49A8C /* 52-event-vienna-22.n3 */,
+				F619F40713150B7200D49A8C /* 53-event-vienna-23.n3 */,
+				F619F40813150B7200D49A8C /* 54-event-vienna-24.n3 */,
+				F619F40913150B7200D49A8C /* 55-event-vienna-25.n3 */,
+				F619F40A13150B7200D49A8C /* 56-event-vienna-26.n3 */,
+				F619F40B13150B7200D49A8C /* 57-event-vienna-27.n3 */,
+				F619F40C13150B7200D49A8C /* 58-event-vienna-28.n3 */,
+				F619F40D13150B7200D49A8C /* 59-event-vienna-29.n3 */,
+				F619F40F13150B7200D49A8C /* 60-event-vienna-30.n3 */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		F619F41613150B7200D49A8C /* Traveller */ = {
+			isa = PBXGroup;
+			children = (
+				F619F41713150B7200D49A8C /* travel-route.n3 */,
+			);
+			path = Traveller;
+			sourceTree = "<group>";
+		};
+		F619F51313154CE300D49A8C /* Expressions */ = {
+			isa = PBXGroup;
+			children = (
+				5E244452133BA289008587AF /* select-events-in-city.sq */,
+				5E2D52571333899E005F5EDC /* construct_events_in_city.sq */,
+				F619F51413154CE300D49A8C /* events_in_cities.sq */,
+				FB1B263D1317FCDE00E20838 /* events_in_cities.res */,
+				F619F51513154CE300D49A8C /* events_on_tour.sq */,
+				F69B1CE71327B5A10058DD12 /* construct_events_on_tour.sq */,
+				FBFDAC8A131FE8130025D305 /* events_on_tour.res */,
+				F69B1D3D1327BB410058DD12 /* tour-events.sq */,
+			);
+			path = Expressions;
+			sourceTree = "<group>";
+		};
+		F6E4A75312A8E8F300687F79 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A75412A8E8F300687F79 /* TXLDatabase.h */,
+				F6E4A75512A8E8F300687F79 /* TXLDatabase.m */,
+				F6E4A75612A8E8F300687F79 /* TXLDBHandle.h */,
+				F6E4A75712A8E8F300687F79 /* TXLDBHandle.m */,
+				F6EE697612D714CC00F6C339 /* TXLInteger.h */,
+				F6EE697712D714CC00F6C339 /* TXLInteger.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		F6E4A75912A8E8F300687F79 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F6B15B351349CC9200E1948B /* TXLManagerUpdateOperation.h */,
+				F6B15B361349CC9200E1948B /* TXLManagerUpdateOperation.m */,
+				F6C07C51134B0DB4003B2464 /* TXLManagerImportOperation.h */,
+				F6C07C52134B0DB4003B2464 /* TXLManagerImportOperation.m */,
+				F681A7B712E720C3002075D9 /* TXLManagerDelegateProtocol.h */,
+				F6E4A75A12A8E8F300687F79 /* TXLManager.h */,
+				F6E4A75B12A8E8F300687F79 /* TXLManager.m */,
+				F6E2E11F12F033CB00A64A07 /* TXLManager+Revision.h */,
+				F6E2E12012F033CB00A64A07 /* TXLManager+Revision.m */,
+				F6509B011314122200EF915E /* TXLManager+Importer.h */,
+				F6509B021314122200EF915E /* TXLManager+Importer.m */,
+				F6E4A76D12A8E8F400687F79 /* TXLContext.h */,
+				F681A73412E71803002075D9 /* TXLContext.m */,
+				F681A73512E71803002075D9 /* TXLRevision.h */,
+				F681A73612E71803002075D9 /* TXLRevision.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F6E4A75E12A8E8F300687F79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A75F12A8E8F300687F79 /* Geometry */,
+				F62E6D8512F2D5B0000CC6DE /* TXLSnapshot.h */,
+				F62E6D8612F2D5B0000CC6DE /* TXLSnapshot.m */,
+				F6E4A77112A8E8F400687F79 /* TXLMovingObject.h */,
+				F6E4A77212A8E8F400687F79 /* TXLMovingObject.m */,
+				F6E4A77312A8E8F400687F79 /* TXLMovingObjectSequence.h */,
+				F6E4A77412A8E8F400687F79 /* TXLMovingObjectSequence.m */,
+				F6E4A77D12A8E8F400687F79 /* TXLStatement.h */,
+				F6E4A77E12A8E8F400687F79 /* TXLStatement.m */,
+				F6E4A77F12A8E8F400687F79 /* TXLTerm.h */,
+				F6E4A78012A8E8F400687F79 /* TXLTerm.m */,
+				F6B15B2B1349C8FC00E1948B /* TXLSituation.h */,
+				F6B15B2C1349C8FC00E1948B /* TXLSituation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6E4A75F12A8E8F300687F79 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A76012A8E8F300687F79 /* TXLBoundingBox.h */,
+				F6E4A76112A8E8F300687F79 /* TXLBoundingBox.m */,
+				F6E4A76212A8E8F300687F79 /* TXLGeometryCollection.h */,
+				F6E4A76312A8E8F300687F79 /* TXLGeometryCollection.m */,
+				F6E4A76412A8E8F400687F79 /* TXLGeometryTypes.h */,
+				F6E4A76512A8E8F400687F79 /* TXLLinestring.h */,
+				F6E4A76612A8E8F400687F79 /* TXLLinestring.m */,
+				F6E4A76712A8E8F400687F79 /* TXLPoint.h */,
+				F6E4A76812A8E8F400687F79 /* TXLPoint.m */,
+				F6E4A76912A8E8F400687F79 /* TXLPolygon.h */,
+				F6E4A76A12A8E8F400687F79 /* TXLPolygon.m */,
+				F6E4A76B12A8E8F400687F79 /* TXLRing.h */,
+				F6E4A76C12A8E8F400687F79 /* TXLRing.m */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		F6E4A78112A8E8F400687F79 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A78212A8E8F400687F79 /* TXLQueryHandle.h */,
+				F6E4A78312A8E8F400687F79 /* TXLQueryHandle.m */,
+				F6E4A78412A8E8F400687F79 /* TXLResultSet.h */,
+				F6E4A78512A8E8F400687F79 /* TXLResultSet.m */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		F6E4A78612A8E8F400687F79 /* SPARQL */ = {
+			isa = PBXGroup;
+			children = (
+				FB00B4FE12F1A350002CE643 /* TXLGraphPattern.h */,
+				FB00B4FF12F1A350002CE643 /* TXLGraphPattern.m */,
+				5EB8502F12B9035200E8A4DD /* sparql.lm */,
+				5EB8503012B9035200E8A4DD /* sparql.ym */,
+				F6E4A78912A8E8F400687F79 /* TXLSPARQLCompiler.h */,
+				F6E4A78A12A8E8F400687F79 /* TXLSPARQLCompiler.m */,
+				F6E4A78B12A8E8F400687F79 /* TXLQuery.h */,
+				F6E4A78C12A8E8F400687F79 /* TXLQuery.m */,
+			);
+			path = SPARQL;
+			sourceTree = "<group>";
+		};
+		F6E4A7C112A8E98600687F79 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A7C212A8E9AC00687F79 /* GaiaTest.m */,
+				F6E4A7C512A8E9AC00687F79 /* TXLDatabaseTest.m */,
+				F6E4A7C612A8E9AC00687F79 /* TXLGeometryCollectionTest.m */,
+				F6E4A7C712A8E9AC00687F79 /* TXLLinestringTest.m */,
+				F6E4A7CA12A8E9AC00687F79 /* TXLPolygonTest.m */,
+				F6E4A7CB12A8E9AC00687F79 /* TXLRingTest.m */,
+				F669F4B712F9981C00AEA42D /* TXLMovingObjectTestData.h */,
+				F669F4B812F9981C00AEA42D /* TXLMovingObjectTestData.m */,
+				F6E4A7C912A8E9AC00687F79 /* TXLMovingObjectTest.m */,
+				0DB4534B12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m */,
+				F6E4A7CC12A8E9AC00687F79 /* TXLTermTest.m */,
+				F6E4A7C412A8E9AC00687F79 /* TXLContextTest.m */,
+				5EB8503312B9036200E8A4DD /* TXLSPARQLCompilerTest.m */,
+				5EE029161312A5DB006501C1 /* TXLSpatialSituationImporterTest.m */,
+				FB00B50212F1A35D002CE643 /* TXLGraphPatternTest.m */,
+				F6E4A7C812A8E9AC00687F79 /* TXLManagerTest.m */,
+				F698446112B0EE8E0048150A /* TXLManagerOperationTest.m */,
+				F69A65FF13126CDA005F5DC5 /* TXLManagerTestUpdateResultSet.m */,
+				F69B1CC81327A0610058DD12 /* TXLContextSituationDefinitionTest.m */,
+				5E2D51F713337EBD005F5EDC /* TXLContextSituationDefinitionWithBlankNodesTest.m */,
+				5EAFCD40135C427D00392133 /* TXLContextSituationDefinitionWithIntersectionTest.m */,
+			);
+			name = Tests;
+			path = ../Tests;
+			sourceTree = "<group>";
+		};
+		F6E4A7D912A8E9BE00687F79 /* XcodeConfig */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = XcodeConfig;
+			path = ../XcodeConfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4A7DA12A8E9EE00687F79 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Scripts;
+			path = ../Scripts;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4A7EC12A8EA9800687F79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A92012A8FA7100687F79 /* GHUnit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4AA8A12A9059900687F79 /* Tests-MacOSX */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4AA8B12A9059900687F79 /* GHUnitTestMain.m */,
+			);
+			name = "Tests-MacOSX";
+			path = "../Tests-MacOSX";
+			sourceTree = "<group>";
+		};
+		FBE3B86C131555B60097991D /* Integrationtests */ = {
+			isa = PBXGroup;
+			children = (
+				FB0678101316BE7A00AEEA84 /* TXLQueryTest.m */,
+			);
+			name = Integrationtests;
+			path = ../Integrationtests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5E35E66812F2D9D600B1B69E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E69A12F2DDE500B1B69E /* TXLDatabase.h in Headers */,
+				5E35E69B12F2DDE500B1B69E /* TXLDBHandle.h in Headers */,
+				5E35E69C12F2DDE500B1B69E /* TXLManager.h in Headers */,
+				5E35E69D12F2DDE500B1B69E /* TXLBoundingBox.h in Headers */,
+				5E35E69E12F2DDE500B1B69E /* TXLGeometryCollection.h in Headers */,
+				5E35E69F12F2DDE500B1B69E /* TXLGeometryTypes.h in Headers */,
+				5E35E6A012F2DDE500B1B69E /* TXLLinestring.h in Headers */,
+				5E35E6A112F2DDE500B1B69E /* TXLPoint.h in Headers */,
+				5E35E6A212F2DDE500B1B69E /* TXLPolygon.h in Headers */,
+				5E35E6A312F2DDE500B1B69E /* TXLRing.h in Headers */,
+				5E35E6A412F2DDE500B1B69E /* TXLContext.h in Headers */,
+				5E35E6A512F2DDE500B1B69E /* TXLMovingObject.h in Headers */,
+				5E35E6A612F2DDE500B1B69E /* TXLMovingObjectSequence.h in Headers */,
+				5E35E6A712F2DDE500B1B69E /* TXLStatement.h in Headers */,
+				5E35E6A812F2DDE500B1B69E /* TXLTerm.h in Headers */,
+				5E35E6A912F2DDE500B1B69E /* TXLQueryHandle.h in Headers */,
+				5E35E6AA12F2DDE500B1B69E /* TXLResultSet.h in Headers */,
+				5E35E6AB12F2DDE500B1B69E /* TXLSPARQLCompiler.h in Headers */,
+				5E35E6AC12F2DDE500B1B69E /* TXLQuery.h in Headers */,
+				5E35E6AD12F2DDE500B1B69E /* TXLPropertiesReader.h in Headers */,
+				5E35E6AE12F2DDE500B1B69E /* TXLInteger.h in Headers */,
+				5E35E6AF12F2DDE500B1B69E /* TXLRevision.h in Headers */,
+				5E35E6B012F2DDE500B1B69E /* TXLManagerDelegateProtocol.h in Headers */,
+				5E35E6B212F2DDE500B1B69E /* TXLManager+Revision.h in Headers */,
+				5E0C5C32130D7BB800E8219A /* TXLSpatialSituationImporter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4A78D12A8E8F400687F79 /* TXLDatabase.h in Headers */,
+				F6E4A78F12A8E8F400687F79 /* TXLDBHandle.h in Headers */,
+				F6E4A79112A8E8F400687F79 /* TXLManager.h in Headers */,
+				F6E4A79512A8E8F400687F79 /* TXLBoundingBox.h in Headers */,
+				F6E4A79712A8E8F400687F79 /* TXLGeometryCollection.h in Headers */,
+				F6E4A79912A8E8F400687F79 /* TXLGeometryTypes.h in Headers */,
+				F6E4A79A12A8E8F400687F79 /* TXLLinestring.h in Headers */,
+				F6E4A79C12A8E8F400687F79 /* TXLPoint.h in Headers */,
+				F6E4A79E12A8E8F400687F79 /* TXLPolygon.h in Headers */,
+				F6E4A7A012A8E8F400687F79 /* TXLRing.h in Headers */,
+				F6E4A7A212A8E8F400687F79 /* TXLContext.h in Headers */,
+				F6E4A7A612A8E8F400687F79 /* TXLMovingObject.h in Headers */,
+				F6E4A7A812A8E8F400687F79 /* TXLMovingObjectSequence.h in Headers */,
+				F6E4A7B212A8E8F400687F79 /* TXLStatement.h in Headers */,
+				F6E4A7B412A8E8F400687F79 /* TXLTerm.h in Headers */,
+				F6E4A7B612A8E8F400687F79 /* TXLQueryHandle.h in Headers */,
+				F6E4A7B812A8E8F400687F79 /* TXLResultSet.h in Headers */,
+				F6E4A7BC12A8E8F400687F79 /* TXLSPARQLCompiler.h in Headers */,
+				F6E4A7BE12A8E8F400687F79 /* TXLQuery.h in Headers */,
+				5EB84DBB12B8C6A700E8A4DD /* TXLPropertiesReader.h in Headers */,
+				F6EE697812D714CC00F6C339 /* TXLInteger.h in Headers */,
+				F681A73812E71803002075D9 /* TXLRevision.h in Headers */,
+				F681A7B812E720C3002075D9 /* TXLManagerDelegateProtocol.h in Headers */,
+				F6E2E12112F033CB00A64A07 /* TXLManager+Revision.h in Headers */,
+				FB00B50012F1A350002CE643 /* TXLGraphPattern.h in Headers */,
+				F62E6D8712F2D5B0000CC6DE /* TXLSnapshot.h in Headers */,
+				F669F4E312F9A3FB00AEA42D /* NSDate+Interval.h in Headers */,
+				5E01042D130E9BBB00286B71 /* TXLSpatialSituationImporter.h in Headers */,
+				F6509B031314122200EF915E /* TXLManager+Importer.h in Headers */,
+				F68E25851316897000EA0D21 /* NSString+UUID.h in Headers */,
+				F6B15B2D1349C8FC00E1948B /* TXLSituation.h in Headers */,
+				F6B15B371349CC9200E1948B /* TXLManagerUpdateOperation.h in Headers */,
+				F6C07C53134B0DB4003B2464 /* TXLManagerImportOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E35E5C712F2D0C800B1B69E /* OpenTXL Tests TestCoverage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E35E5CD12F2D0C900B1B69E /* Build configuration list for PBXNativeTarget "OpenTXL Tests TestCoverage" */;
+			buildPhases = (
+				5E35E5C412F2D0C800B1B69E /* Resources */,
+				5E35E5C512F2D0C800B1B69E /* Sources */,
+				5E35E5C612F2D0C800B1B69E /* Frameworks */,
+				5E35E60912F2D15B00B1B69E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E35E6E312F2DF6300B1B69E /* PBXTargetDependency */,
+			);
+			name = "OpenTXL Tests TestCoverage";
+			productName = "OpenTXL Tests Coverage";
+			productReference = 5E35E5C812F2D0C800B1B69E /* OpenTXL Tests TestCoverage.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E35E66C12F2D9D600B1B69E /* OpenTXL TestCoverage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E35E67112F2D9D700B1B69E /* Build configuration list for PBXNativeTarget "OpenTXL TestCoverage" */;
+			buildPhases = (
+				5E35E66812F2D9D600B1B69E /* Headers */,
+				5E35E66912F2D9D600B1B69E /* Resources */,
+				5E35E66A12F2D9D600B1B69E /* Sources */,
+				5E35E66B12F2D9D600B1B69E /* Frameworks */,
+			);
+			buildRules = (
+				5E010555130EAA1000286B71 /* PBXBuildRule */,
+				5E010445130E9CA000286B71 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = "OpenTXL TestCoverage";
+			productName = "OpenTXL TestCoverage";
+			productReference = 5E35E66D12F2D9D600B1B69E /* OpenTXL TestCoverage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8DC2EF4F0486A6940098B216 /* OpenTXL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "OpenTXL" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+			);
+			buildRules = (
+				5E0103C9130E90A200286B71 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = OpenTXL;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = OpenTXL;
+			productReference = 8DC2EF5B0486A6940098B216 /* OpenTXL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F6E4A83512A8EDF900687F79 /* OpenTXL Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6E4A83B12A8EDFA00687F79 /* Build configuration list for PBXNativeTarget "OpenTXL Tests" */;
+			buildPhases = (
+				F6E4A83212A8EDF900687F79 /* Resources */,
+				F6E4A83312A8EDF900687F79 /* Sources */,
+				F6E4A83412A8EDF900687F79 /* Frameworks */,
+				F6E4A94912A8FAD300687F79 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6E4A85312A8EE8300687F79 /* PBXTargetDependency */,
+			);
+			name = "OpenTXL Tests";
+			productName = "OpenTXL Tests";
+			productReference = F6E4A83612A8EDF900687F79 /* OpenTXL Tests.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB908C9213154459008313C1 /* OpenTXL Integrationtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB908C9813154459008313C1 /* Build configuration list for PBXNativeTarget "OpenTXL Integrationtest" */;
+			buildPhases = (
+				FB908C8F13154459008313C1 /* Resources */,
+				FB908C9013154459008313C1 /* Sources */,
+				FB908C9113154459008313C1 /* Frameworks */,
+				FB908CCE1315467A008313C1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB908CDA13154902008313C1 /* PBXTargetDependency */,
+			);
+			name = "OpenTXL Integrationtest";
+			productName = "OpenTXL Tests Integration";
+			productReference = FB908C9313154459008313C1 /* OpenTXL Tests Integration.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "OpenTXL-MacOSX" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* OpenTXL */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* OpenTXL */,
+				F6E4A83512A8EDF900687F79 /* OpenTXL Tests */,
+				5E35E66C12F2D9D600B1B69E /* OpenTXL TestCoverage */,
+				5E35E5C712F2D0C800B1B69E /* OpenTXL Tests TestCoverage */,
+				FB908C9213154459008313C1 /* OpenTXL Integrationtest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E35E5C412F2D0C800B1B69E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E5F512F2D10400B1B69E /* OpenTXLConfig.plist in Resources */,
+				5E244454133BA289008587AF /* select-events-in-city.sq in Resources */,
+				5E244462133BA2B9008587AF /* prog_1-rain.n3 in Resources */,
+				5E244463133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 in Resources */,
+				5E244464133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 in Resources */,
+				5E244465133BA2B9008587AF /* prog_1-temp-normal.n3 in Resources */,
+				5E244466133BA2B9008587AF /* prog_1-temp-warm.n3 in Resources */,
+				5E244467133BA2B9008587AF /* prog_1-wind.n3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E35E66912F2D9D600B1B69E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E6B312F2DDFA00B1B69E /* InfoPlist.strings in Resources */,
+				5E35E6B412F2DDFA00B1B69E /* README.md in Resources */,
+				5E35E6B512F2DDFA00B1B69E /* AUTHORS in Resources */,
+				5E35E6B612F2DDFA00B1B69E /* COPYING in Resources */,
+				5E35E6B712F2DDFA00B1B69E /* OpenTXLConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				F6E4A7DC12A8EA2100687F79 /* README.md in Resources */,
+				F6E4A7DF12A8EA2B00687F79 /* AUTHORS in Resources */,
+				F6E4A7E012A8EA2B00687F79 /* COPYING in Resources */,
+				5EB84DB512B8C66D00E8A4DD /* OpenTXLConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4A83212A8EDF900687F79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F69B1D3E1327BB9B0058DD12 /* tour-events.sq in Resources */,
+				F67316D1132E609F0074A2E3 /* events_on_tour.res in Resources */,
+				F6C53C8F12B9122400460959 /* OpenTXLConfig.plist in Resources */,
+				F619F44113150B7200D49A8C /* graz.n3 in Resources */,
+				F619F44213150B7200D49A8C /* salzburg.n3 in Resources */,
+				F619F44313150B7200D49A8C /* vienna.n3 in Resources */,
+				F619F44413150B7200D49A8C /* 01-event-graz-1.n3 in Resources */,
+				F619F44513150B7200D49A8C /* 10-event-graz-10.n3 in Resources */,
+				F619F44613150B7200D49A8C /* 11-event-graz-11.n3 in Resources */,
+				F619F44713150B7200D49A8C /* 12-event-graz-12.n3 in Resources */,
+				F619F44813150B7200D49A8C /* 13-event-graz-13.n3 in Resources */,
+				F619F44913150B7200D49A8C /* 14-event-graz-14.n3 in Resources */,
+				F619F44A13150B7200D49A8C /* 15-event-graz-15.n3 in Resources */,
+				F619F44B13150B7200D49A8C /* 02-event-graz-2.n3 in Resources */,
+				F619F44C13150B7200D49A8C /* 03-event-graz-3.n3 in Resources */,
+				F619F44D13150B7200D49A8C /* 04-event-graz-4.n3 in Resources */,
+				F619F44E13150B7200D49A8C /* 05-event-graz-5.n3 in Resources */,
+				F619F44F13150B7200D49A8C /* 06-event-graz-6.n3 in Resources */,
+				F619F45013150B7200D49A8C /* 07-event-graz-7.n3 in Resources */,
+				F619F45113150B7200D49A8C /* 08-event-graz-8.n3 in Resources */,
+				F619F45213150B7200D49A8C /* 09-event-graz-9.n3 in Resources */,
+				F619F45313150B7200D49A8C /* 16-event-salzburg-1.n3 in Resources */,
+				F619F45413150B7200D49A8C /* 25-event-salzburg-10.n3 in Resources */,
+				F619F45513150B7200D49A8C /* 26-event-salzburg-11.n3 in Resources */,
+				F619F45613150B7200D49A8C /* 27-event-salzburg-12.n3 in Resources */,
+				F619F45713150B7200D49A8C /* 28-event-salzburg-13.n3 in Resources */,
+				F619F45813150B7200D49A8C /* 29-event-salzburg-14.n3 in Resources */,
+				F619F45913150B7200D49A8C /* 30-event-salzburg-15.n3 in Resources */,
+				F619F45A13150B7200D49A8C /* 17-event-salzburg-2.n3 in Resources */,
+				F619F45B13150B7200D49A8C /* 18-event-salzburg-3.n3 in Resources */,
+				F619F45C13150B7200D49A8C /* 19-event-salzburg-4.n3 in Resources */,
+				F619F45D13150B7200D49A8C /* 20-event-salzburg-5.n3 in Resources */,
+				F619F45E13150B7200D49A8C /* 21-event-salzburg-6.n3 in Resources */,
+				F619F45F13150B7200D49A8C /* 22-event-salzburg-7.n3 in Resources */,
+				F619F46013150B7200D49A8C /* 23-event-salzburg-8.n3 in Resources */,
+				F619F46113150B7200D49A8C /* 24-event-salzburg-9.n3 in Resources */,
+				F619F46213150B7200D49A8C /* 31-event-vienna-1.n3 in Resources */,
+				F619F46313150B7200D49A8C /* 40-event-vienna-10.n3 in Resources */,
+				F619F46413150B7200D49A8C /* 41-event-vienna-11.n3 in Resources */,
+				F619F46513150B7200D49A8C /* 42-event-vienna-12.n3 in Resources */,
+				F619F46613150B7200D49A8C /* 43-event-vienna-13.n3 in Resources */,
+				F619F46713150B7200D49A8C /* 44-event-vienna-14.n3 in Resources */,
+				F619F46813150B7200D49A8C /* 45-event-vienna-15.n3 in Resources */,
+				F619F46913150B7200D49A8C /* 46-event-vienna-16.n3 in Resources */,
+				F619F46A13150B7200D49A8C /* 47-event-vienna-17.n3 in Resources */,
+				F619F46B13150B7200D49A8C /* 48-event-vienna-18.n3 in Resources */,
+				F619F46C13150B7200D49A8C /* 49-event-vienna-19.n3 in Resources */,
+				F619F46D13150B7200D49A8C /* 32-event-vienna-2.n3 in Resources */,
+				F619F46E13150B7200D49A8C /* 50-event-vienna-20.n3 in Resources */,
+				F619F46F13150B7200D49A8C /* 51-event-vienna-21.n3 in Resources */,
+				F619F47013150B7200D49A8C /* 52-event-vienna-22.n3 in Resources */,
+				F619F47113150B7200D49A8C /* 53-event-vienna-23.n3 in Resources */,
+				F619F47213150B7200D49A8C /* 54-event-vienna-24.n3 in Resources */,
+				F619F47313150B7200D49A8C /* 55-event-vienna-25.n3 in Resources */,
+				F619F47413150B7200D49A8C /* 56-event-vienna-26.n3 in Resources */,
+				F619F47513150B7200D49A8C /* 57-event-vienna-27.n3 in Resources */,
+				F619F47613150B7200D49A8C /* 58-event-vienna-28.n3 in Resources */,
+				F619F47713150B7200D49A8C /* 59-event-vienna-29.n3 in Resources */,
+				F619F47813150B7200D49A8C /* 33-event-vienna-3.n3 in Resources */,
+				F619F47913150B7200D49A8C /* 60-event-vienna-30.n3 in Resources */,
+				F619F47A13150B7200D49A8C /* 34-event-vienna-4.n3 in Resources */,
+				F619F47B13150B7200D49A8C /* 35-event-vienna-5.n3 in Resources */,
+				F619F47C13150B7200D49A8C /* 36-event-vienna-6.n3 in Resources */,
+				F619F47D13150B7200D49A8C /* 37-event-vienna-7.n3 in Resources */,
+				F619F47E13150B7200D49A8C /* 38-event-vienna-8.n3 in Resources */,
+				F619F47F13150B7200D49A8C /* 39-event-vienna-9.n3 in Resources */,
+				F619F48013150B7200D49A8C /* travel-route.n3 in Resources */,
+				F69B1CFF1327B7710058DD12 /* construct_events_on_tour.sq in Resources */,
+				F619F51613154CE300D49A8C /* events_in_cities.sq in Resources */,
+				F619F51713154CE300D49A8C /* events_on_tour.sq in Resources */,
+				5E01579D131E9C02001302ED /* prog_2-rain.n3 in Resources */,
+				5E01579E131E9C02001302ED /* prog_2-sky_cover-overcast.n3 in Resources */,
+				5E01579F131E9C02001302ED /* prog_2-sky_cover-scattered.n3 in Resources */,
+				5E0157A0131E9C02001302ED /* prog_2-temp-normal.n3 in Resources */,
+				5E0157A1131E9C02001302ED /* prog_2-temp-warm.n3 in Resources */,
+				5E2D52581333899E005F5EDC /* construct_events_in_city.sq in Resources */,
+				5E244453133BA289008587AF /* select-events-in-city.sq in Resources */,
+				5E24445C133BA2B9008587AF /* prog_1-rain.n3 in Resources */,
+				5E24445D133BA2B9008587AF /* prog_1-sky_cover-overcast.n3 in Resources */,
+				5E24445E133BA2B9008587AF /* prog_1-sky_cover-scattered.n3 in Resources */,
+				5E24445F133BA2B9008587AF /* prog_1-temp-normal.n3 in Resources */,
+				5E244460133BA2B9008587AF /* prog_1-temp-warm.n3 in Resources */,
+				5E244461133BA2B9008587AF /* prog_1-wind.n3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB908C8F13154459008313C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB6853581321459B0070A8CB /* 01-event-graz-1.n3 in Resources */,
+				FB6853591321459B0070A8CB /* 02-event-graz-2.n3 in Resources */,
+				FB68535A1321459B0070A8CB /* 03-event-graz-3.n3 in Resources */,
+				FB68535B1321459B0070A8CB /* 04-event-graz-4.n3 in Resources */,
+				FB68535C1321459B0070A8CB /* 05-event-graz-5.n3 in Resources */,
+				FB68535D1321459B0070A8CB /* 06-event-graz-6.n3 in Resources */,
+				FB68535E1321459B0070A8CB /* 07-event-graz-7.n3 in Resources */,
+				FB68535F1321459B0070A8CB /* 08-event-graz-8.n3 in Resources */,
+				FB6853601321459B0070A8CB /* 09-event-graz-9.n3 in Resources */,
+				FB6853611321459B0070A8CB /* 10-event-graz-10.n3 in Resources */,
+				FB6853621321459B0070A8CB /* 11-event-graz-11.n3 in Resources */,
+				FB6853631321459B0070A8CB /* 12-event-graz-12.n3 in Resources */,
+				FB6853641321459B0070A8CB /* 13-event-graz-13.n3 in Resources */,
+				FB6853651321459B0070A8CB /* 14-event-graz-14.n3 in Resources */,
+				FB6853661321459B0070A8CB /* 15-event-graz-15.n3 in Resources */,
+				FB6853671321459B0070A8CB /* 16-event-salzburg-1.n3 in Resources */,
+				FB6853681321459B0070A8CB /* 17-event-salzburg-2.n3 in Resources */,
+				FB6853691321459B0070A8CB /* 18-event-salzburg-3.n3 in Resources */,
+				FB68536A1321459B0070A8CB /* 19-event-salzburg-4.n3 in Resources */,
+				FB68536B1321459B0070A8CB /* 20-event-salzburg-5.n3 in Resources */,
+				FB68536C1321459B0070A8CB /* 21-event-salzburg-6.n3 in Resources */,
+				FB68536D1321459B0070A8CB /* 22-event-salzburg-7.n3 in Resources */,
+				FB68536E1321459B0070A8CB /* 23-event-salzburg-8.n3 in Resources */,
+				FB68536F1321459B0070A8CB /* 24-event-salzburg-9.n3 in Resources */,
+				FB6853701321459B0070A8CB /* 25-event-salzburg-10.n3 in Resources */,
+				FB6853711321459B0070A8CB /* 26-event-salzburg-11.n3 in Resources */,
+				FB6853721321459B0070A8CB /* 27-event-salzburg-12.n3 in Resources */,
+				FB6853731321459B0070A8CB /* 28-event-salzburg-13.n3 in Resources */,
+				FB6853741321459B0070A8CB /* 29-event-salzburg-14.n3 in Resources */,
+				FB6853751321459B0070A8CB /* 30-event-salzburg-15.n3 in Resources */,
+				FB6853761321459B0070A8CB /* 31-event-vienna-1.n3 in Resources */,
+				FB6853771321459B0070A8CB /* 32-event-vienna-2.n3 in Resources */,
+				FB6853781321459B0070A8CB /* 33-event-vienna-3.n3 in Resources */,
+				FB6853791321459B0070A8CB /* 34-event-vienna-4.n3 in Resources */,
+				FB68537A1321459B0070A8CB /* 35-event-vienna-5.n3 in Resources */,
+				FB68537B1321459B0070A8CB /* 36-event-vienna-6.n3 in Resources */,
+				FB68537C1321459B0070A8CB /* 37-event-vienna-7.n3 in Resources */,
+				FB68537D1321459B0070A8CB /* 38-event-vienna-8.n3 in Resources */,
+				FB68537E1321459B0070A8CB /* 39-event-vienna-9.n3 in Resources */,
+				FB68537F1321459B0070A8CB /* 40-event-vienna-10.n3 in Resources */,
+				FB6853801321459B0070A8CB /* 41-event-vienna-11.n3 in Resources */,
+				FB6853811321459B0070A8CB /* 42-event-vienna-12.n3 in Resources */,
+				FB6853821321459B0070A8CB /* 43-event-vienna-13.n3 in Resources */,
+				FB6853831321459B0070A8CB /* 44-event-vienna-14.n3 in Resources */,
+				FB6853841321459B0070A8CB /* 45-event-vienna-15.n3 in Resources */,
+				FB6853851321459B0070A8CB /* 46-event-vienna-16.n3 in Resources */,
+				FB6853861321459B0070A8CB /* 47-event-vienna-17.n3 in Resources */,
+				FB6853871321459B0070A8CB /* 48-event-vienna-18.n3 in Resources */,
+				FB6853881321459B0070A8CB /* 49-event-vienna-19.n3 in Resources */,
+				FB6853891321459B0070A8CB /* 50-event-vienna-20.n3 in Resources */,
+				FB68538A1321459B0070A8CB /* 51-event-vienna-21.n3 in Resources */,
+				FB68538B1321459B0070A8CB /* 52-event-vienna-22.n3 in Resources */,
+				FB68538C1321459B0070A8CB /* 53-event-vienna-23.n3 in Resources */,
+				FB68538D1321459B0070A8CB /* 54-event-vienna-24.n3 in Resources */,
+				FB68538E1321459B0070A8CB /* 55-event-vienna-25.n3 in Resources */,
+				FB68538F1321459B0070A8CB /* 56-event-vienna-26.n3 in Resources */,
+				FB6853901321459B0070A8CB /* 57-event-vienna-27.n3 in Resources */,
+				FB6853911321459B0070A8CB /* 58-event-vienna-28.n3 in Resources */,
+				FB6853921321459B0070A8CB /* 59-event-vienna-29.n3 in Resources */,
+				FB6853931321459B0070A8CB /* 60-event-vienna-30.n3 in Resources */,
+				FBFDAC8C131FE8230025D305 /* events_on_tour.res in Resources */,
+				FB1B263E1317FCFA00E20838 /* events_in_cities.res in Resources */,
+				FB0678551316BECA00AEEA84 /* events_in_cities.sq in Resources */,
+				FB0678561316BECA00AEEA84 /* events_on_tour.sq in Resources */,
+				FB0678541316BEC400AEEA84 /* travel-route.n3 in Resources */,
+				FB0678151316BEB500AEEA84 /* graz.n3 in Resources */,
+				FB0678161316BEB500AEEA84 /* salzburg.n3 in Resources */,
+				FB0678171316BEB500AEEA84 /* vienna.n3 in Resources */,
+				FB908CD5131548AA008313C1 /* OpenTXLConfig.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E35E5C512F2D0C800B1B69E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E5F712F2D10E00B1B69E /* GaiaTest.m in Sources */,
+				5E35E5F812F2D10E00B1B69E /* TXLContextTest.m in Sources */,
+				5E35E5F912F2D10E00B1B69E /* TXLDatabaseTest.m in Sources */,
+				5E35E5FA12F2D10E00B1B69E /* TXLGeometryCollectionTest.m in Sources */,
+				5E35E5FB12F2D10E00B1B69E /* TXLLinestringTest.m in Sources */,
+				5E35E5FC12F2D10E00B1B69E /* TXLManagerTest.m in Sources */,
+				5E35E5FD12F2D10E00B1B69E /* TXLMovingObjectTest.m in Sources */,
+				5E35E5FE12F2D10E00B1B69E /* TXLPolygonTest.m in Sources */,
+				5E35E5FF12F2D10E00B1B69E /* TXLRingTest.m in Sources */,
+				5E35E60012F2D10E00B1B69E /* TXLTermTest.m in Sources */,
+				5E35E60112F2D10E00B1B69E /* GHUnitTestMain.m in Sources */,
+				5E35E60212F2D10E00B1B69E /* TXLManagerOperationTest.m in Sources */,
+				5E35E60312F2D10E00B1B69E /* TXLMovingObjectSequenceTest.m in Sources */,
+				5E35E60412F2D10E00B1B69E /* TXLSPARQLCompilerTest.m in Sources */,
+				5EE029181312A5DB006501C1 /* TXLSpatialSituationImporterTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E35E66A12F2D9D600B1B69E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E35E6B812F2DE0B00B1B69E /* TXLDatabase.m in Sources */,
+				5E35E6B912F2DE0B00B1B69E /* TXLDBHandle.m in Sources */,
+				5E35E6BA12F2DE0B00B1B69E /* TXLManager.m in Sources */,
+				5E35E6BB12F2DE0B00B1B69E /* TXLBoundingBox.m in Sources */,
+				5E35E6BC12F2DE0B00B1B69E /* TXLGeometryCollection.m in Sources */,
+				5E35E6BD12F2DE0B00B1B69E /* TXLLinestring.m in Sources */,
+				5E35E6BE12F2DE0B00B1B69E /* TXLPoint.m in Sources */,
+				5E35E6BF12F2DE0B00B1B69E /* TXLPolygon.m in Sources */,
+				5E35E6C012F2DE0B00B1B69E /* TXLRing.m in Sources */,
+				5E35E6C112F2DE0B00B1B69E /* TXLMovingObject.m in Sources */,
+				5E35E6C212F2DE0B00B1B69E /* TXLMovingObjectSequence.m in Sources */,
+				5E35E6C312F2DE0B00B1B69E /* TXLStatement.m in Sources */,
+				5E35E6C412F2DE0B00B1B69E /* TXLTerm.m in Sources */,
+				5E35E6C512F2DE0B00B1B69E /* TXLQueryHandle.m in Sources */,
+				5E35E6C612F2DE0B00B1B69E /* TXLResultSet.m in Sources */,
+				5E35E6C712F2DE0B00B1B69E /* TXLSPARQLCompiler.m in Sources */,
+				5E35E6C812F2DE0B00B1B69E /* TXLQuery.m in Sources */,
+				5E35E6C912F2DE0B00B1B69E /* sparql.lm in Sources */,
+				5E35E6CA12F2DE0B00B1B69E /* sparql.ym in Sources */,
+				5E35E6CB12F2DE0B00B1B69E /* TXLPropertiesReader.m in Sources */,
+				5E35E6CC12F2DE0B00B1B69E /* TXLInteger.m in Sources */,
+				5E35E6CD12F2DE0B00B1B69E /* TXLContext.m in Sources */,
+				5E35E6CE12F2DE0B00B1B69E /* TXLRevision.m in Sources */,
+				5E35E6D012F2DE0B00B1B69E /* TXLManager+Revision.m in Sources */,
+				5E0C5C30130D7BB800E8219A /* spatialsituation.lm in Sources */,
+				5E0C5C31130D7BB800E8219A /* spatialsituation.ym in Sources */,
+				5E0C5C33130D7BB800E8219A /* TXLSpatialSituationImporter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4A78E12A8E8F400687F79 /* TXLDatabase.m in Sources */,
+				F6E4A79012A8E8F400687F79 /* TXLDBHandle.m in Sources */,
+				F6E4A79212A8E8F400687F79 /* TXLManager.m in Sources */,
+				F6E4A79612A8E8F400687F79 /* TXLBoundingBox.m in Sources */,
+				F6E4A79812A8E8F400687F79 /* TXLGeometryCollection.m in Sources */,
+				F6E4A79B12A8E8F400687F79 /* TXLLinestring.m in Sources */,
+				F6E4A79D12A8E8F400687F79 /* TXLPoint.m in Sources */,
+				F6E4A79F12A8E8F400687F79 /* TXLPolygon.m in Sources */,
+				F6E4A7A112A8E8F400687F79 /* TXLRing.m in Sources */,
+				F6E4A7A712A8E8F400687F79 /* TXLMovingObject.m in Sources */,
+				F6E4A7A912A8E8F400687F79 /* TXLMovingObjectSequence.m in Sources */,
+				F6E4A7B312A8E8F400687F79 /* TXLStatement.m in Sources */,
+				F6E4A7B512A8E8F400687F79 /* TXLTerm.m in Sources */,
+				F6E4A7B712A8E8F400687F79 /* TXLQueryHandle.m in Sources */,
+				F6E4A7B912A8E8F400687F79 /* TXLResultSet.m in Sources */,
+				F6E4A7BD12A8E8F400687F79 /* TXLSPARQLCompiler.m in Sources */,
+				F6E4A7BF12A8E8F400687F79 /* TXLQuery.m in Sources */,
+				5EB8503112B9035200E8A4DD /* sparql.lm in Sources */,
+				5EB8503212B9035200E8A4DD /* sparql.ym in Sources */,
+				5EB84DBC12B8C6A700E8A4DD /* TXLPropertiesReader.m in Sources */,
+				F6EE697912D714CC00F6C339 /* TXLInteger.m in Sources */,
+				F681A73712E71803002075D9 /* TXLContext.m in Sources */,
+				F681A73912E71803002075D9 /* TXLRevision.m in Sources */,
+				F6E2E12212F033CB00A64A07 /* TXLManager+Revision.m in Sources */,
+				FB00B50112F1A350002CE643 /* TXLGraphPattern.m in Sources */,
+				F62E6D8812F2D5B0000CC6DE /* TXLSnapshot.m in Sources */,
+				F669F4E412F9A3FB00AEA42D /* NSDate+Interval.m in Sources */,
+				5E010427130E9BB200286B71 /* spatialsituation.lm in Sources */,
+				5E010428130E9BB200286B71 /* spatialsituation.ym in Sources */,
+				5E010429130E9BB200286B71 /* TXLSpatialSituationImporter.m in Sources */,
+				F6509B041314122200EF915E /* TXLManager+Importer.m in Sources */,
+				F68E25861316897000EA0D21 /* NSString+UUID.m in Sources */,
+				F6B15B2E1349C8FC00E1948B /* TXLSituation.m in Sources */,
+				F6B15B381349CC9200E1948B /* TXLManagerUpdateOperation.m in Sources */,
+				F6C07C54134B0DB4003B2464 /* TXLManagerImportOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4A83312A8EDF900687F79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E5EFC74135C7F0F00B2D23F /* TXLContextSituationDefinitionWithIntersectionTest.m in Sources */,
+				F6E4A83C12A8EE2300687F79 /* GaiaTest.m in Sources */,
+				F6E4A83E12A8EE2400687F79 /* TXLContextTest.m in Sources */,
+				F6E4A83F12A8EE2500687F79 /* TXLDatabaseTest.m in Sources */,
+				F6E4A84012A8EE2600687F79 /* TXLGeometryCollectionTest.m in Sources */,
+				F6E4A84112A8EE2700687F79 /* TXLLinestringTest.m in Sources */,
+				F6E4A84212A8EE2700687F79 /* TXLManagerTest.m in Sources */,
+				F6E4A84312A8EE2800687F79 /* TXLMovingObjectTest.m in Sources */,
+				F6E4A84412A8EE2800687F79 /* TXLPolygonTest.m in Sources */,
+				F6E4A84512A8EE2900687F79 /* TXLRingTest.m in Sources */,
+				F6E4A84612A8EE2A00687F79 /* TXLTermTest.m in Sources */,
+				F6E4AA8C12A9059900687F79 /* GHUnitTestMain.m in Sources */,
+				F698446212B0EE8E0048150A /* TXLManagerOperationTest.m in Sources */,
+				0DB4534C12B62C7400BAAFA2 /* TXLMovingObjectSequenceTest.m in Sources */,
+				5EB8503412B9036200E8A4DD /* TXLSPARQLCompilerTest.m in Sources */,
+				FB00B50312F1A35D002CE643 /* TXLGraphPatternTest.m in Sources */,
+				F669F4B912F9981C00AEA42D /* TXLMovingObjectTestData.m in Sources */,
+				F69A660013126CDA005F5DC5 /* TXLManagerTestUpdateResultSet.m in Sources */,
+				5EE029171312A5DB006501C1 /* TXLSpatialSituationImporterTest.m in Sources */,
+				F69B1CC91327A0610058DD12 /* TXLContextSituationDefinitionTest.m in Sources */,
+				5E2D51F813337EBD005F5EDC /* TXLContextSituationDefinitionWithBlankNodesTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB908C9013154459008313C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB908CD41315485C008313C1 /* GHUnitTestMain.m in Sources */,
+				FB0678111316BE7A00AEEA84 /* TXLQueryTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E35E6E312F2DF6300B1B69E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E35E66C12F2D9D600B1B69E /* OpenTXL TestCoverage */;
+			targetProxy = 5E35E6E212F2DF6300B1B69E /* PBXContainerItemProxy */;
+		};
+		F6E4A85312A8EE8300687F79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* OpenTXL */;
+			targetProxy = F6E4A85212A8EE8300687F79 /* PBXContainerItemProxy */;
+		};
+		FB908CDA13154902008313C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* OpenTXL */;
+			targetProxy = FB908CD913154902008313C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OpenTXL_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = OpenTXL;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/Frameworks\"";
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OpenTXL_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = OpenTXL;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		5E35E5CB12F2D0C800B1B69E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-lgcov",
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests TestCoverage";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5E35E5CC12F2D0C800B1B69E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-lgcov",
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests TestCoverage";
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		5E35E66F12F2D9D600B1B69E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = "-lgcov";
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL TestCoverage";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		5E35E67012F2D9D600B1B69E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = "-lgcov";
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL TestCoverage";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		F6E4A83912A8EDFA00687F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests";
+			};
+			name = Debug;
+		};
+		F6E4A83A12A8EDFA00687F79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		FB908C9613154459008313C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "OpenTXL Integrationtest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests Integration";
+			};
+			name = Debug;
+		};
+		FB908C9713154459008313C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "OpenTXL Integrationtest-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests Integration";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "OpenTXL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "OpenTXL-MacOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E35E5CD12F2D0C900B1B69E /* Build configuration list for PBXNativeTarget "OpenTXL Tests TestCoverage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E35E5CB12F2D0C800B1B69E /* Debug */,
+				5E35E5CC12F2D0C800B1B69E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E35E67112F2D9D700B1B69E /* Build configuration list for PBXNativeTarget "OpenTXL TestCoverage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E35E66F12F2D9D600B1B69E /* Debug */,
+				5E35E67012F2D9D600B1B69E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E4A83B12A8EDFA00687F79 /* Build configuration list for PBXNativeTarget "OpenTXL Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E4A83912A8EDFA00687F79 /* Debug */,
+				F6E4A83A12A8EDFA00687F79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB908C9813154459008313C1 /* Build configuration list for PBXNativeTarget "OpenTXL Integrationtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB908C9613154459008313C1 /* Debug */,
+				FB908C9713154459008313C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

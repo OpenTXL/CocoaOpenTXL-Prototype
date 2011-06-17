@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'OpenTXL' target in the 'OpenTXL' project.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import <sparql.tab.h>
+    #import <spatialsituation.tab.h>
+#endif

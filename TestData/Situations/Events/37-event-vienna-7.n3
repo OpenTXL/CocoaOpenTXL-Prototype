@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/37> .
+
+@snapshot 2011-07-18T15:00Z : POINT(16.32996678065259 48.21089100043097) .
+@snapshot 2011-07-18T16:00Z : POINT(16.32996678065259 48.21089100043097) .
+
+[ a events:Event;
+  events:id 37;
+  events:name "Pfarramt Alt-Ottakring";
+  events:begin_time "2011-07-18T15:00Z";
+  events:end_time "2011-07-18T16:00Z";
+  events:category categories:Architecture;
+  events:description "Besuch des alten Dachstuhls";
+  events:image_url "http://opentxl.org/events/vienna/images/7.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

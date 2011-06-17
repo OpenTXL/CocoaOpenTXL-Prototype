@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/6> .
+
+@snapshot 2011-07-20T21:00Z : POINT(15.41785932444862 47.08927395873008) .
+@snapshot 2011-07-20T23:30Z : POINT(15.41785932444862 47.08927395873008) .
+
+[ a events:Event;
+  events:id 6;
+  events:name "Grazerwirt";
+  events:begin_time "2011-07-20T21:00Z";
+  events:end_time "2011-07-20T23:30Z";
+  events:category categories:Music;
+  events:description "Live Musik zu lokalen Gerichten.";
+  events:image_url "http://opentxl.org/events/graz/images/6.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

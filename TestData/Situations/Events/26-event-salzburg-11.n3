@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/26> .
+
+@snapshot 2011-07-17T20:30Z : POINT(13.02295654922103 47.79891897956534) .
+@snapshot 2011-07-17T22:30Z : POINT(13.02295654922103 47.79891897956534) .
+	
+[ a events:Event;
+  events:id 26;
+  events:name "Gasthof Wilhelmshoehe";
+  events:begin_time "2011-07-17T20:30Z";
+  events:end_time "2011-07-17T22:30Z";
+  events:category categories:Music;
+  events:description "Blasmusik";
+  events:image_url "http://opentxl.org/events/salzburg/images/11.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/9> .
+
+@snapshot 2011-07-21T11:00Z : POINT(15.437253 47.069084) .
+@snapshot 2011-07-21T13:00Z : POINT(15.437253 47.069084) .
+
+[ a events:Event;
+  events:id 9;
+  events:name "Steiermaerkische Sparkasse";
+  events:begin_time "2011-07-21T11:00Z";
+  events:end_time "2011-07-21T13:00Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch das neue Hauptgebaeude der Sparkasse.";
+  events:image_url "http://static.panoramio.com/photos/original/38493467.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

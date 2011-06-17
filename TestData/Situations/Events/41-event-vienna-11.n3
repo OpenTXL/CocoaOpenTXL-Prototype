@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/41> .
+
+@snapshot 2011-07-18T15:00Z : POINT(16.33041706567069 48.19605726388138) .
+@snapshot 2011-07-18T15:30Z : POINT(16.33041706567069 48.19605726388138) .
+
+[ a events:Event;
+  events:id 41;
+  events:name "Schmelzbruecke";
+  events:begin_time "2011-07-18T15:00Z";
+  events:end_time "2011-07-18T15:30Z";
+  events:category categories:Architecture;
+  events:description "Blick auf den Westbahnhof";
+  events:image_url "http://static.panoramio.com/photos/original/1160549.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

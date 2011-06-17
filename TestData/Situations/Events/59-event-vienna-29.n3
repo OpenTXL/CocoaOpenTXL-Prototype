@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/59> .
+
+@snapshot 2011-07-18T21:00Z : POINT(16.3746002606708 48.19624920957928) .
+@snapshot 2011-07-18T23:30Z : POINT(16.3746002606708 48.19624920957928) .
+
+[ a events:Event;
+  events:id 59;
+  events:name "Palais Schwarzenberg";
+  events:begin_time "2011-07-18T21:00Z";
+  events:end_time "2011-07-18T23:30Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch die Raeume des Palais";
+  events:image_url "http://static.panoramio.com/photos/original/5326229.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

@@ -1,0 +1,1845 @@
+%{
+//
+//  sparql.ym
+//  OpenTXL
+//
+//  Created by Eleni Tsigka on 29.11.10.
+//  Copyright 2010 Fraunhofer ISST. All rights reserved.
+//
+//  This file is part of OpenTXL.
+//	
+//  OpenTXL is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//	
+//  OpenTXL is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with OpenTXL. If not, see <http://www.gnu.org/licenses/>.
+//
+
+#include <stdio.h>
+#include <string.h>
+#import "TXLSPARQLCompiler.h"	
+#import "TXLTerm.h"
+#import "TXLContext.h"	
+#import "TXLManager.h"
+#import "TXLDatabase.h"
+#import "NSString+UUID.h"
+
+%}
+
+/*
+ ** 'pure_parser' tells bison to use no global variables and create a
+ ** reentrant parser.
+ */
+%pure_parser
+%name-prefix="sparql_"
+%file-prefix="sparql"
+%defines
+
+%union {
+	id object;
+}
+
+%parse-param {TXLSPARQLCompiler *param}
+%parse-param {void *scanner}
+%lex-param {yyscan_t *scanner}
+%error-verbose
+
+
+%{
+int		sparql_lex(YYSTYPE *, void *);
+NSNumber* sparql_createAndSaveVariable(NSUInteger queryId, NSString *name, BOOL inResultset, BOOL isBlankNode, NSError **error);
+
+%}
+
+/* terminal declarations */
+/* word symbols */
+%token SELECT FROM WHERE
+%token OPTIONAL ASK CONSTRUCT UNION
+%token PREFIX BASE
+%token NOT_EXISTS "not exists"
+%token A "a"
+%token DATATYPE_TAG
+
+/* expression delimiters */
+
+%token ',' '(' ')' '[' ']' '{' '}' 
+%token '?' '$' '.'
+
+/* arithmetic operations */
+%left '+' '-' '*' '/'
+
+/* literals */
+
+// This is a TXLTerm object
+%token <object> BOOLEAN_LITERAL "boolean literal"
+
+// These are NSString objects
+%token <object> DOUBLE_LITERAL "double literal"
+%token <object> DOUBLE_POSITIVE_LITERAL "double positive literal"
+%token <object> DOUBLE_NEGATIVE_LITERAL "double negative literal"
+%token <object> INTEGER_LITERAL "integer literal"
+%token <object> INTEGER_POSITIVE_LITERAL "integer positive literal"
+%token <object> INTEGER_NEGATIVE_LITERAL "integer negative literal"
+%token <object> DECIMAL_LITERAL "decimal literal"
+%token <object> DECIMAL_POSITIVE_LITERAL "decimal positive literal"
+%token <object> DECIMAL_NEGATIVE_LITERAL "decimal negative literal"
+%token <object> URI_LITERAL "URI literal"
+%token <object> PNAME_LITERAL "PName literal"
+%token <object> BLANK_LITERAL "blank node literal"
+%token <object> IDENTIFIER "identifier"
+%token <object> STRING_LITERAL_SIMPLE LANGUAGE_TAG
+
+/* non terminal declarations */
+
+// These are NSString objects
+%type <object> Var VarName
+
+// This is a TXLTerm object
+%type <object> RDFLiteral
+
+// These are NSNumber objects, which wrap the NSUInteger primary keys of terms, variables, and contexts. 
+%type <object> NumericLiteral NumericLiteralUnsigned NumericLiteralPositive NumericLiteralNegative
+%type <object> IRIref BlankNode BlankNodePropertyList TriplesNode
+
+// These are NSDictionary objects, which wrap the NSUInteger primary keys of the triples' components.
+// Dictionary keys: @"subject_id", @"subject_is_var" | @"predicate_id", @"predicate_is_var" | @"object_id", @"object_is_var" 
+%type <object> GraphTerm GraphTermNotLiteral VarOrIRIref VarOrTerm VarOrTermNotLiteral GraphNode Verb Object
+
+// These are NSDictionary objects, which wrap the pattern primary keys of the current and parent graph patterns.
+// Dictionary keys: @"pattern_id", @"in_pattern_id"
+%type <object> GroupGraphPattern NotExistsElt OptionalGraphPattern
+
+// These are NSArray objects, which contain dictionary objects for the current and parent graph patterns.
+// Dictionary keys: @"pattern_id", @"in_pattern_id"
+%type <object> ObjectTail ObjectList PropertyList PropertyListNotEmpty PropertyListTailOpt
+// Same, but used only in union patterns.
+%type <object> GroupOrUnionGraphPatternList UnionGraphPattern
+
+/*
+// No value
+TriplesSameSubject TriplesBlock TriplesBlockOpt DotOptional 
+GraphPatternListOpt GraphPatternListFilter GraphPatternList GraphPatternNotTriples
+
+WhereClause SourceSelector DefaultGraphClause DatasetClauseListOpt DatasetClauseList AskQuery ConstructQuery 
+SelectTerm SelectExpressionListTail SelectExpressionList SelectQuery 
+PrefixDeclListOpt BaseDeclOpt Prologue ReportFormat Query
+
+ConstructTriples ConstructTriplesOpt ConstructTemplate
+*/
+
+
+/*
+// Destructor for all types and tokens
+%destructor {
+	if($$){
+		NSLog(@"Destructor called!");
+		//[$$ release];		
+	}
+} 
+STRING_LITERAL_SIMPLE LANGUAGE_TAG DATATYPE_TAG 
+BOOLEAN_LITERAL DOUBLE_LITERAL DOUBLE_POSITIVE_LITERAL DOUBLE_NEGATIVE_LITERAL 
+INTEGER_LITERAL INTEGER_POSITIVE_LITERAL INTEGER_NEGATIVE_LITERAL 
+DECIMAL_LITERAL DECIMAL_POSITIVE_LITERAL DECIMAL_NEGATIVE_LITERAL 
+URI_LITERAL PNAME_LITERAL BLANK_LITERAL IDENTIFIER 
+Var VarName RDFLiteral
+NumericLiteral NumericLiteralUnsigned NumericLiteralPositive NumericLiteralNegative
+IRIref BlankNode BlankNodePropertyList TriplesNode
+GraphTerm GraphTermNotLiteral VarOrIRIref VarOrTerm VarOrTermNotLiteral GraphNode Verb Object
+GroupGraphPattern NotExistsElt OptionalGraphPattern
+GroupOrUnionGraphPatternList UnionGraphPattern 
+ObjectTail ObjectList PropertyList PropertyListNotEmpty PropertyListTailOpt
+*/
+
+%%
+
+
+
+
+/* grammar rules */
+
+
+/* Below here, grammar terms are numbered from
+ * http://www.w3.org/TR/rdf-sparql-query/
+ * except where noted
+ */
+
+
+/* 
+ * SPARQL Grammar
+ * [1] Query ::= Prologue ( SelectQuery | ConstructQuery | AskQuery )
+ */
+Query: Prologue ReportFormat
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [1] Query ::= Prologue ( SelectQuery | ConstructQuery | AskQuery )
+ */
+ReportFormat: SelectQuery
+{
+	// Do nothing.
+}
+| ConstructQuery
+{
+	// Do nothing.
+}
+| AskQuery
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [2] Prologue ::= BaseDecl? PrefixDecl*
+ */
+Prologue: BaseDeclOpt PrefixDeclListOpt
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [3] BaseDecl ::= 'BASE' IRI_REF
+ */
+BaseDeclOpt: BASE URI_LITERAL
+{
+	if ([param.prefixes objectForKey:@"base"] == nil){
+		// Trim any spaces.
+		NSString *uriLiteral = [(NSString *)$2 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		
+		/*
+		// Add a '/' at the end of the base prefix and 
+		NSString *uriLiteral = [NSString stringWithFormat:@"%@%@", [$2 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], 
+								( [$2 hasSuffix:@"/"] ? @"" : @"/" )];
+		*/
+		[param.prefixes setObject:uriLiteral forKey:@"base"];
+	} else{
+		sparql_error(param, scanner, "BASE can be defined only once!");
+		YYABORT;
+	}
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [4] PrefixDecl ::= 'PREFIX' PNAME_NS IRI_REF
+ */
+PrefixDeclListOpt: PrefixDeclListOpt PREFIX IDENTIFIER URI_LITERAL
+{
+	if ([param.prefixes objectForKey:(NSString *)$3] == nil){
+		// Trim any spaces.
+		NSString *uriLiteral = [(NSString *)$4 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		/*
+		// Add a '/' at the end of the prefix
+		NSString *uriLiteral = [NSString stringWithFormat:@"%@%@", [$4 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], 
+								( [$4 hasSuffix:@"/"] ? @"" : @"/" )];
+		*/
+		[param.prefixes setObject:uriLiteral forKey:(NSString *)$3];		
+	} else{
+		const char *message = [[NSString stringWithFormat:@"PREFIX %s can be defined only once.", (NSString *)$3] cStringUsingEncoding:NSUTF8StringEncoding];
+		sparql_error(param, scanner, message);
+		YYABORT;
+	}
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [5] SelectQuery ::= 'SELECT' ( Var+ | '*' ) DatasetClause* WhereClause
+ */
+SelectQuery: SELECT SelectExpressionList DatasetClauseListOpt WhereClause
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [5] SelectQuery ::= 'SELECT' ( Var+ | '*' ) DatasetClause* WhereClause
+ */
+SelectExpressionList: SelectExpressionListTail
+{
+	// Do nothing.
+}
+| '*'
+{
+	// Do nothing.
+	param.selectStar = YES;
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [5] SelectQuery ::= 'SELECT' ( Var+ | '*' ) DatasetClause* WhereClause
+ */
+SelectExpressionListTail: SelectExpressionListTail SelectTerm
+{
+	// Do nothing.
+}
+| SelectTerm
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [5] SelectQuery ::= 'SELECT' ( Var+ | '*' ) DatasetClause* WhereClause
+ */
+SelectTerm: Var
+{
+	// The '?' or '$' part of the variable has been removed at the previous step from $1.
+		
+	// Check if the variable has been already stored in the database. If yes it should also be stored in the variables dictionary of the compiler.
+	if ([param.variables objectForKey:(NSString *)$1] == nil){
+
+		// Insert the variable into the database.
+		NSError *error;
+		NSNumber *variableId = sparql_createAndSaveVariable(param.queryId, (NSString *)$1, YES, NO, &error);
+
+		if(!variableId){
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+		[param.variables setObject:variableId forKey:(NSString *)$1];		
+	} 
+	/*
+	else{
+		// Check that a variable with this name is not saved in the database as a blank node or as a variable with in_resultset = NO. 
+		//NSLog(@"Variable already added!");
+	}
+	*/
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [6] ConstructQuery ::= 'CONSTRUCT' ConstructTemplate DatasetClause* WhereClause SolutionModifier
+ */
+ConstructQuery: CONSTRUCT ConstructTemplate DatasetClauseListOpt WhereClause
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [8] AskQuery ::= 'ASK' DatasetClause* WhereClause
+ */
+AskQuery: ASK DatasetClauseListOpt WhereClause
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [9] DatasetClause ::= 'FROM' ( DefaultGraphClause )
+ */
+DatasetClauseList: DatasetClauseListOpt FROM DefaultGraphClause
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [9] DatasetClause ::= 'FROM' ( DefaultGraphClause )
+ */
+DatasetClauseListOpt: DatasetClauseList
+{
+	// Do nothing.
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [10] DefaultGraphClause ::= SourceSelector
+ */
+DefaultGraphClause: SourceSelector
+{
+	// Do nothing.
+}
+;  
+
+
+/*
+ * SPARQL Grammar
+ * [12] SourceSelector ::= IRIref
+ */
+SourceSelector: IRIref
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [13] WhereClause ::= 'WHERE'? GroupGraphPattern
+ */
+WhereClause:  WHERE GroupGraphPattern
+{
+	// Do nothing.
+}
+| GroupGraphPattern
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+GroupGraphPattern: '{' TriplesBlockOpt GraphPatternListOpt '}'
+{
+	// Set the GroupGraphPattern value to the graph pattern id.
+	NSDictionary *idsDict;
+	NSNumber *patternId = [param.patternIds lastObject];
+	
+	if([param.patternIds count] >= 2){
+		NSNumber *inPatternId = [param.patternIds objectAtIndex:([param.patternIds count] - 2)];
+		idsDict = [NSDictionary dictionaryWithObjectsAndKeys:patternId, @"pattern_id", inPatternId, @"in_pattern_id", nil];
+	} else {
+		idsDict = [NSDictionary dictionaryWithObjectsAndKeys:patternId, @"pattern_id", nil];
+	}
+
+	$$ = idsDict;
+	[param.patternIds removeLastObject];
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+TriplesBlockOpt: TriplesBlock
+{
+	// Do nothing.
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+GraphPatternListOpt: GraphPatternListOpt GraphPatternList
+{
+	// Do nothing.
+}
+| GraphPatternList
+{
+	// Do nothing.
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+GraphPatternList: GraphPatternListFilter DotOptional TriplesBlockOpt
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+GraphPatternListFilter: GraphPatternNotTriples
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [20] GroupGraphPattern ::= '{' TriplesBlock? ( ( GraphPatternNotTriples ) '.'? TriplesBlock? )* '}'
+ */
+DotOptional: '.'
+{
+	// Do nothing.
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [21] TriplesBlock ::= TriplesSameSubject ( '.' TriplesBlock? )?
+ */
+TriplesBlock: TriplesSameSubject '.' TriplesBlockOpt
+{
+	// Do nothing.
+}
+| TriplesSameSubject
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [22] GraphPatternNotTriples ::= OptionalGraphPattern | GroupOrUnionGraphPattern | NotExistsElt
+ *
+ * combined with the part relating to the simgle GroupGraphPattern from:
+ * [25] GroupOrUnionGraphPattern ::= GroupGraphPattern ( 'UNION' GroupGraphPattern )*
+ */
+GraphPatternNotTriples: OptionalGraphPattern
+{
+	// Insert the optional graph pattern into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result = [database executeSQLWithParameters:@"\
+					   INSERT INTO txl_query_pattern_optional (in_pattern_id, pattern_id) VALUES (?, ?)"
+												   error:&error, 
+					   [(NSDictionary *)$1 objectForKey:@"in_pattern_id"],
+				 	   [(NSDictionary *)$1 objectForKey:@"pattern_id"],
+					   nil
+	                   ];
+	if (result == nil) {
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	} 	
+}
+| UnionGraphPattern
+{
+	// Insert the union graph pattern into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSArray *result;
+	NSError *error;
+	
+	// If it is a union graph pattern.
+	NSUInteger unionId;
+	NSArray *unionPatternIdDicts = (NSArray *)$1;
+	
+	result = [database executeSQLWithParameters:@"\
+			  INSERT INTO txl_query_pattern_union (in_pattern_id) VALUES (?)"
+										  error:&error, 
+			  [(NSDictionary *)[unionPatternIdDicts objectAtIndex:0] objectForKey:@"in_pattern_id"],
+			  nil
+			  ];
+	if (result == nil) {
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		unionId = database.lastInsertRowid;
+	}
+	
+	// Insert the union graph pattern pairs into the database
+	for (NSDictionary *dict in unionPatternIdDicts) {
+		
+		result = [database executeSQLWithParameters:@"\
+				  INSERT INTO txl_query_pattern_union_pattern (union_id, pattern_id) VALUES (?, ?)"
+											  error:&error, 
+				  [NSNumber numberWithUnsignedInteger:unionId],
+				  [dict objectForKey:@"pattern_id"],
+				  nil
+				  ];
+		if (result == nil) {
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+	}
+}
+| GroupGraphPattern
+{
+	// Insert the group graph pattern into the database.	
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result = [database executeSQLWithParameters:@"\
+					   INSERT INTO txl_query_pattern_group (in_pattern_id, pattern_id) VALUES (?, ?)"
+												   error:&error, 
+					   [(NSDictionary *)$1 objectForKey:@"in_pattern_id"],
+					   [(NSDictionary *)$1 objectForKey:@"pattern_id"],
+					   nil
+					   ];
+	if (result == nil) {
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	} 	
+}
+| NotExistsElt
+{
+	// Insert the "not exists" graph pattern into the database.	
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result = [database executeSQLWithParameters:@"\
+					   INSERT INTO txl_query_pattern_not_exists (in_pattern_id, pattern_id) VALUES (?, ?)"
+												   error:&error, 
+					   [(NSDictionary *)$1 objectForKey:@"in_pattern_id"],
+					   [(NSDictionary *)$1 objectForKey:@"pattern_id"],
+					   nil
+	                   ];
+	if (result == nil) {
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	} 
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [23] OptionalGraphPattern ::= 'OPTIONAL' GroupGraphPattern
+ */
+OptionalGraphPattern: OPTIONAL GroupGraphPattern
+{
+	// Set the OptionalGraphPattern value equal to the GroupGraphPattern value, which is an NSDictionary with the ids of the optional pattern and of the outer pattern.
+	$$ = $2;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [25] GroupOrUnionGraphPattern ::= GroupGraphPattern ( 'UNION' GroupGraphPattern )*
+ */
+UnionGraphPattern: GroupGraphPattern UNION GroupOrUnionGraphPatternList
+{
+	// Create list with dictionaries containing the pattern ids.
+	if(!$3 || ([(NSMutableArray *)$3 count] == 0) ){
+		
+		$$ = [NSMutableArray arrayWithObject:$1];
+	} else{
+		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:$1];
+		[array addObjectsFromArray:$3];
+		$$ = array;
+	}
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [25] GroupOrUnionGraphPattern ::= GroupGraphPattern ( 'UNION' GroupGraphPattern )*
+ */
+GroupOrUnionGraphPatternList: GroupOrUnionGraphPatternList UNION GroupGraphPattern
+{	
+	// Create list with dictionaries containing the pattern ids.
+	if(!$1 || ([(NSMutableArray *)$1 count] == 0) ){
+		
+		$$ = [NSMutableArray arrayWithObject:$3];
+	} else{
+		
+		NSMutableArray *array = [NSMutableArray arrayWithArray:$1];
+		[array addObject:$3];
+		$$ = array;
+	}
+}
+| GroupGraphPattern
+{
+	$$ = [NSMutableArray arrayWithObject:$1];
+}
+;
+	
+/*
+ * SPARQL Grammar: NEW Grammar Term form SPARQL Grammar 1.1 
+ * NotExistsElt ::= 'NOT EXISTS' GroupGraphPattern
+ */
+NotExistsElt: NOT_EXISTS GroupGraphPattern
+{
+	// Set the NotExistsElt value equal to the GroupGraphPattern value, which is an NSDictionary with the ids of the 'not exists' pattern and of the outer pattern.
+	$$ = $2;
+};
+
+
+/*
+ * SPARQL Grammar
+ * [30] ConstructTemplate ::= '{' ConstructTriples? '}'
+ */
+ConstructTemplate:  '{' ConstructTriplesOpt '}'
+{
+	// Update the txl_query entity for this query to also store the pattern id of the construct template graph pattern.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result = [database executeSQLWithParameters:@"UPDATE txl_query SET construct_template_pattern_id = ? WHERE id = ?"
+		                             error:&error,
+					   [param.patternIds lastObject], 
+					   [NSNumber numberWithUnsignedInteger:param.queryId],
+					   nil];
+	
+	if (result == nil) {
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	}
+    
+	// Remove the pattern id of the construct template from the param.patternIds list.
+	[param.patternIds removeLastObject];
+};
+
+/*
+ * SPARQL Grammar
+ * [31] ConstructTriples ::= TriplesSameSubject ( '.' ConstructTriples? )?
+ */
+ConstructTriplesOpt: ConstructTriples
+{
+	// Do nothing.
+}
+| /* empty */
+{
+	// Do nothing.
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [31] ConstructTriples ::= TriplesSameSubject ( '.' ConstructTriples? )?
+ */
+ConstructTriples: TriplesSameSubject '.' ConstructTriplesOpt
+{
+	// Do nothing.
+}
+| TriplesSameSubject
+{
+	// Do nothing.
+}
+;
+
+		
+/*
+ * SPARQL Grammar
+ * [32] TriplesSameSubject ::= VarOrTerm PropertyListNotEmpty | TriplesNode PropertyList
+ */
+TriplesSameSubject: VarOrTermNotLiteral PropertyListNotEmpty
+{
+	NSDictionary *subject = $1;
+	NSMutableArray *predicateList = $2;
+	
+	// Insert the basic graph patterns into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result;
+	
+	for (NSMutableDictionary *predicateObjectDict in predicateList) {
+
+		NSDictionary *predicate = [predicateObjectDict objectForKey:@"predicate"];
+		NSMutableArray *objectList = [predicateObjectDict objectForKey:@"object_list"];
+		
+		for (NSDictionary *object in objectList) {
+				
+			result = [database executeSQLWithParameters:[NSString stringWithFormat:@"\
+														 INSERT INTO txl_query_pattern_triple (in_pattern_id, %@, %@, %@ ) VALUES (?, ?, ?, ?)", 
+														 ([[subject objectForKey:@"subject_is_var"] boolValue] ? @"subject_var_id" : @"subject_id"),
+														 ([[predicate objectForKey:@"predicate_is_var"] boolValue] ? @"predicate_var_id" : @"predicate_id"),
+														 ([[object objectForKey:@"object_is_var"] boolValue] ? @"object_var_id" : @"object_id")]
+												  error:&error,
+					  [param.patternIds lastObject],
+					  [subject objectForKey:@"subject_id"],
+					  [predicate objectForKey:@"predicate_id"],
+					  [object objectForKey:@"object_id"],
+					  nil
+					  ];
+			
+			if (result == nil) {
+				param.compilerError = error;
+				sparql_error(param, scanner, "");
+				YYABORT;
+			}
+		}
+	}
+}
+| TriplesNode PropertyList
+{
+	NSMutableDictionary *subject = [NSDictionary dictionaryWithObjectsAndKeys:
+									$1, @"subject_id",
+									[NSNumber numberWithBool:YES], @"subject_is_var", nil];
+	// This predicate list can be empty.
+	NSMutableArray *predicateList = $2;
+	
+	// Insert the basic graph patterns into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSError *error;
+	NSArray *result;
+	
+	for (NSMutableDictionary *predicateObjectDict in predicateList) {
+		
+		NSDictionary *predicate = [predicateObjectDict objectForKey:@"predicate"];
+		NSMutableArray *objectList = [predicateObjectDict objectForKey:@"object_list"];
+		
+		for (NSDictionary *object in objectList) {
+			
+			result = [database executeSQLWithParameters:[NSString stringWithFormat:@"\
+														 INSERT INTO txl_query_pattern_triple (in_pattern_id, %@, %@, %@ ) VALUES (?, ?, ?, ?)", 
+														 ([[subject objectForKey:@"subject_is_var"] boolValue] ? @"subject_var_id" : @"subject_id"),
+														 ([[predicate objectForKey:@"predicate_is_var"] boolValue] ? @"predicate_var_id" : @"predicate_id"),
+														 ([[object objectForKey:@"object_is_var"] boolValue] ? @"object_var_id" : @"object_id")]
+												  error:&error,
+					  [param.patternIds lastObject],
+					  [subject objectForKey:@"subject_id"],
+					  [predicate objectForKey:@"predicate_id"],
+					  [object objectForKey:@"object_id"],
+					  nil
+					  ];
+			
+			if (result == nil) {
+				param.compilerError = error;
+				sparql_error(param, scanner, "");
+				YYABORT;
+			}
+		}
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [33] PropertyListNotEmpty ::= Verb ObjectList ( ';' ( Verb ObjectList )? )*
+ */
+PropertyListNotEmpty: Verb ObjectList PropertyListTailOpt
+{
+	// Create a dictionary containing this predicate and the corresponding object list. 
+	NSMutableDictionary *predicateObjectDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+											   $1, @"predicate",
+											   $2, @"object_list", nil];
+	
+	// Create a list with the dictionaries for the properties and objects.
+	if(!$3 || ([(NSMutableArray *)$3 count] == 0) ){
+		$$ = [NSMutableArray arrayWithObject:predicateObjectDict];
+		
+	} else{		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:predicateObjectDict];
+		[array addObjectsFromArray:$3];
+		$$ = array;
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [33] PropertyListNotEmpty ::= Verb ObjectList ( ';' ( Verb ObjectList )? )*
+ */
+PropertyListTailOpt: ';' PropertyList
+{
+	$$ = $2;
+}
+| /* empty */
+{
+	$$ = nil;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [34] PropertyList ::= PropertyListNotEmpty?
+ */
+PropertyList: PropertyListNotEmpty
+{
+	$$ = $1;
+}
+| /* empty */
+{
+	$$ = nil;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [35] ObjectList ::= Object ( ',' Object )*
+ */
+ObjectList: Object ObjectTail
+{
+	// Create list with dictionaries containing the objects.
+	if(!$2 || ([(NSMutableArray *)$2 count] == 0) ){
+	
+		$$ = [NSMutableArray arrayWithObject:$1];
+	} else{
+		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:$1];
+		[array addObjectsFromArray:$2];
+		$$ = array;
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [35] ObjectList ::= Object ( ',' Object )*
+ */
+ObjectTail: ',' ObjectList
+{
+	$$ = $2;
+}
+| /* empty */
+{
+	$$ = nil;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [36] Object ::= GraphNode
+ */
+Object: GraphNode
+{
+	$$ = $1;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [37] Verb ::= VarOrIRIref | 'a'
+ */
+Verb: VarOrIRIref
+{
+	$$ = $1;
+}
+| A
+{
+	NSError *error;
+	TXLTerm *a = [TXLTerm termWithIRI:@"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+	a = [a save:&error];
+	
+	if (a == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	} else {
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [NSNumber numberWithUnsignedInteger:[a primaryKey]], @"predicate_id",
+			  [NSNumber numberWithBool:NO], @"predicate_is_var", nil];
+	}	
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [38] TriplesNode ::= BlankNodePropertyList
+ */
+TriplesNode: BlankNodePropertyList
+{
+	// This is the blank node id
+	$$ = $1;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [39] BlankNodePropertyList ::= '* [' PropertyListNotEmpty ']'
+ */
+BlankNodePropertyList: '[' PropertyListNotEmpty ']'
+{
+	// Store the blank node directly in the database as a variable with name nil. 
+	// This kind of blank nodes are not kept in the variables dictionary of the compiler.
+	// The idea is that each anonymous blank node is different than the others and so it should be saved in the database. 
+	
+	// Insert the blank node subject as a variable with a UUID for name into the database.
+	NSError *error;
+	NSNumber *blankNodeId = sparql_createAndSaveVariable(param.queryId, nil, NO, YES, &error);
+
+	if(!blankNodeId){
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	}
+	
+	// Insert the basic graph pattern contained in this blank node in the database.
+	NSMutableArray *predicateList = $2;
+	
+	// Insert the basic graph patterns into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSArray *result;
+	
+	for (NSMutableDictionary *predicateObjectDict in predicateList) {
+		
+		NSDictionary *predicate = [predicateObjectDict objectForKey:@"predicate"];
+		NSMutableArray *objectList = [predicateObjectDict objectForKey:@"object_list"];
+		
+		for (NSDictionary *object in objectList) {
+			
+			result = [database executeSQLWithParameters:[NSString stringWithFormat:@"\
+														 INSERT INTO txl_query_pattern_triple (in_pattern_id, subject_var_id, %@, %@ ) VALUES (?, ?, ?, ?)", 
+														 ([[predicate objectForKey:@"predicate_is_var"] boolValue] ? @"predicate_var_id" : @"predicate_id"),
+														 ([[object objectForKey:@"object_is_var"] boolValue] ? @"object_var_id" : @"object_id")]
+												  error:&error,
+					  [param.patternIds lastObject],
+					  blankNodeId,
+					  [predicate objectForKey:@"predicate_id"],
+					  [object objectForKey:@"object_id"],
+					  nil
+					  ];
+			
+			if (result == nil) {
+				param.compilerError = error;
+				sparql_error(param, scanner, "");
+				YYABORT;
+			}
+		}
+	}
+	// Store the blank node id for later use.
+	$$ = blankNodeId;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [41] GraphNode ::= VarOrTerm | TriplesNode
+ */
+GraphNode: VarOrTerm
+{
+	$$ = $1;
+}
+| TriplesNode
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"object_id",
+		  [NSNumber numberWithBool:YES], @"object_is_var", nil];
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [42] VarOrTerm ::= Var | GraphTerm
+ */
+VarOrTermNotLiteral: Var
+{
+	// The '?' or '$' part of the variable has been removed at the previous step from $$.
+	// Check if the variable has been already stored in the database. 
+	// If yes it should also be stored in the variables dictionary of the compiler.
+	
+	if ([param.variables objectForKey:(NSString *)$1] == nil){
+		
+		// Insert the variable into the database.
+		NSError *error;
+		BOOL shouldBeInResultset = (param.partOfQuery == kTXLQueryPartConstruct) || param.selectStar;
+		NSNumber *variableId = sparql_createAndSaveVariable(param.queryId, (NSString *)$1, shouldBeInResultset, NO, &error);
+		
+		if(!variableId){
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+	
+		[param.variables setObject:variableId forKey:(NSString *)$1];		
+		
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  variableId, @"subject_id",
+			  [NSNumber numberWithBool:YES], @"subject_is_var", nil];
+	
+	} else{
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [param.variables objectForKey:$1], @"subject_id",
+			  [NSNumber numberWithBool:YES], @"subject_is_var", nil];
+		
+		// Check that a variable with this name is not saved in the database as a blank node or as a variable with in_resultset = NO (?). 
+		//NSLog(@"Variable already added!");
+	}
+}
+| GraphTermNotLiteral
+{
+	$$ = $1;
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [42] VarOrTerm ::= Var | GraphTerm
+ */
+VarOrTerm: Var
+{
+	// The '?' or '$' part of the variable has been removed at the previous step from $$.
+	// Check if the variable has been already stored in the database. 
+	// If yes it should also be stored in the variables dictionary of the compiler.
+	
+	if ([param.variables objectForKey:$1] == nil){
+		
+		// Insert the variable into the database.
+		NSError *error;
+		BOOL shouldBeInResultset = (param.partOfQuery == kTXLQueryPartConstruct) || param.selectStar;
+		NSNumber *variableId = sparql_createAndSaveVariable(param.queryId, (NSString *)$1, shouldBeInResultset, NO, &error);
+		
+		if(!variableId){
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+		
+		[param.variables setObject:variableId forKey:$1];		
+		
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  variableId, @"object_id",
+			  [NSNumber numberWithBool:YES], @"object_is_var", nil];
+
+	} else{
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [param.variables objectForKey:(NSString *)$1], @"object_id",
+			  [NSNumber numberWithBool:YES], @"object_is_var", nil];
+				
+		// Check that a variable with this name is not saved in the database as a blank node or as a variable with in_resultset = NO. (?)
+		//NSLog(@"Variable already added!");
+	}	
+}
+| GraphTerm
+{
+	$$ = $1;
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [43] VarOrIRIref ::= Var | IRIref
+ */
+VarOrIRIref: Var
+{
+	// The '?' or '$' part of the variable has been removed at the previous step from $$.
+	// Check if the variable has been already stored in the database. 
+	// If yes it should also be stored in the variables dictionary of the compiler.
+	
+	if ([param.variables objectForKey:(NSString *)$1] == nil){
+		
+		// Insert the variable into the database.		
+		NSError *error;
+		BOOL shouldBeInResultset = (param.partOfQuery == kTXLQueryPartConstruct) || param.selectStar;
+		NSNumber *variableId = sparql_createAndSaveVariable(param.queryId, (NSString *)$1, shouldBeInResultset, NO, &error);
+		
+		if(!variableId){
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+		
+		[param.variables setObject:variableId forKey:(NSString *)$1];	
+		
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  variableId, @"predicate_id",
+			  [NSNumber numberWithBool:YES], @"predicate_is_var", nil];
+		
+	} else{
+
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [param.variables objectForKey:(NSString *)$1], @"predicate_id",
+			  [NSNumber numberWithBool:YES], @"predicate_is_var", nil];
+	
+		// Check that a variable with this name is not saved in the database as a blank node or as a variable with in_resultset = NO. 
+		//NSLog(@"Variable already added!");
+	}
+}	
+| IRIref
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"predicate_id",
+		  [NSNumber numberWithBool:NO], @"predicate_is_var", nil];	
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [44] Var ::= VAR1 | VAR2
+ */
+Var: '?' VarName
+{
+	// Remove the '?' part of the variable.
+	$$ = $2;
+}
+| '$' VarName
+{
+	// Remove the '$' part of the variable.
+	$$ = $2;
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [44] Var ::= VAR1 | VAR2
+ */
+VarName: IDENTIFIER
+{
+	$$ = $1;
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [45] GraphTerm ::= IRIref | RDFLiteral | NumericLiteral | BooleanLiteral | BlankNode | NIL
+ */
+GraphTermNotLiteral: IRIref
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"subject_id",
+		  [NSNumber numberWithBool:NO], @"subject_is_var", nil];
+}
+| BlankNode
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"subject_id",
+		  [NSNumber numberWithBool:YES], @"subject_is_var", nil];
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [45] GraphTerm ::= IRIref | RDFLiteral | NumericLiteral | BooleanLiteral | BlankNode | NIL
+ */
+GraphTerm: IRIref
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"object_id",
+		  [NSNumber numberWithBool:NO], @"object_is_var", nil];	
+}
+| RDFLiteral
+{
+	// String literal is created but not yet saved.
+	TXLTerm *term  = (TXLTerm *)$1;
+	NSError *error;
+	term = [term save:&error];
+	
+	if (term == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [NSNumber numberWithUnsignedInteger:[term primaryKey]], @"object_id",
+			  [NSNumber numberWithBool:NO], @"object_is_var", nil];		
+	}	
+}
+| NumericLiteral
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"object_id",
+		  [NSNumber numberWithBool:NO], @"object_is_var", nil];		
+}
+| BOOLEAN_LITERAL
+{
+	// Boolean literal is created by the scanner but not yet saved.
+	TXLTerm *term  = (TXLTerm *)$1;
+	NSError *error;
+	term = [term save:&error];
+	
+	if (term == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+			  [NSNumber numberWithUnsignedInteger:[term primaryKey]], @"object_id",
+			  [NSNumber numberWithBool:NO], @"object_is_var", nil];		
+	}
+}
+| BlankNode
+{
+	$$ = [NSDictionary dictionaryWithObjectsAndKeys:
+		  $1, @"object_id",
+		  [NSNumber numberWithBool:YES], @"object_is_var", nil];		
+}
+|  '(' ')'
+{
+	$$ = nil;
+}
+;
+ 
+
+/*
+ * SPARQL Grammar
+ * [60] RDFLiteral ::= String ( LANGTAG | ( '^^' IRIref ) )?
+ */
+
+RDFLiteral: STRING_LITERAL_SIMPLE LANGUAGE_TAG
+{
+	// The '@' was removed by the parser.
+	$$ = [TXLTerm termWithLiteral:$1
+						 language:$2];	
+}
+| STRING_LITERAL_SIMPLE DATATYPE_TAG URI_LITERAL 
+{	
+	$$ = [TXLTerm termWithLiteral:$1 
+						 dataType:[TXLTerm termWithLiteral:$3]];	
+}
+| STRING_LITERAL_SIMPLE DATATYPE_TAG PNAME_LITERAL
+{
+	// Replace prefix with the complete resource.
+	NSRange range = [(NSString *)$3 rangeOfString:@":"];
+	NSString *prefix = [(NSString *)$3 substringToIndex:range.location];
+	NSString *localName = [(NSString *)$3 substringFromIndex:(range.location + range.length)];
+	
+	NSString *iri = @"";
+	if ([param.prefixes objectForKey:prefix]) {
+		iri = [param.prefixes objectForKey:prefix];
+	}
+	else{
+		const char *message = [[NSString stringWithFormat:@"Prefix %@ of the datatype %@ of a typed literal, was not found in query's defined prefixes.", prefix, (NSString *)$3] cStringUsingEncoding:NSUTF8StringEncoding];
+		sparql_error(param, scanner, message);
+		YYABORT;
+	}
+	
+	$$ = [TXLTerm termWithLiteral:$1 
+							 dataType:[TXLTerm termWithLiteral:[NSString stringWithFormat:@"%@%@", iri, localName]]];				
+}
+| STRING_LITERAL_SIMPLE 
+{
+	$$ = [TXLTerm termWithLiteral:$1];
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [61] NumericLiteral ::= NumericLiteralUnsigned | NumericLiteralPositive | NumericLiteralNegative
+ */
+NumericLiteral: NumericLiteralUnsigned
+{
+	$$ = $1;
+}
+| NumericLiteralPositive
+{
+	$$ = $1;
+}
+| NumericLiteralNegative
+{
+	$$ = $1;
+}
+;
+
+/*
+ * SPARQL Grammar
+ * [62] NumericLiteralUnsigned ::= INTEGER | DECIMAL | DOUBLE
+ */
+NumericLiteralUnsigned: INTEGER_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithInteger:[(NSString *)$1 integerValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DECIMAL_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DOUBLE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [63] NumericLiteralPositive ::= INTEGER_POSITIVE | DECIMAL_POSITIVE | DOUBLE_POSITIVE 
+ */
+NumericLiteralPositive: INTEGER_POSITIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithInteger:[(NSString *)$1 integerValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DECIMAL_POSITIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+		
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DOUBLE_POSITIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [64] NumericLiteralNegative ::= INTEGER_NEGATIVE | DECIMAL_NEGATIVE | DOUBLE_NEGATIVE
+ */
+NumericLiteralNegative: INTEGER_NEGATIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithInteger:[(NSString *)$1 intValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DECIMAL_NEGATIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+| DOUBLE_NEGATIVE_LITERAL
+{
+	TXLTerm *numericalTerm = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+	NSError *error;
+	numericalTerm = [numericalTerm save:&error];
+	
+	if (numericalTerm == nil) {
+		$$ = nil;
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+
+	} else {
+		$$ = [NSNumber numberWithUnsignedInteger:[numericalTerm primaryKey]];
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [67] IRIref ::= IRI_REF | PrefixedName
+ */
+IRIref: URI_LITERAL
+{
+	// If we are in the CONSTRUCT or the WHERE clause of the query store the uri as a term.
+	if ( (param.partOfQuery == kTXLQueryPartWhere) || (param.partOfQuery == kTXLQueryPartConstruct) ) {
+		TXLTerm *iriTerm = [TXLTerm termWithIRI:(NSString *)$1];
+		NSError *error;
+		iriTerm = [iriTerm save:&error];
+		
+		if (iriTerm == nil) {
+			$$ = nil;
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+
+		} else {
+			$$ = [NSNumber numberWithUnsignedInteger:[iriTerm primaryKey]];
+		}
+	}
+	// Store the TXLContext if we are in the FROM clause of the query.
+	else if (param.partOfQuery == kTXLQueryPartFrom) {
+
+		// The method - [TXLManager contextForProtocol:host:path:&error:] create and store only the context components 
+		// which have not been yet stored in the database. After this process the TXLContext object is assigned a valid value fot the primary key.
+        
+        NSURL *ctxUrl = [NSURL URLWithString:(NSString *)$1];
+        
+        NSString *protocol = ctxUrl.scheme;
+        NSMutableString *host = [NSMutableString string];
+        
+        if ([ctxUrl.user length] > 0) {
+            [host appendFormat:@"%@@", ctxUrl.user];
+        }
+        
+        [host appendString:ctxUrl.host];
+        
+        if (ctxUrl.port != 0) {
+            [host appendFormat:@":%d", ctxUrl.port];
+        }
+        
+		NSMutableArray *pathComponents = [NSMutableArray array];
+		// Remove the "/" path component.
+		for(NSString *component in ctxUrl.pathComponents) {
+			if (![component isEqualToString:@"/"]) {
+				[pathComponents addObject:component];
+			}
+		}
+		
+		NSError *error;
+		TXLContext *context = [[TXLManager sharedManager] contextForProtocol:protocol
+                                                                        host:host
+                                                                        path:pathComponents
+                                                                       error:&error];
+		if (context == nil) {
+			$$ = nil;
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+
+		} else {
+			// Check if this TXLContext has been already stored for this query. 
+			TXLDatabase *database = [[TXLManager sharedManager] database];
+			NSError *error;
+			NSArray *result = [database executeSQLWithParameters:@"SELECT * FROM txl_query_context WHERE query_id = ? AND context_id = ?"
+														   error:&error,
+							   [NSNumber numberWithUnsignedInteger:param.queryId], 
+							   [NSNumber numberWithUnsignedInteger:context.primaryKey], 
+							   nil
+							   ];
+			
+			if (result == nil) {
+				param.compilerError = error;
+				sparql_error(param, scanner, "");
+				YYABORT;
+				
+			} else if ([result count] == 0) {
+				// Insert the pair (query_id, context_id) into the database.
+				result = [database executeSQLWithParameters:@"\
+						  INSERT INTO txl_query_context (query_id, context_id) \
+						  VALUES (?, ?)"
+													  error:&error,
+						  [NSNumber numberWithUnsignedInteger:param.queryId],
+						  [NSNumber numberWithUnsignedInteger:context.primaryKey],
+						  nil
+						  ];
+				if (result == nil) {
+					param.compilerError = error;
+					sparql_error(param, scanner, "");
+					YYABORT;
+				} 
+			}
+			$$ = nil;		
+		}
+	}
+}
+| PNAME_LITERAL
+{
+	// Replace prefix with the complete resource.
+	NSRange range = [(NSString *)$1 rangeOfString:@":"];
+	NSString *prefix = [(NSString *)$1 substringToIndex:range.location];
+	NSString *localName = [(NSString *)$1 substringFromIndex:(range.location + range.length)];
+	
+	NSString *iri = @"";
+	if ([param.prefixes objectForKey:prefix]) {
+		iri = [param.prefixes objectForKey:prefix];
+	}else {
+		const char *message = [[NSString stringWithFormat:@"Prefix %@ of the literal %@, was not found in query's defined prefixes.", prefix, (NSString *)$1] cStringUsingEncoding:NSUTF8StringEncoding];
+		sparql_error(param, scanner, message);
+		YYABORT;
+	}
+	
+	// If we are in the CONSTRUCT or the WHERE clause of the query store the uri as a term.
+	if ( (param.partOfQuery == kTXLQueryPartWhere) || (param.partOfQuery == kTXLQueryPartConstruct) ) {
+		TXLTerm *iriTerm = [TXLTerm termWithIRI:[NSString stringWithFormat:@"%@%@", iri, localName]];
+		NSError *error;
+		iriTerm = [iriTerm save:&error];
+		
+		if (iriTerm == nil) {
+			$$ = nil;
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+
+		} else {
+			$$ = [NSNumber numberWithUnsignedInteger:[iriTerm primaryKey]];
+		}
+	} 
+	// Store the TXLContext if we are in the FROM clause of the query.
+	else if (param.partOfQuery == kTXLQueryPartFrom) {
+		
+		// The method - [TXLManager contextForProtocol:host:path:&error:] create and store only the context components 
+		// which have not been yet stored in the database. After this process the TXLContext object is assigned a valid value fot the primary key.
+		
+		NSURL *ctxUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", iri, localName]];
+		
+		NSString *protocol = ctxUrl.scheme;
+		NSMutableString *host = [NSMutableString string];
+		
+		if ([ctxUrl.user length] > 0) {
+			[host appendFormat:@"%@@", ctxUrl.user];
+		}
+		
+		[host appendString:ctxUrl.host];
+		
+		if (ctxUrl.port != 0) {
+			[host appendFormat:@":%d", ctxUrl.port];
+		}
+
+		NSMutableArray *pathComponents = [NSMutableArray array];
+		// Remove the "/" path component.
+		for(NSString *component in ctxUrl.pathComponents) {
+			if (![component isEqualToString:@"/"]) {
+				[pathComponents addObject:component];
+			}
+		}
+		
+		NSError *error;
+		TXLContext *context = [[TXLManager sharedManager] contextForProtocol:protocol
+																		host:host
+																		path:pathComponents
+																	   error:&error];
+		if (context == nil) {
+			$$ = nil;
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+
+		} else {
+			// Check if this TXLContext has been already stored for this query. 
+			TXLDatabase *database = [[TXLManager sharedManager] database];
+			NSError *error;
+			NSArray *result = [database executeSQLWithParameters:@"SELECT * FROM txl_query_context WHERE query_id = ? AND context_id = ?"
+														   error:&error,
+							   [NSNumber numberWithUnsignedInteger:param.queryId], 
+							   [NSNumber numberWithUnsignedInteger:context.primaryKey], 
+							   nil
+							   ];
+			
+			if (result == nil) {
+				param.compilerError = error;
+				sparql_error(param, scanner, "");
+				YYABORT;
+				
+			} else if ([result count] == 0) {
+				// Insert the pair (query_id, context_id) into the database.
+				result = [database executeSQLWithParameters:@"\
+						  INSERT INTO txl_query_context (query_id, context_id) \
+						  VALUES (?, ?)" 
+													  error:&error,
+						  [NSNumber numberWithUnsignedInteger:param.queryId],
+						  [NSNumber numberWithUnsignedInteger:context.primaryKey],
+						  nil
+						  ];
+				
+				if (result == nil) {
+					param.compilerError = error;
+					sparql_error(param, scanner, "");
+					YYABORT;
+				} 
+			}
+			$$ = nil;	
+		}
+	}
+}
+;
+
+
+/*
+ * SPARQL Grammar
+ * [69] BlankNode ::= BLANK_NODE_LABEL | ANON
+ */
+BlankNode: BLANK_LITERAL
+{
+	// handle it differently if it is a construct query. --> kTXLTermTypeBlankNode ?
+	
+	// The '_:' part of the blank node has been removed by the scanner.
+	// Check if the blank node has been already stored in the database. 
+	// If yes it should also be stored in the variables dictionary of the compiler.
+	
+	if ([param.variables objectForKey:(NSString *)$1] == nil){
+
+		// Insert the variable into the database.
+		NSError *error;
+		NSNumber *blankNodeId = sparql_createAndSaveVariable(param.queryId, (NSString *)$1, NO, YES, &error);
+		
+		if(!blankNodeId){
+			param.compilerError = error;
+			sparql_error(param, scanner, "");
+			YYABORT;
+		}
+		
+		[param.variables setObject:blankNodeId forKey:(NSString *)$1];	
+		$$ = blankNodeId;
+
+	} else{
+		
+		$$ = [param.variables objectForKey:(NSString *)$1];
+		
+		// Check that a variable with this name is not saved in the database as a blank node or as a variable with in_resultset = NO. 
+		//NSLog(@"Blank node already added!");
+	}	
+} 
+| '[' ']'
+{
+	// Store it directly in the database as a variable with name null. 
+	// This kind of blank nodes are not kept in the variables dictionary of the compiler.
+	// The idea is that each anonymous blank node is different than the others and so it should be saved in the database. 
+
+	// Insert the blank node as a variable with a UUID for name into the database.
+	NSError *error;
+	NSNumber *blankNodeId = sparql_createAndSaveVariable(param.queryId, nil, NO, YES, &error);
+	
+	if(!blankNodeId){
+		param.compilerError = error;
+		sparql_error(param, scanner, "");
+		YYABORT;
+	}
+	
+	$$ = blankNodeId;
+}
+;
+
+
+
+%%
+
+void sparql_error(TXLSPARQLCompiler *compiler, void *scanner, const char* s){
+	// raise syntax error
+	if(!compiler.compilerError){
+		NSDictionary *error_dict = [NSDictionary dictionaryWithObject:NSLocalizedString([NSString stringWithCString:s encoding:NSUTF8StringEncoding], nil) 
+															   forKey:NSLocalizedDescriptionKey];
+		compiler.compilerError = [NSError errorWithDomain:TXLSPARQLCompilerErrorDomain
+											 code:TXL_SPARQL_COMPILER_ERROR_SPARQL_SYNTAX_ERROR
+										 userInfo:error_dict];
+		
+	}
+}
+
+
+NSNumber* sparql_createAndSaveVariable(NSUInteger queryId, NSString *name, BOOL inResultset, BOOL isBlankNode, NSError **error){
+
+	// Insert the variable into the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSArray *result;
+	NSString *variableName = nil;
+	
+	if (name == nil) {
+		variableName = [NSString stringWithUUID];
+	} else {
+		variableName = name;
+	}
+
+	result = [database executeSQLWithParameters:@"\
+			  INSERT INTO txl_query_variable (query_id, name, in_resultset, is_blanknode) \
+			  VALUES (?, ?, ?, ?)"
+										  error:error,
+			  [NSNumber numberWithUnsignedInteger:queryId],
+			  variableName,
+			  [NSNumber numberWithBool:inResultset],
+			  [NSNumber numberWithBool:isBlankNode],
+			  nil
+			  ];		
+	
+	if (result == nil) {
+		return nil;
+	} else {
+		return [NSNumber numberWithUnsignedInteger:database.lastInsertRowid];
+	}
+}

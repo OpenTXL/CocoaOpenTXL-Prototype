@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/24> .
+
+@snapshot 2011-07-17T14:30Z : POINT(13.05314350658823 47.80478100868912) .
+@snapshot 2011-07-17T17:00Z : POINT(13.05314350658823 47.80478100868912) .
+
+[ a events:Event;
+  events:id 24;
+  events:name "Kapuzinerberg";
+  events:begin_time "2011-07-17T14:30Z";
+  events:end_time "2011-07-17T17:00Z";
+  events:category categories:Architecture;
+  events:description "Wanderung auf dem Kapuzinerberg mit Besuch des Klosters.";
+  events:image_url "http://static.panoramio.com/photos/original/14143988.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

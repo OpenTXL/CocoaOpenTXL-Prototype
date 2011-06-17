@@ -1,0 +1,1623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		F6E4AB2812A90A1B00687F79 /* libproj */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F6E4AB2B12A90A3A00687F79 /* Build configuration list for PBXAggregateTarget "libproj" */;
+			buildPhases = (
+				F6E4AB2712A90A1B00687F79 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = libproj;
+			productName = libproj;
+		};
+		F6E4AB8C12A925D200687F79 /* libgeos */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F6E4AB9112A925E400687F79 /* Build configuration list for PBXAggregateTarget "libgeos" */;
+			buildPhases = (
+				F6E4AB8B12A925D200687F79 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = libgeos;
+			productName = libgeos;
+		};
+		F6E4AB9C12A9277C00687F79 /* libspatialite */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F6E4ABA112A927A500687F79 /* Build configuration list for PBXAggregateTarget "libspatialite" */;
+			buildPhases = (
+				F6E4AB9B12A9277C00687F79 /* ShellScript */,
+			);
+			dependencies = (
+				F627560D12ACF30C009F1081 /* PBXTargetDependency */,
+				F627560B12ACF30C009F1081 /* PBXTargetDependency */,
+			);
+			name = libspatialite;
+			productName = libspatialite;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		5E0105D8130EAEA800286B71 /* spatialsituation.lm in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5B74130D7B1A00E8219A /* spatialsituation.lm */; };
+		5E0105D9130EAEA800286B71 /* spatialsituation.ym in Sources */ = {isa = PBXBuildFile; fileRef = 5E0C5B75130D7B1A00E8219A /* spatialsituation.ym */; };
+		5E01569C131E9BBA001302ED /* prog_1-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015690131E9BBA001302ED /* prog_1-rain.n3 */; };
+		5E01569D131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015691131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 */; };
+		5E01569E131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015692131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 */; };
+		5E01569F131E9BBA001302ED /* prog_1-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015693131E9BBA001302ED /* prog_1-temp-normal.n3 */; };
+		5E0156A0131E9BBA001302ED /* prog_1-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015694131E9BBA001302ED /* prog_1-temp-warm.n3 */; };
+		5E0156A1131E9BBA001302ED /* prog_1-wind.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015695131E9BBA001302ED /* prog_1-wind.n3 */; };
+		5E0156A2131E9BBA001302ED /* prog_2-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015697131E9BBA001302ED /* prog_2-rain.n3 */; };
+		5E0156A3131E9BBA001302ED /* prog_2-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015698131E9BBA001302ED /* prog_2-sky_cover-overcast.n3 */; };
+		5E0156A4131E9BBA001302ED /* prog_2-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015699131E9BBA001302ED /* prog_2-sky_cover-scattered.n3 */; };
+		5E0156A5131E9BBA001302ED /* prog_2-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E01569A131E9BBA001302ED /* prog_2-temp-normal.n3 */; };
+		5E0156A6131E9BBA001302ED /* prog_2-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E01569B131E9BBA001302ED /* prog_2-temp-warm.n3 */; };
+		5E050EFB132A5D24000FD620 /* prog_1-rain.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015690131E9BBA001302ED /* prog_1-rain.n3 */; };
+		5E050EFC132A5D24000FD620 /* prog_1-sky_cover-overcast.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015691131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 */; };
+		5E050EFD132A5D24000FD620 /* prog_1-sky_cover-scattered.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015692131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 */; };
+		5E050EFE132A5D24000FD620 /* prog_1-temp-normal.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015693131E9BBA001302ED /* prog_1-temp-normal.n3 */; };
+		5E050EFF132A5D24000FD620 /* prog_1-temp-warm.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015694131E9BBA001302ED /* prog_1-temp-warm.n3 */; };
+		5E050F00132A5D24000FD620 /* prog_1-wind.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E015695131E9BBA001302ED /* prog_1-wind.n3 */; };
+		5E244471133BA2DD008587AF /* select-events-in-city.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E244470133BA2DD008587AF /* select-events-in-city.sq */; };
+		5E3EB87C13169A4B00974B91 /* expectedResults in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83413169A4B00974B91 /* expectedResults */; };
+		5E3EB87D13169A4C00974B91 /* events_in_cities.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83613169A4B00974B91 /* events_in_cities.sq */; };
+		5E3EB87E13169A4C00974B91 /* events_on_tour.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83713169A4B00974B91 /* events_on_tour.sq */; };
+		5E3EB87F13169A4C00974B91 /* graz.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83A13169A4B00974B91 /* graz.n3 */; };
+		5E3EB88013169A4C00974B91 /* salzburg.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83B13169A4B00974B91 /* salzburg.n3 */; };
+		5E3EB88113169A4C00974B91 /* vienna.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83C13169A4B00974B91 /* vienna.n3 */; };
+		5E3EB88213169A4C00974B91 /* 01-event-graz-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83E13169A4B00974B91 /* 01-event-graz-1.n3 */; };
+		5E3EB88313169A4C00974B91 /* 02-event-graz-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB83F13169A4B00974B91 /* 02-event-graz-2.n3 */; };
+		5E3EB88413169A4C00974B91 /* 03-event-graz-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84013169A4B00974B91 /* 03-event-graz-3.n3 */; };
+		5E3EB88513169A4C00974B91 /* 04-event-graz-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84113169A4B00974B91 /* 04-event-graz-4.n3 */; };
+		5E3EB88613169A4C00974B91 /* 05-event-graz-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84213169A4B00974B91 /* 05-event-graz-5.n3 */; };
+		5E3EB88713169A4C00974B91 /* 06-event-graz-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84313169A4B00974B91 /* 06-event-graz-6.n3 */; };
+		5E3EB88813169A4C00974B91 /* 07-event-graz-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84413169A4B00974B91 /* 07-event-graz-7.n3 */; };
+		5E3EB88913169A4C00974B91 /* 08-event-graz-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84513169A4B00974B91 /* 08-event-graz-8.n3 */; };
+		5E3EB88A13169A4C00974B91 /* 09-event-graz-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84613169A4B00974B91 /* 09-event-graz-9.n3 */; };
+		5E3EB88B13169A4C00974B91 /* 10-event-graz-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84713169A4B00974B91 /* 10-event-graz-10.n3 */; };
+		5E3EB88C13169A4C00974B91 /* 11-event-graz-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84813169A4B00974B91 /* 11-event-graz-11.n3 */; };
+		5E3EB88D13169A4C00974B91 /* 12-event-graz-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84913169A4B00974B91 /* 12-event-graz-12.n3 */; };
+		5E3EB88E13169A4C00974B91 /* 13-event-graz-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84A13169A4B00974B91 /* 13-event-graz-13.n3 */; };
+		5E3EB88F13169A4C00974B91 /* 14-event-graz-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84B13169A4B00974B91 /* 14-event-graz-14.n3 */; };
+		5E3EB89013169A4C00974B91 /* 15-event-graz-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84C13169A4B00974B91 /* 15-event-graz-15.n3 */; };
+		5E3EB89113169A4C00974B91 /* 16-event-salzburg-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84D13169A4B00974B91 /* 16-event-salzburg-1.n3 */; };
+		5E3EB89213169A4C00974B91 /* 17-event-salzburg-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84E13169A4B00974B91 /* 17-event-salzburg-2.n3 */; };
+		5E3EB89313169A4C00974B91 /* 18-event-salzburg-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB84F13169A4B00974B91 /* 18-event-salzburg-3.n3 */; };
+		5E3EB89413169A4C00974B91 /* 19-event-salzburg-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85013169A4B00974B91 /* 19-event-salzburg-4.n3 */; };
+		5E3EB89513169A4C00974B91 /* 20-event-salzburg-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85113169A4B00974B91 /* 20-event-salzburg-5.n3 */; };
+		5E3EB89613169A4C00974B91 /* 21-event-salzburg-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85213169A4B00974B91 /* 21-event-salzburg-6.n3 */; };
+		5E3EB89713169A4C00974B91 /* 22-event-salzburg-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85313169A4B00974B91 /* 22-event-salzburg-7.n3 */; };
+		5E3EB89813169A4C00974B91 /* 23-event-salzburg-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85413169A4B00974B91 /* 23-event-salzburg-8.n3 */; };
+		5E3EB89913169A4C00974B91 /* 24-event-salzburg-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85513169A4B00974B91 /* 24-event-salzburg-9.n3 */; };
+		5E3EB89A13169A4C00974B91 /* 25-event-salzburg-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85613169A4B00974B91 /* 25-event-salzburg-10.n3 */; };
+		5E3EB89B13169A4C00974B91 /* 26-event-salzburg-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85713169A4B00974B91 /* 26-event-salzburg-11.n3 */; };
+		5E3EB89C13169A4C00974B91 /* 27-event-salzburg-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85813169A4B00974B91 /* 27-event-salzburg-12.n3 */; };
+		5E3EB89D13169A4C00974B91 /* 28-event-salzburg-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85913169A4B00974B91 /* 28-event-salzburg-13.n3 */; };
+		5E3EB89E13169A4C00974B91 /* 29-event-salzburg-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85A13169A4B00974B91 /* 29-event-salzburg-14.n3 */; };
+		5E3EB89F13169A4C00974B91 /* 30-event-salzburg-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85B13169A4B00974B91 /* 30-event-salzburg-15.n3 */; };
+		5E3EB8A013169A4C00974B91 /* 31-event-vienna-1.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85C13169A4B00974B91 /* 31-event-vienna-1.n3 */; };
+		5E3EB8A113169A4C00974B91 /* 32-event-vienna-2.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85D13169A4B00974B91 /* 32-event-vienna-2.n3 */; };
+		5E3EB8A213169A4C00974B91 /* 33-event-vienna-3.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85E13169A4B00974B91 /* 33-event-vienna-3.n3 */; };
+		5E3EB8A313169A4C00974B91 /* 34-event-vienna-4.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB85F13169A4B00974B91 /* 34-event-vienna-4.n3 */; };
+		5E3EB8A413169A4C00974B91 /* 35-event-vienna-5.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86013169A4B00974B91 /* 35-event-vienna-5.n3 */; };
+		5E3EB8A513169A4C00974B91 /* 36-event-vienna-6.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86113169A4B00974B91 /* 36-event-vienna-6.n3 */; };
+		5E3EB8A613169A4C00974B91 /* 37-event-vienna-7.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86213169A4B00974B91 /* 37-event-vienna-7.n3 */; };
+		5E3EB8A713169A4C00974B91 /* 38-event-vienna-8.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86313169A4B00974B91 /* 38-event-vienna-8.n3 */; };
+		5E3EB8A813169A4C00974B91 /* 39-event-vienna-9.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86413169A4B00974B91 /* 39-event-vienna-9.n3 */; };
+		5E3EB8A913169A4C00974B91 /* 40-event-vienna-10.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86513169A4B00974B91 /* 40-event-vienna-10.n3 */; };
+		5E3EB8AA13169A4C00974B91 /* 41-event-vienna-11.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86613169A4B00974B91 /* 41-event-vienna-11.n3 */; };
+		5E3EB8AB13169A4C00974B91 /* 42-event-vienna-12.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86713169A4B00974B91 /* 42-event-vienna-12.n3 */; };
+		5E3EB8AC13169A4C00974B91 /* 43-event-vienna-13.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86813169A4B00974B91 /* 43-event-vienna-13.n3 */; };
+		5E3EB8AD13169A4C00974B91 /* 44-event-vienna-14.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86913169A4B00974B91 /* 44-event-vienna-14.n3 */; };
+		5E3EB8AE13169A4C00974B91 /* 45-event-vienna-15.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86A13169A4B00974B91 /* 45-event-vienna-15.n3 */; };
+		5E3EB8AF13169A4C00974B91 /* 46-event-vienna-16.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86B13169A4B00974B91 /* 46-event-vienna-16.n3 */; };
+		5E3EB8B013169A4C00974B91 /* 47-event-vienna-17.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86C13169A4B00974B91 /* 47-event-vienna-17.n3 */; };
+		5E3EB8B113169A4C00974B91 /* 48-event-vienna-18.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86D13169A4B00974B91 /* 48-event-vienna-18.n3 */; };
+		5E3EB8B213169A4C00974B91 /* 49-event-vienna-19.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86E13169A4B00974B91 /* 49-event-vienna-19.n3 */; };
+		5E3EB8B313169A4C00974B91 /* 50-event-vienna-20.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB86F13169A4B00974B91 /* 50-event-vienna-20.n3 */; };
+		5E3EB8B413169A4C00974B91 /* 51-event-vienna-21.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87013169A4B00974B91 /* 51-event-vienna-21.n3 */; };
+		5E3EB8B513169A4C00974B91 /* 52-event-vienna-22.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87113169A4B00974B91 /* 52-event-vienna-22.n3 */; };
+		5E3EB8B613169A4C00974B91 /* 53-event-vienna-23.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87213169A4B00974B91 /* 53-event-vienna-23.n3 */; };
+		5E3EB8B713169A4C00974B91 /* 54-event-vienna-24.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87313169A4B00974B91 /* 54-event-vienna-24.n3 */; };
+		5E3EB8B813169A4C00974B91 /* 55-event-vienna-25.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87413169A4B00974B91 /* 55-event-vienna-25.n3 */; };
+		5E3EB8B913169A4C00974B91 /* 56-event-vienna-26.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87513169A4B00974B91 /* 56-event-vienna-26.n3 */; };
+		5E3EB8BA13169A4C00974B91 /* 57-event-vienna-27.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87613169A4B00974B91 /* 57-event-vienna-27.n3 */; };
+		5E3EB8BB13169A4C00974B91 /* 58-event-vienna-28.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87713169A4B00974B91 /* 58-event-vienna-28.n3 */; };
+		5E3EB8BC13169A4C00974B91 /* 59-event-vienna-29.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87813169A4B00974B91 /* 59-event-vienna-29.n3 */; };
+		5E3EB8BD13169A4C00974B91 /* 60-event-vienna-30.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87913169A4B00974B91 /* 60-event-vienna-30.n3 */; };
+		5E3EB8BE13169A4C00974B91 /* travel-route.n3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E3EB87B13169A4B00974B91 /* travel-route.n3 */; };
+		5E3EB93313169B2300974B91 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E3EB93113169B2300974B91 /* NSString+UUID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E3EB93413169B2300974B91 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3EB93213169B2300974B91 /* NSString+UUID.m */; };
+		5E4E69891333C17100F19CCB /* TXLContextSituationDefinitionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E69871333C17100F19CCB /* TXLContextSituationDefinitionTest.m */; };
+		5E4E698A1333C17100F19CCB /* TXLContextSituationDefinitionWithBlankNodesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E69881333C17100F19CCB /* TXLContextSituationDefinitionWithBlankNodesTest.m */; };
+		5E4E698D1333C18700F19CCB /* construct_events_in_city.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E698B1333C18700F19CCB /* construct_events_in_city.sq */; };
+		5E4E6A821333C1A400F19CCB /* construct_events_on_tour.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E6A7E1333C1A400F19CCB /* construct_events_on_tour.sq */; };
+		5E4E6A831333C1A400F19CCB /* events_in_cities.res in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E6A7F1333C1A400F19CCB /* events_in_cities.res */; };
+		5E4E6A841333C1A400F19CCB /* events_on_tour.res in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E6A801333C1A400F19CCB /* events_on_tour.res */; };
+		5E4E6A851333C1A400F19CCB /* tour-events.sq in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E6A811333C1A400F19CCB /* tour-events.sq */; };
+		5E655F35135DBE03000FF1E2 /* TXLManagerUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E655F34135DBE03000FF1E2 /* TXLManagerUpdateOperation.h */; };
+		5E655F37135DBE15000FF1E2 /* TXLManagerUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E655F36135DBE15000FF1E2 /* TXLManagerUpdateOperation.m */; };
+		5E655F39135DBE36000FF1E2 /* TXLContextSituationDefinitionWithIntersectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E655F38135DBE36000FF1E2 /* TXLContextSituationDefinitionWithIntersectionTest.m */; };
+		5EB84DE512B8C86D00E8A4DD /* TXLPropertiesReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB84DE312B8C86D00E8A4DD /* TXLPropertiesReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5EB84DE612B8C86D00E8A4DD /* TXLPropertiesReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB84DE412B8C86D00E8A4DD /* TXLPropertiesReader.m */; };
+		5EB84DE812B8C87B00E8A4DD /* OpenTXLConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EB84DE712B8C87B00E8A4DD /* OpenTXLConfig.plist */; };
+		5EE029551312AAB9006501C1 /* TXLSpatialSituationImporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE029541312AAB9006501C1 /* TXLSpatialSituationImporterTest.m */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		F627551012ACDCD0009F1081 /* libspatialite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4ABDD12A938AE00687F79 /* libspatialite.a */; };
+		F627551112ACDCD0009F1081 /* libgeos_c.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4ABE312A938F000687F79 /* libgeos_c.a */; };
+		F627551212ACDCD0009F1081 /* libgeos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4ABE512A938F000687F79 /* libgeos.a */; };
+		F627551312ACDCD0009F1081 /* libproj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4ABE712A938F000687F79 /* libproj.a */; };
+		F65099CA1313FA5E00EF915E /* TXLManagerOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F65099C91313FA5E00EF915E /* TXLManagerOperationTest.m */; };
+		F65ECFF01314156500CA0E3F /* TXLSpatialSituationImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = F65ECFEE1314156500CA0E3F /* TXLSpatialSituationImporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F65ECFF11314156500CA0E3F /* TXLSpatialSituationImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = F65ECFEF1314156500CA0E3F /* TXLSpatialSituationImporter.m */; };
+		F65ECFF41314158000CA0E3F /* TXLManager+Importer.h in Headers */ = {isa = PBXBuildFile; fileRef = F65ECFF21314158000CA0E3F /* TXLManager+Importer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F65ECFF51314158000CA0E3F /* TXLManager+Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = F65ECFF31314158000CA0E3F /* TXLManager+Importer.m */; };
+		F68008A1130AB7F3003C7B38 /* NSDate+Interval.h in Headers */ = {isa = PBXBuildFile; fileRef = F680089F130AB7F3003C7B38 /* NSDate+Interval.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F68008A2130AB7F3003C7B38 /* NSDate+Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = F68008A0130AB7F3003C7B38 /* NSDate+Interval.m */; };
+		F68008A5130AB80F003C7B38 /* TXLMovingObjectTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F68008A4130AB80F003C7B38 /* TXLMovingObjectTestData.m */; };
+		F68008AA130AB8EF003C7B38 /* TXLSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = F68008A8130AB8EF003C7B38 /* TXLSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F68008AB130AB8EF003C7B38 /* TXLSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = F68008A9130AB8EF003C7B38 /* TXLSnapshot.m */; };
+		F6800A55130AD166003C7B38 /* TXLGraphPatternTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6800A54130AD166003C7B38 /* TXLGraphPatternTest.m */; };
+		F6800A58130AD18A003C7B38 /* TXLGraphPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = F6800A56130AD18A003C7B38 /* TXLGraphPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6800A59130AD18A003C7B38 /* TXLGraphPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = F6800A57130AD18A003C7B38 /* TXLGraphPattern.m */; };
+		F6909F5412E9A08300091CE4 /* TXLSPARQLCompiler.h in Headers */ = {isa = PBXBuildFile; fileRef = F6909F5212E9A08300091CE4 /* TXLSPARQLCompiler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6909F5512E9A08300091CE4 /* TXLSPARQLCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = F6909F5312E9A08300091CE4 /* TXLSPARQLCompiler.m */; };
+		F69179E112E0796400B1510E /* sparql.lm in Sources */ = {isa = PBXBuildFile; fileRef = F69179DF12E0796400B1510E /* sparql.lm */; };
+		F69179E212E0796400B1510E /* sparql.ym in Sources */ = {isa = PBXBuildFile; fileRef = F69179E012E0796400B1510E /* sparql.ym */; };
+		F69179E412E0798E00B1510E /* TXLSPARQLCompilerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F69179E312E0798E00B1510E /* TXLSPARQLCompilerTest.m */; };
+		F69A69E51312CAAE005F5DC5 /* TXLManagerTestUpdateResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F69A69E41312CAAE005F5DC5 /* TXLManagerTestUpdateResultSet.m */; };
+		F6A4B9C112DB43980053770B /* TXLInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = F6A4B9BF12DB43980053770B /* TXLInteger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6A4B9C212DB43980053770B /* TXLInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4B9C012DB43980053770B /* TXLInteger.m */; };
+		F6AEBE9A135733F800A63206 /* TXLManagerImportOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6AEBE98135733F800A63206 /* TXLManagerImportOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6AEBE9B135733F800A63206 /* TXLManagerImportOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6AEBE99135733F800A63206 /* TXLManagerImportOperation.m */; };
+		F6C07C06134B02F7003B2464 /* TXLSituation.h in Headers */ = {isa = PBXBuildFile; fileRef = F6C07C04134B02F7003B2464 /* TXLSituation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6C07C07134B02F7003B2464 /* TXLSituation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C07C05134B02F7003B2464 /* TXLSituation.m */; };
+		F6E2E21A12F03E5300A64A07 /* TXLManager+Revision.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E2E20412F03E5300A64A07 /* TXLManager+Revision.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E2E21B12F03E5300A64A07 /* TXLManager+Revision.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E2E20512F03E5300A64A07 /* TXLManager+Revision.m */; };
+		F6E2E21C12F03E5300A64A07 /* TXLManagerDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E2E20612F03E5300A64A07 /* TXLManagerDelegateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9E112A902A300687F79 /* TXLDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9A812A902A300687F79 /* TXLDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9E212A902A300687F79 /* TXLDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9A912A902A300687F79 /* TXLDatabase.m */; };
+		F6E4A9E312A902A300687F79 /* TXLDBHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9AA12A902A300687F79 /* TXLDBHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9E412A902A300687F79 /* TXLDBHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9AB12A902A300687F79 /* TXLDBHandle.m */; };
+		F6E4A9E512A902A300687F79 /* TXLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9AE12A902A300687F79 /* TXLManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9E612A902A300687F79 /* TXLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9AF12A902A300687F79 /* TXLManager.m */; };
+		F6E4A9E912A902A300687F79 /* TXLBoundingBox.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9B412A902A300687F79 /* TXLBoundingBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9EA12A902A300687F79 /* TXLBoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9B512A902A300687F79 /* TXLBoundingBox.m */; };
+		F6E4A9EB12A902A300687F79 /* TXLGeometryCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9B612A902A300687F79 /* TXLGeometryCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9EC12A902A300687F79 /* TXLGeometryCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9B712A902A300687F79 /* TXLGeometryCollection.m */; };
+		F6E4A9ED12A902A300687F79 /* TXLGeometryTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9B812A902A300687F79 /* TXLGeometryTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9EE12A902A300687F79 /* TXLLinestring.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9B912A902A300687F79 /* TXLLinestring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9EF12A902A300687F79 /* TXLLinestring.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9BA12A902A300687F79 /* TXLLinestring.m */; };
+		F6E4A9F012A902A300687F79 /* TXLPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9BB12A902A300687F79 /* TXLPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9F112A902A300687F79 /* TXLPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9BC12A902A300687F79 /* TXLPoint.m */; };
+		F6E4A9F212A902A300687F79 /* TXLPolygon.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9BD12A902A300687F79 /* TXLPolygon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9F312A902A300687F79 /* TXLPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9BE12A902A300687F79 /* TXLPolygon.m */; };
+		F6E4A9F412A902A300687F79 /* TXLRing.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9BF12A902A300687F79 /* TXLRing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9F512A902A300687F79 /* TXLRing.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9C012A902A300687F79 /* TXLRing.m */; };
+		F6E4A9F612A902A300687F79 /* TXLContext.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9C112A902A300687F79 /* TXLContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9F712A902A300687F79 /* TXLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9C212A902A300687F79 /* TXLContext.m */; };
+		F6E4A9FA12A902A300687F79 /* TXLMovingObject.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9C512A902A300687F79 /* TXLMovingObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9FB12A902A300687F79 /* TXLMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9C612A902A300687F79 /* TXLMovingObject.m */; };
+		F6E4A9FC12A902A300687F79 /* TXLMovingObjectSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9C712A902A300687F79 /* TXLMovingObjectSequence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4A9FD12A902A300687F79 /* TXLMovingObjectSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9C812A902A300687F79 /* TXLMovingObjectSequence.m */; };
+		F6E4AA0412A902A300687F79 /* TXLRevision.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9CF12A902A300687F79 /* TXLRevision.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA0512A902A300687F79 /* TXLRevision.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9D012A902A300687F79 /* TXLRevision.m */; };
+		F6E4AA0612A902A300687F79 /* TXLStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9D112A902A300687F79 /* TXLStatement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA0712A902A300687F79 /* TXLStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9D212A902A300687F79 /* TXLStatement.m */; };
+		F6E4AA0812A902A300687F79 /* TXLTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9D312A902A300687F79 /* TXLTerm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA0912A902A300687F79 /* TXLTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9D412A902A300687F79 /* TXLTerm.m */; };
+		F6E4AA0A12A902A300687F79 /* TXLQueryHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9D612A902A300687F79 /* TXLQueryHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA0B12A902A300687F79 /* TXLQueryHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9D712A902A300687F79 /* TXLQueryHandle.m */; };
+		F6E4AA0C12A902A300687F79 /* TXLResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9D812A902A300687F79 /* TXLResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA0D12A902A300687F79 /* TXLResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9D912A902A300687F79 /* TXLResultSet.m */; };
+		F6E4AA1212A902A300687F79 /* TXLQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = F6E4A9DF12A902A300687F79 /* TXLQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6E4AA1312A902A300687F79 /* TXLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4A9E012A902A300687F79 /* TXLQuery.m */; };
+		F6E4AA3612A9040400687F79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4AA3512A9040400687F79 /* CoreGraphics.framework */; };
+		F6E4AA3712A9040400687F79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		F6E4AA3912A9040400687F79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4AA3812A9040400687F79 /* UIKit.framework */; };
+		F6E4AA3E12A9040D00687F79 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4AA2812A9038E00687F79 /* GHUnit.framework */; };
+		F6E4AA7C12A9052100687F79 /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA7B12A9052100687F79 /* GHUnitIOSTestMain.m */; };
+		F6E4ABD412A9383200687F79 /* libOpenTXL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libOpenTXL.a */; };
+		F6E4ABFE12A939EE00687F79 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4ABFD12A939EE00687F79 /* libstdc++.dylib */; };
+		F6E4AC0212A93A0400687F79 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4AC0112A93A0400687F79 /* libiconv.dylib */; };
+		F6E4AD1F12A944C100687F79 /* GaiaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1512A902B700687F79 /* GaiaTest.m */; };
+		F6E4AD2112A944C300687F79 /* TXLContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1712A902B700687F79 /* TXLContextTest.m */; };
+		F6E4AD2212A944C300687F79 /* TXLDatabaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1812A902B700687F79 /* TXLDatabaseTest.m */; };
+		F6E4AD2312A944C400687F79 /* TXLGeometryCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1912A902B700687F79 /* TXLGeometryCollectionTest.m */; };
+		F6E4AD2412A944C500687F79 /* TXLLinestringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1A12A902B700687F79 /* TXLLinestringTest.m */; };
+		F6E4AD2512A944C600687F79 /* TXLManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1B12A902B700687F79 /* TXLManagerTest.m */; };
+		F6E4AD2612A944C700687F79 /* TXLMovingObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1C12A902B700687F79 /* TXLMovingObjectTest.m */; };
+		F6E4AD2712A944C700687F79 /* TXLPolygonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1D12A902B700687F79 /* TXLPolygonTest.m */; };
+		F6E4AD2812A944C800687F79 /* TXLRingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1E12A902B700687F79 /* TXLRingTest.m */; };
+		F6E4AD2912A944C900687F79 /* TXLTermTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4AA1F12A902B700687F79 /* TXLTermTest.m */; };
+		F6FB898B12B76BC10063E6EB /* TXLMovingObjectSequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB898A12B76BC10063E6EB /* TXLMovingObjectSequenceTest.m */; };
+		F6FB8B3A12B7884F0063E6EB /* NSDate+dateWithString.h in Headers */ = {isa = PBXBuildFile; fileRef = F6FB8B3812B7884F0063E6EB /* NSDate+dateWithString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6FB8B3B12B7884F0063E6EB /* NSDate+dateWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB8B3912B7884F0063E6EB /* NSDate+dateWithString.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		5E0105F2130EAEF400286B71 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.yacc;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.m",
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).tab.h",
+			);
+			script = "/usr/bin/yacc --defines=${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.h -o ${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.tab.m ${INPUT_FILE_PATH}";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		F627556D12ACDD0B009F1081 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = OpenTXL;
+		};
+		F627560A12ACF30C009F1081 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6E4AB8C12A925D200687F79;
+			remoteInfo = libgeos;
+		};
+		F627560C12ACF30C009F1081 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6E4AB2812A90A1B00687F79;
+			remoteInfo = libproj;
+		};
+		F6AEBE9C1357345D00A63206 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6E4AB9C12A9277C00687F79;
+			remoteInfo = libspatialite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E015690131E9BBA001302ED /* prog_1-rain.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-rain.n3"; sourceTree = "<group>"; };
+		5E015691131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-sky_cover-overcast.n3"; sourceTree = "<group>"; };
+		5E015692131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-sky_cover-scattered.n3"; sourceTree = "<group>"; };
+		5E015693131E9BBA001302ED /* prog_1-temp-normal.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-temp-normal.n3"; sourceTree = "<group>"; };
+		5E015694131E9BBA001302ED /* prog_1-temp-warm.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-temp-warm.n3"; sourceTree = "<group>"; };
+		5E015695131E9BBA001302ED /* prog_1-wind.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_1-wind.n3"; sourceTree = "<group>"; };
+		5E015697131E9BBA001302ED /* prog_2-rain.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-rain.n3"; sourceTree = "<group>"; };
+		5E015698131E9BBA001302ED /* prog_2-sky_cover-overcast.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-sky_cover-overcast.n3"; sourceTree = "<group>"; };
+		5E015699131E9BBA001302ED /* prog_2-sky_cover-scattered.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-sky_cover-scattered.n3"; sourceTree = "<group>"; };
+		5E01569A131E9BBA001302ED /* prog_2-temp-normal.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-temp-normal.n3"; sourceTree = "<group>"; };
+		5E01569B131E9BBA001302ED /* prog_2-temp-warm.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "prog_2-temp-warm.n3"; sourceTree = "<group>"; };
+		5E0C5B74130D7B1A00E8219A /* spatialsituation.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = spatialsituation.lm; sourceTree = "<group>"; };
+		5E0C5B75130D7B1A00E8219A /* spatialsituation.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = spatialsituation.ym; sourceTree = "<group>"; };
+		5E244470133BA2DD008587AF /* select-events-in-city.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "select-events-in-city.sq"; sourceTree = "<group>"; };
+		5E3EB83413169A4B00974B91 /* expectedResults */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expectedResults; sourceTree = "<group>"; };
+		5E3EB83613169A4B00974B91 /* events_in_cities.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_in_cities.sq; sourceTree = "<group>"; };
+		5E3EB83713169A4B00974B91 /* events_on_tour.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_on_tour.sq; sourceTree = "<group>"; };
+		5E3EB83A13169A4B00974B91 /* graz.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graz.n3; sourceTree = "<group>"; };
+		5E3EB83B13169A4B00974B91 /* salzburg.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = salzburg.n3; sourceTree = "<group>"; };
+		5E3EB83C13169A4B00974B91 /* vienna.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vienna.n3; sourceTree = "<group>"; };
+		5E3EB83E13169A4B00974B91 /* 01-event-graz-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "01-event-graz-1.n3"; sourceTree = "<group>"; };
+		5E3EB83F13169A4B00974B91 /* 02-event-graz-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "02-event-graz-2.n3"; sourceTree = "<group>"; };
+		5E3EB84013169A4B00974B91 /* 03-event-graz-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "03-event-graz-3.n3"; sourceTree = "<group>"; };
+		5E3EB84113169A4B00974B91 /* 04-event-graz-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "04-event-graz-4.n3"; sourceTree = "<group>"; };
+		5E3EB84213169A4B00974B91 /* 05-event-graz-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "05-event-graz-5.n3"; sourceTree = "<group>"; };
+		5E3EB84313169A4B00974B91 /* 06-event-graz-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "06-event-graz-6.n3"; sourceTree = "<group>"; };
+		5E3EB84413169A4B00974B91 /* 07-event-graz-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "07-event-graz-7.n3"; sourceTree = "<group>"; };
+		5E3EB84513169A4B00974B91 /* 08-event-graz-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "08-event-graz-8.n3"; sourceTree = "<group>"; };
+		5E3EB84613169A4B00974B91 /* 09-event-graz-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "09-event-graz-9.n3"; sourceTree = "<group>"; };
+		5E3EB84713169A4B00974B91 /* 10-event-graz-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "10-event-graz-10.n3"; sourceTree = "<group>"; };
+		5E3EB84813169A4B00974B91 /* 11-event-graz-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "11-event-graz-11.n3"; sourceTree = "<group>"; };
+		5E3EB84913169A4B00974B91 /* 12-event-graz-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "12-event-graz-12.n3"; sourceTree = "<group>"; };
+		5E3EB84A13169A4B00974B91 /* 13-event-graz-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "13-event-graz-13.n3"; sourceTree = "<group>"; };
+		5E3EB84B13169A4B00974B91 /* 14-event-graz-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "14-event-graz-14.n3"; sourceTree = "<group>"; };
+		5E3EB84C13169A4B00974B91 /* 15-event-graz-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "15-event-graz-15.n3"; sourceTree = "<group>"; };
+		5E3EB84D13169A4B00974B91 /* 16-event-salzburg-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "16-event-salzburg-1.n3"; sourceTree = "<group>"; };
+		5E3EB84E13169A4B00974B91 /* 17-event-salzburg-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "17-event-salzburg-2.n3"; sourceTree = "<group>"; };
+		5E3EB84F13169A4B00974B91 /* 18-event-salzburg-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "18-event-salzburg-3.n3"; sourceTree = "<group>"; };
+		5E3EB85013169A4B00974B91 /* 19-event-salzburg-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "19-event-salzburg-4.n3"; sourceTree = "<group>"; };
+		5E3EB85113169A4B00974B91 /* 20-event-salzburg-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "20-event-salzburg-5.n3"; sourceTree = "<group>"; };
+		5E3EB85213169A4B00974B91 /* 21-event-salzburg-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "21-event-salzburg-6.n3"; sourceTree = "<group>"; };
+		5E3EB85313169A4B00974B91 /* 22-event-salzburg-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "22-event-salzburg-7.n3"; sourceTree = "<group>"; };
+		5E3EB85413169A4B00974B91 /* 23-event-salzburg-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "23-event-salzburg-8.n3"; sourceTree = "<group>"; };
+		5E3EB85513169A4B00974B91 /* 24-event-salzburg-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "24-event-salzburg-9.n3"; sourceTree = "<group>"; };
+		5E3EB85613169A4B00974B91 /* 25-event-salzburg-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "25-event-salzburg-10.n3"; sourceTree = "<group>"; };
+		5E3EB85713169A4B00974B91 /* 26-event-salzburg-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "26-event-salzburg-11.n3"; sourceTree = "<group>"; };
+		5E3EB85813169A4B00974B91 /* 27-event-salzburg-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "27-event-salzburg-12.n3"; sourceTree = "<group>"; };
+		5E3EB85913169A4B00974B91 /* 28-event-salzburg-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "28-event-salzburg-13.n3"; sourceTree = "<group>"; };
+		5E3EB85A13169A4B00974B91 /* 29-event-salzburg-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "29-event-salzburg-14.n3"; sourceTree = "<group>"; };
+		5E3EB85B13169A4B00974B91 /* 30-event-salzburg-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "30-event-salzburg-15.n3"; sourceTree = "<group>"; };
+		5E3EB85C13169A4B00974B91 /* 31-event-vienna-1.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "31-event-vienna-1.n3"; sourceTree = "<group>"; };
+		5E3EB85D13169A4B00974B91 /* 32-event-vienna-2.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "32-event-vienna-2.n3"; sourceTree = "<group>"; };
+		5E3EB85E13169A4B00974B91 /* 33-event-vienna-3.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "33-event-vienna-3.n3"; sourceTree = "<group>"; };
+		5E3EB85F13169A4B00974B91 /* 34-event-vienna-4.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "34-event-vienna-4.n3"; sourceTree = "<group>"; };
+		5E3EB86013169A4B00974B91 /* 35-event-vienna-5.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "35-event-vienna-5.n3"; sourceTree = "<group>"; };
+		5E3EB86113169A4B00974B91 /* 36-event-vienna-6.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "36-event-vienna-6.n3"; sourceTree = "<group>"; };
+		5E3EB86213169A4B00974B91 /* 37-event-vienna-7.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "37-event-vienna-7.n3"; sourceTree = "<group>"; };
+		5E3EB86313169A4B00974B91 /* 38-event-vienna-8.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "38-event-vienna-8.n3"; sourceTree = "<group>"; };
+		5E3EB86413169A4B00974B91 /* 39-event-vienna-9.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "39-event-vienna-9.n3"; sourceTree = "<group>"; };
+		5E3EB86513169A4B00974B91 /* 40-event-vienna-10.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "40-event-vienna-10.n3"; sourceTree = "<group>"; };
+		5E3EB86613169A4B00974B91 /* 41-event-vienna-11.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "41-event-vienna-11.n3"; sourceTree = "<group>"; };
+		5E3EB86713169A4B00974B91 /* 42-event-vienna-12.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "42-event-vienna-12.n3"; sourceTree = "<group>"; };
+		5E3EB86813169A4B00974B91 /* 43-event-vienna-13.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "43-event-vienna-13.n3"; sourceTree = "<group>"; };
+		5E3EB86913169A4B00974B91 /* 44-event-vienna-14.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "44-event-vienna-14.n3"; sourceTree = "<group>"; };
+		5E3EB86A13169A4B00974B91 /* 45-event-vienna-15.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "45-event-vienna-15.n3"; sourceTree = "<group>"; };
+		5E3EB86B13169A4B00974B91 /* 46-event-vienna-16.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "46-event-vienna-16.n3"; sourceTree = "<group>"; };
+		5E3EB86C13169A4B00974B91 /* 47-event-vienna-17.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "47-event-vienna-17.n3"; sourceTree = "<group>"; };
+		5E3EB86D13169A4B00974B91 /* 48-event-vienna-18.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "48-event-vienna-18.n3"; sourceTree = "<group>"; };
+		5E3EB86E13169A4B00974B91 /* 49-event-vienna-19.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "49-event-vienna-19.n3"; sourceTree = "<group>"; };
+		5E3EB86F13169A4B00974B91 /* 50-event-vienna-20.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "50-event-vienna-20.n3"; sourceTree = "<group>"; };
+		5E3EB87013169A4B00974B91 /* 51-event-vienna-21.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "51-event-vienna-21.n3"; sourceTree = "<group>"; };
+		5E3EB87113169A4B00974B91 /* 52-event-vienna-22.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "52-event-vienna-22.n3"; sourceTree = "<group>"; };
+		5E3EB87213169A4B00974B91 /* 53-event-vienna-23.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "53-event-vienna-23.n3"; sourceTree = "<group>"; };
+		5E3EB87313169A4B00974B91 /* 54-event-vienna-24.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "54-event-vienna-24.n3"; sourceTree = "<group>"; };
+		5E3EB87413169A4B00974B91 /* 55-event-vienna-25.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "55-event-vienna-25.n3"; sourceTree = "<group>"; };
+		5E3EB87513169A4B00974B91 /* 56-event-vienna-26.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "56-event-vienna-26.n3"; sourceTree = "<group>"; };
+		5E3EB87613169A4B00974B91 /* 57-event-vienna-27.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "57-event-vienna-27.n3"; sourceTree = "<group>"; };
+		5E3EB87713169A4B00974B91 /* 58-event-vienna-28.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "58-event-vienna-28.n3"; sourceTree = "<group>"; };
+		5E3EB87813169A4B00974B91 /* 59-event-vienna-29.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "59-event-vienna-29.n3"; sourceTree = "<group>"; };
+		5E3EB87913169A4B00974B91 /* 60-event-vienna-30.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "60-event-vienna-30.n3"; sourceTree = "<group>"; };
+		5E3EB87B13169A4B00974B91 /* travel-route.n3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "travel-route.n3"; sourceTree = "<group>"; };
+		5E3EB93113169B2300974B91 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		5E3EB93213169B2300974B91 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		5E4E69871333C17100F19CCB /* TXLContextSituationDefinitionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionTest.m; sourceTree = "<group>"; };
+		5E4E69881333C17100F19CCB /* TXLContextSituationDefinitionWithBlankNodesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionWithBlankNodesTest.m; sourceTree = "<group>"; };
+		5E4E698B1333C18700F19CCB /* construct_events_in_city.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = construct_events_in_city.sq; sourceTree = "<group>"; };
+		5E4E6A7E1333C1A400F19CCB /* construct_events_on_tour.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = construct_events_on_tour.sq; sourceTree = "<group>"; };
+		5E4E6A7F1333C1A400F19CCB /* events_in_cities.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_in_cities.res; sourceTree = "<group>"; };
+		5E4E6A801333C1A400F19CCB /* events_on_tour.res */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events_on_tour.res; sourceTree = "<group>"; };
+		5E4E6A811333C1A400F19CCB /* tour-events.sq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tour-events.sq"; sourceTree = "<group>"; };
+		5E655F34135DBE03000FF1E2 /* TXLManagerUpdateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerUpdateOperation.h; sourceTree = "<group>"; };
+		5E655F36135DBE15000FF1E2 /* TXLManagerUpdateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerUpdateOperation.m; sourceTree = "<group>"; };
+		5E655F38135DBE36000FF1E2 /* TXLContextSituationDefinitionWithIntersectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextSituationDefinitionWithIntersectionTest.m; sourceTree = "<group>"; };
+		5EB84DE312B8C86D00E8A4DD /* TXLPropertiesReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPropertiesReader.h; sourceTree = "<group>"; };
+		5EB84DE412B8C86D00E8A4DD /* TXLPropertiesReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPropertiesReader.m; sourceTree = "<group>"; };
+		5EB84DE712B8C87B00E8A4DD /* OpenTXLConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = OpenTXLConfig.plist; path = ../OpenTXLConfig.plist; sourceTree = "<group>"; };
+		5EE029541312AAB9006501C1 /* TXLSpatialSituationImporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSpatialSituationImporterTest.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* OpenTXL_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenTXL_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libOpenTXL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOpenTXL.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F65099C91313FA5E00EF915E /* TXLManagerOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerOperationTest.m; sourceTree = "<group>"; };
+		F65ECFEE1314156500CA0E3F /* TXLSpatialSituationImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSpatialSituationImporter.h; sourceTree = "<group>"; };
+		F65ECFEF1314156500CA0E3F /* TXLSpatialSituationImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSpatialSituationImporter.m; sourceTree = "<group>"; };
+		F65ECFF21314158000CA0E3F /* TXLManager+Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TXLManager+Importer.h"; sourceTree = "<group>"; };
+		F65ECFF31314158000CA0E3F /* TXLManager+Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TXLManager+Importer.m"; sourceTree = "<group>"; };
+		F680089F130AB7F3003C7B38 /* NSDate+Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Interval.h"; sourceTree = "<group>"; };
+		F68008A0130AB7F3003C7B38 /* NSDate+Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Interval.m"; sourceTree = "<group>"; };
+		F68008A3130AB80F003C7B38 /* TXLMovingObjectTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObjectTestData.h; sourceTree = "<group>"; };
+		F68008A4130AB80F003C7B38 /* TXLMovingObjectTestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectTestData.m; sourceTree = "<group>"; };
+		F68008A8130AB8EF003C7B38 /* TXLSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSnapshot.h; sourceTree = "<group>"; };
+		F68008A9130AB8EF003C7B38 /* TXLSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSnapshot.m; sourceTree = "<group>"; };
+		F6800A54130AD166003C7B38 /* TXLGraphPatternTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGraphPatternTest.m; sourceTree = "<group>"; };
+		F6800A56130AD18A003C7B38 /* TXLGraphPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGraphPattern.h; sourceTree = "<group>"; };
+		F6800A57130AD18A003C7B38 /* TXLGraphPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGraphPattern.m; sourceTree = "<group>"; };
+		F6909F5212E9A08300091CE4 /* TXLSPARQLCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSPARQLCompiler.h; sourceTree = "<group>"; };
+		F6909F5312E9A08300091CE4 /* TXLSPARQLCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSPARQLCompiler.m; sourceTree = "<group>"; };
+		F69179DF12E0796400B1510E /* sparql.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = sparql.lm; sourceTree = "<group>"; };
+		F69179E012E0796400B1510E /* sparql.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = sparql.ym; sourceTree = "<group>"; };
+		F69179E312E0798E00B1510E /* TXLSPARQLCompilerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSPARQLCompilerTest.m; sourceTree = "<group>"; };
+		F69A69E41312CAAE005F5DC5 /* TXLManagerTestUpdateResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerTestUpdateResultSet.m; sourceTree = "<group>"; };
+		F6A4B9BF12DB43980053770B /* TXLInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLInteger.h; sourceTree = "<group>"; };
+		F6A4B9C012DB43980053770B /* TXLInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLInteger.m; sourceTree = "<group>"; };
+		F6AEBE98135733F800A63206 /* TXLManagerImportOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerImportOperation.h; sourceTree = "<group>"; };
+		F6AEBE99135733F800A63206 /* TXLManagerImportOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerImportOperation.m; sourceTree = "<group>"; };
+		F6C07C04134B02F7003B2464 /* TXLSituation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLSituation.h; sourceTree = "<group>"; };
+		F6C07C05134B02F7003B2464 /* TXLSituation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLSituation.m; sourceTree = "<group>"; };
+		F6C7E006131D0BE700CA70D7 /* iOSFramework.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = iOSFramework.sh; sourceTree = "<group>"; };
+		F6C7E013131D0D2600CA70D7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		F6E2E20412F03E5300A64A07 /* TXLManager+Revision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TXLManager+Revision.h"; sourceTree = "<group>"; };
+		F6E2E20512F03E5300A64A07 /* TXLManager+Revision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TXLManager+Revision.m"; sourceTree = "<group>"; };
+		F6E2E20612F03E5300A64A07 /* TXLManagerDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManagerDelegateProtocol.h; sourceTree = "<group>"; };
+		F6E4A9A312A9029200687F79 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AUTHORS; path = ../AUTHORS; sourceTree = SOURCE_ROOT; };
+		F6E4A9A412A9029200687F79 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = COPYING; path = ../COPYING; sourceTree = SOURCE_ROOT; };
+		F6E4A9A512A9029200687F79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = SOURCE_ROOT; };
+		F6E4A9A812A902A300687F79 /* TXLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLDatabase.h; sourceTree = "<group>"; };
+		F6E4A9A912A902A300687F79 /* TXLDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDatabase.m; sourceTree = "<group>"; };
+		F6E4A9AA12A902A300687F79 /* TXLDBHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLDBHandle.h; sourceTree = "<group>"; };
+		F6E4A9AB12A902A300687F79 /* TXLDBHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDBHandle.m; sourceTree = "<group>"; };
+		F6E4A9AE12A902A300687F79 /* TXLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLManager.h; sourceTree = "<group>"; };
+		F6E4A9AF12A902A300687F79 /* TXLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManager.m; sourceTree = "<group>"; };
+		F6E4A9B412A902A300687F79 /* TXLBoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLBoundingBox.h; sourceTree = "<group>"; };
+		F6E4A9B512A902A300687F79 /* TXLBoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLBoundingBox.m; sourceTree = "<group>"; };
+		F6E4A9B612A902A300687F79 /* TXLGeometryCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGeometryCollection.h; sourceTree = "<group>"; };
+		F6E4A9B712A902A300687F79 /* TXLGeometryCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGeometryCollection.m; sourceTree = "<group>"; };
+		F6E4A9B812A902A300687F79 /* TXLGeometryTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLGeometryTypes.h; sourceTree = "<group>"; };
+		F6E4A9B912A902A300687F79 /* TXLLinestring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLLinestring.h; sourceTree = "<group>"; };
+		F6E4A9BA12A902A300687F79 /* TXLLinestring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLLinestring.m; sourceTree = "<group>"; };
+		F6E4A9BB12A902A300687F79 /* TXLPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPoint.h; sourceTree = "<group>"; };
+		F6E4A9BC12A902A300687F79 /* TXLPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPoint.m; sourceTree = "<group>"; };
+		F6E4A9BD12A902A300687F79 /* TXLPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLPolygon.h; sourceTree = "<group>"; };
+		F6E4A9BE12A902A300687F79 /* TXLPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPolygon.m; sourceTree = "<group>"; };
+		F6E4A9BF12A902A300687F79 /* TXLRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLRing.h; sourceTree = "<group>"; };
+		F6E4A9C012A902A300687F79 /* TXLRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRing.m; sourceTree = "<group>"; };
+		F6E4A9C112A902A300687F79 /* TXLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLContext.h; sourceTree = "<group>"; };
+		F6E4A9C212A902A300687F79 /* TXLContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContext.m; sourceTree = "<group>"; };
+		F6E4A9C512A902A300687F79 /* TXLMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObject.h; sourceTree = "<group>"; };
+		F6E4A9C612A902A300687F79 /* TXLMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObject.m; sourceTree = "<group>"; };
+		F6E4A9C712A902A300687F79 /* TXLMovingObjectSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLMovingObjectSequence.h; sourceTree = "<group>"; };
+		F6E4A9C812A902A300687F79 /* TXLMovingObjectSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectSequence.m; sourceTree = "<group>"; };
+		F6E4A9CF12A902A300687F79 /* TXLRevision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLRevision.h; sourceTree = "<group>"; };
+		F6E4A9D012A902A300687F79 /* TXLRevision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRevision.m; sourceTree = "<group>"; };
+		F6E4A9D112A902A300687F79 /* TXLStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLStatement.h; sourceTree = "<group>"; };
+		F6E4A9D212A902A300687F79 /* TXLStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLStatement.m; sourceTree = "<group>"; };
+		F6E4A9D312A902A300687F79 /* TXLTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLTerm.h; sourceTree = "<group>"; };
+		F6E4A9D412A902A300687F79 /* TXLTerm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLTerm.m; sourceTree = "<group>"; };
+		F6E4A9D612A902A300687F79 /* TXLQueryHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLQueryHandle.h; sourceTree = "<group>"; };
+		F6E4A9D712A902A300687F79 /* TXLQueryHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLQueryHandle.m; sourceTree = "<group>"; };
+		F6E4A9D812A902A300687F79 /* TXLResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLResultSet.h; sourceTree = "<group>"; };
+		F6E4A9D912A902A300687F79 /* TXLResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLResultSet.m; sourceTree = "<group>"; };
+		F6E4A9DF12A902A300687F79 /* TXLQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLQuery.h; sourceTree = "<group>"; };
+		F6E4A9E012A902A300687F79 /* TXLQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLQuery.m; sourceTree = "<group>"; };
+		F6E4AA1512A902B700687F79 /* GaiaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaiaTest.m; sourceTree = "<group>"; };
+		F6E4AA1712A902B700687F79 /* TXLContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLContextTest.m; sourceTree = "<group>"; };
+		F6E4AA1812A902B700687F79 /* TXLDatabaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLDatabaseTest.m; sourceTree = "<group>"; };
+		F6E4AA1912A902B700687F79 /* TXLGeometryCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLGeometryCollectionTest.m; sourceTree = "<group>"; };
+		F6E4AA1A12A902B700687F79 /* TXLLinestringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLLinestringTest.m; sourceTree = "<group>"; };
+		F6E4AA1B12A902B700687F79 /* TXLManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLManagerTest.m; sourceTree = "<group>"; };
+		F6E4AA1C12A902B700687F79 /* TXLMovingObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectTest.m; sourceTree = "<group>"; };
+		F6E4AA1D12A902B700687F79 /* TXLPolygonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLPolygonTest.m; sourceTree = "<group>"; };
+		F6E4AA1E12A902B700687F79 /* TXLRingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLRingTest.m; sourceTree = "<group>"; };
+		F6E4AA1F12A902B700687F79 /* TXLTermTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLTermTest.m; sourceTree = "<group>"; };
+		F6E4AA2812A9038E00687F79 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
+		F6E4AA2F12A903E200687F79 /* OpenTXL Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenTXL Tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E4AA3112A903E200687F79 /* OpenTXL Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenTXL Tests-Info.plist"; sourceTree = "<group>"; };
+		F6E4AA3512A9040400687F79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F6E4AA3812A9040400687F79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F6E4AA7B12A9052100687F79 /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
+		F6E4ABDD12A938AE00687F79 /* libspatialite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspatialite.a; path = "build/Debug-iphoneos/lib/libspatialite.a"; sourceTree = "<group>"; };
+		F6E4ABE312A938F000687F79 /* libgeos_c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgeos_c.a; path = lib/libgeos_c.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E4ABE512A938F000687F79 /* libgeos.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgeos.a; path = lib/libgeos.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E4ABE712A938F000687F79 /* libproj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libproj.a; path = lib/libproj.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6E4ABFD12A939EE00687F79 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		F6E4AC0112A93A0400687F79 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F6FB898A12B76BC10063E6EB /* TXLMovingObjectSequenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXLMovingObjectSequenceTest.m; sourceTree = "<group>"; };
+		F6FB8B3812B7884F0063E6EB /* NSDate+dateWithString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+dateWithString.h"; sourceTree = "<group>"; };
+		F6FB8B3912B7884F0063E6EB /* NSDate+dateWithString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+dateWithString.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				F627551012ACDCD0009F1081 /* libspatialite.a in Frameworks */,
+				F627551112ACDCD0009F1081 /* libgeos_c.a in Frameworks */,
+				F627551212ACDCD0009F1081 /* libgeos.a in Frameworks */,
+				F627551312ACDCD0009F1081 /* libproj.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4AA2D12A903E200687F79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4AA3612A9040400687F79 /* CoreGraphics.framework in Frameworks */,
+				F6E4AA3712A9040400687F79 /* Foundation.framework in Frameworks */,
+				F6E4AA3912A9040400687F79 /* UIKit.framework in Frameworks */,
+				F6E4AA3E12A9040D00687F79 /* GHUnit.framework in Frameworks */,
+				F6E4ABD412A9383200687F79 /* libOpenTXL.a in Frameworks */,
+				F6E4ABFE12A939EE00687F79 /* libstdc++.dylib in Frameworks */,
+				F6E4AC0212A93A0400687F79 /* libiconv.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libOpenTXL.a */,
+				F6E4AA2F12A903E200687F79 /* OpenTXL Tests.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* OpenTXL */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9A312A9029200687F79 /* AUTHORS */,
+				F6E4A9A412A9029200687F79 /* COPYING */,
+				F6E4A9A512A9029200687F79 /* README.md */,
+				F6C7E013131D0D2600CA70D7 /* Makefile */,
+				F6E4AA1412A902B700687F79 /* Tests */,
+				F6E4AA7912A9050000687F79 /* Tests-iOS */,
+				5E3EB83313169A4B00974B91 /* TestData */,
+				F6E4A9A612A902A300687F79 /* Classes */,
+				F6FB8B3712B788020063E6EB /* Classes-iOS */,
+				F6E4AA2012A902CA00687F79 /* XcodeConfig */,
+				F6E4AA2112A902D600687F79 /* Scripts */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				F6E4AA2212A902F500687F79 /* Frameworks */,
+				F6E4AA2312A9030F00687F79 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = OpenTXL;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4AA3512A9040400687F79 /* CoreGraphics.framework */,
+				F6E4AA3812A9040400687F79 /* UIKit.framework */,
+				F6E4ABDD12A938AE00687F79 /* libspatialite.a */,
+				F6E4ABE312A938F000687F79 /* libgeos_c.a */,
+				F6E4ABE512A938F000687F79 /* libgeos.a */,
+				F6E4ABE712A938F000687F79 /* libproj.a */,
+				F6E4ABFD12A939EE00687F79 /* libstdc++.dylib */,
+				F6E4AC0112A93A0400687F79 /* libiconv.dylib */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = "External Frameworks";
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* OpenTXL_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		5E01568E131E9BBA001302ED /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				5E01568F131E9BBA001302ED /* Prognosis-1 */,
+				5E015696131E9BBA001302ED /* Prognosis-2 */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		5E01568F131E9BBA001302ED /* Prognosis-1 */ = {
+			isa = PBXGroup;
+			children = (
+				5E015690131E9BBA001302ED /* prog_1-rain.n3 */,
+				5E015691131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 */,
+				5E015692131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 */,
+				5E015693131E9BBA001302ED /* prog_1-temp-normal.n3 */,
+				5E015694131E9BBA001302ED /* prog_1-temp-warm.n3 */,
+				5E015695131E9BBA001302ED /* prog_1-wind.n3 */,
+			);
+			path = "Prognosis-1";
+			sourceTree = "<group>";
+		};
+		5E015696131E9BBA001302ED /* Prognosis-2 */ = {
+			isa = PBXGroup;
+			children = (
+				5E015697131E9BBA001302ED /* prog_2-rain.n3 */,
+				5E015698131E9BBA001302ED /* prog_2-sky_cover-overcast.n3 */,
+				5E015699131E9BBA001302ED /* prog_2-sky_cover-scattered.n3 */,
+				5E01569A131E9BBA001302ED /* prog_2-temp-normal.n3 */,
+				5E01569B131E9BBA001302ED /* prog_2-temp-warm.n3 */,
+			);
+			path = "Prognosis-2";
+			sourceTree = "<group>";
+		};
+		5E0C5B71130D7B1A00E8219A /* SpatialSituation */ = {
+			isa = PBXGroup;
+			children = (
+				5E0C5B74130D7B1A00E8219A /* spatialsituation.lm */,
+				5E0C5B75130D7B1A00E8219A /* spatialsituation.ym */,
+				F65ECFEE1314156500CA0E3F /* TXLSpatialSituationImporter.h */,
+				F65ECFEF1314156500CA0E3F /* TXLSpatialSituationImporter.m */,
+			);
+			path = SpatialSituation;
+			sourceTree = "<group>";
+		};
+		5E3EB83313169A4B00974B91 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB83413169A4B00974B91 /* expectedResults */,
+				5E3EB83513169A4B00974B91 /* Expressions */,
+				5E3EB83813169A4B00974B91 /* Situations */,
+			);
+			name = TestData;
+			path = ../TestData;
+			sourceTree = "<group>";
+		};
+		5E3EB83513169A4B00974B91 /* Expressions */ = {
+			isa = PBXGroup;
+			children = (
+				5E244470133BA2DD008587AF /* select-events-in-city.sq */,
+				5E4E6A7E1333C1A400F19CCB /* construct_events_on_tour.sq */,
+				5E4E6A7F1333C1A400F19CCB /* events_in_cities.res */,
+				5E4E6A801333C1A400F19CCB /* events_on_tour.res */,
+				5E4E6A811333C1A400F19CCB /* tour-events.sq */,
+				5E4E698B1333C18700F19CCB /* construct_events_in_city.sq */,
+				5E3EB83613169A4B00974B91 /* events_in_cities.sq */,
+				5E3EB83713169A4B00974B91 /* events_on_tour.sq */,
+			);
+			path = Expressions;
+			sourceTree = "<group>";
+		};
+		5E3EB83813169A4B00974B91 /* Situations */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB83913169A4B00974B91 /* Cities */,
+				5E3EB83D13169A4B00974B91 /* Events */,
+				5E3EB87A13169A4B00974B91 /* Traveller */,
+				5E01568E131E9BBA001302ED /* Weather */,
+			);
+			path = Situations;
+			sourceTree = "<group>";
+		};
+		5E3EB83913169A4B00974B91 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB83A13169A4B00974B91 /* graz.n3 */,
+				5E3EB83B13169A4B00974B91 /* salzburg.n3 */,
+				5E3EB83C13169A4B00974B91 /* vienna.n3 */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		5E3EB83D13169A4B00974B91 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB83E13169A4B00974B91 /* 01-event-graz-1.n3 */,
+				5E3EB83F13169A4B00974B91 /* 02-event-graz-2.n3 */,
+				5E3EB84013169A4B00974B91 /* 03-event-graz-3.n3 */,
+				5E3EB84113169A4B00974B91 /* 04-event-graz-4.n3 */,
+				5E3EB84213169A4B00974B91 /* 05-event-graz-5.n3 */,
+				5E3EB84313169A4B00974B91 /* 06-event-graz-6.n3 */,
+				5E3EB84413169A4B00974B91 /* 07-event-graz-7.n3 */,
+				5E3EB84513169A4B00974B91 /* 08-event-graz-8.n3 */,
+				5E3EB84613169A4B00974B91 /* 09-event-graz-9.n3 */,
+				5E3EB84713169A4B00974B91 /* 10-event-graz-10.n3 */,
+				5E3EB84813169A4B00974B91 /* 11-event-graz-11.n3 */,
+				5E3EB84913169A4B00974B91 /* 12-event-graz-12.n3 */,
+				5E3EB84A13169A4B00974B91 /* 13-event-graz-13.n3 */,
+				5E3EB84B13169A4B00974B91 /* 14-event-graz-14.n3 */,
+				5E3EB84C13169A4B00974B91 /* 15-event-graz-15.n3 */,
+				5E3EB84D13169A4B00974B91 /* 16-event-salzburg-1.n3 */,
+				5E3EB84E13169A4B00974B91 /* 17-event-salzburg-2.n3 */,
+				5E3EB84F13169A4B00974B91 /* 18-event-salzburg-3.n3 */,
+				5E3EB85013169A4B00974B91 /* 19-event-salzburg-4.n3 */,
+				5E3EB85113169A4B00974B91 /* 20-event-salzburg-5.n3 */,
+				5E3EB85213169A4B00974B91 /* 21-event-salzburg-6.n3 */,
+				5E3EB85313169A4B00974B91 /* 22-event-salzburg-7.n3 */,
+				5E3EB85413169A4B00974B91 /* 23-event-salzburg-8.n3 */,
+				5E3EB85513169A4B00974B91 /* 24-event-salzburg-9.n3 */,
+				5E3EB85613169A4B00974B91 /* 25-event-salzburg-10.n3 */,
+				5E3EB85713169A4B00974B91 /* 26-event-salzburg-11.n3 */,
+				5E3EB85813169A4B00974B91 /* 27-event-salzburg-12.n3 */,
+				5E3EB85913169A4B00974B91 /* 28-event-salzburg-13.n3 */,
+				5E3EB85A13169A4B00974B91 /* 29-event-salzburg-14.n3 */,
+				5E3EB85B13169A4B00974B91 /* 30-event-salzburg-15.n3 */,
+				5E3EB85C13169A4B00974B91 /* 31-event-vienna-1.n3 */,
+				5E3EB85D13169A4B00974B91 /* 32-event-vienna-2.n3 */,
+				5E3EB85E13169A4B00974B91 /* 33-event-vienna-3.n3 */,
+				5E3EB85F13169A4B00974B91 /* 34-event-vienna-4.n3 */,
+				5E3EB86013169A4B00974B91 /* 35-event-vienna-5.n3 */,
+				5E3EB86113169A4B00974B91 /* 36-event-vienna-6.n3 */,
+				5E3EB86213169A4B00974B91 /* 37-event-vienna-7.n3 */,
+				5E3EB86313169A4B00974B91 /* 38-event-vienna-8.n3 */,
+				5E3EB86413169A4B00974B91 /* 39-event-vienna-9.n3 */,
+				5E3EB86513169A4B00974B91 /* 40-event-vienna-10.n3 */,
+				5E3EB86613169A4B00974B91 /* 41-event-vienna-11.n3 */,
+				5E3EB86713169A4B00974B91 /* 42-event-vienna-12.n3 */,
+				5E3EB86813169A4B00974B91 /* 43-event-vienna-13.n3 */,
+				5E3EB86913169A4B00974B91 /* 44-event-vienna-14.n3 */,
+				5E3EB86A13169A4B00974B91 /* 45-event-vienna-15.n3 */,
+				5E3EB86B13169A4B00974B91 /* 46-event-vienna-16.n3 */,
+				5E3EB86C13169A4B00974B91 /* 47-event-vienna-17.n3 */,
+				5E3EB86D13169A4B00974B91 /* 48-event-vienna-18.n3 */,
+				5E3EB86E13169A4B00974B91 /* 49-event-vienna-19.n3 */,
+				5E3EB86F13169A4B00974B91 /* 50-event-vienna-20.n3 */,
+				5E3EB87013169A4B00974B91 /* 51-event-vienna-21.n3 */,
+				5E3EB87113169A4B00974B91 /* 52-event-vienna-22.n3 */,
+				5E3EB87213169A4B00974B91 /* 53-event-vienna-23.n3 */,
+				5E3EB87313169A4B00974B91 /* 54-event-vienna-24.n3 */,
+				5E3EB87413169A4B00974B91 /* 55-event-vienna-25.n3 */,
+				5E3EB87513169A4B00974B91 /* 56-event-vienna-26.n3 */,
+				5E3EB87613169A4B00974B91 /* 57-event-vienna-27.n3 */,
+				5E3EB87713169A4B00974B91 /* 58-event-vienna-28.n3 */,
+				5E3EB87813169A4B00974B91 /* 59-event-vienna-29.n3 */,
+				5E3EB87913169A4B00974B91 /* 60-event-vienna-30.n3 */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		5E3EB87A13169A4B00974B91 /* Traveller */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB87B13169A4B00974B91 /* travel-route.n3 */,
+			);
+			path = Traveller;
+			sourceTree = "<group>";
+		};
+		5ED1414012B7C36F00A37D69 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5E3EB93113169B2300974B91 /* NSString+UUID.h */,
+				5E3EB93213169B2300974B91 /* NSString+UUID.m */,
+				F680089F130AB7F3003C7B38 /* NSDate+Interval.h */,
+				F68008A0130AB7F3003C7B38 /* NSDate+Interval.m */,
+				5EB84DE312B8C86D00E8A4DD /* TXLPropertiesReader.h */,
+				5EB84DE412B8C86D00E8A4DD /* TXLPropertiesReader.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F6E4A9A612A902A300687F79 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9A712A902A300687F79 /* Database */,
+				F6E4A9AD12A902A300687F79 /* Manager */,
+				F6E4A9B212A902A300687F79 /* Model */,
+				F6E4A9D512A902A300687F79 /* Query */,
+				F6E4A9DA12A902A300687F79 /* SPARQL */,
+				5E0C5B71130D7B1A00E8219A /* SpatialSituation */,
+				5ED1414012B7C36F00A37D69 /* Utilities */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4A9A712A902A300687F79 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9A812A902A300687F79 /* TXLDatabase.h */,
+				F6E4A9A912A902A300687F79 /* TXLDatabase.m */,
+				F6E4A9AA12A902A300687F79 /* TXLDBHandle.h */,
+				F6E4A9AB12A902A300687F79 /* TXLDBHandle.m */,
+				F6A4B9BF12DB43980053770B /* TXLInteger.h */,
+				F6A4B9C012DB43980053770B /* TXLInteger.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		F6E4A9AD12A902A300687F79 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5E655F34135DBE03000FF1E2 /* TXLManagerUpdateOperation.h */,
+				5E655F36135DBE15000FF1E2 /* TXLManagerUpdateOperation.m */,
+				F6AEBE98135733F800A63206 /* TXLManagerImportOperation.h */,
+				F6AEBE99135733F800A63206 /* TXLManagerImportOperation.m */,
+				F6E2E20612F03E5300A64A07 /* TXLManagerDelegateProtocol.h */,
+				F6E4A9AE12A902A300687F79 /* TXLManager.h */,
+				F6E4A9AF12A902A300687F79 /* TXLManager.m */,
+				F6E2E20412F03E5300A64A07 /* TXLManager+Revision.h */,
+				F6E2E20512F03E5300A64A07 /* TXLManager+Revision.m */,
+				F65ECFF21314158000CA0E3F /* TXLManager+Importer.h */,
+				F65ECFF31314158000CA0E3F /* TXLManager+Importer.m */,
+				F6E4A9C112A902A300687F79 /* TXLContext.h */,
+				F6E4A9C212A902A300687F79 /* TXLContext.m */,
+				F6E4A9CF12A902A300687F79 /* TXLRevision.h */,
+				F6E4A9D012A902A300687F79 /* TXLRevision.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		F6E4A9B212A902A300687F79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9B312A902A300687F79 /* Geometry */,
+				F68008A8130AB8EF003C7B38 /* TXLSnapshot.h */,
+				F68008A9130AB8EF003C7B38 /* TXLSnapshot.m */,
+				F6E4A9C512A902A300687F79 /* TXLMovingObject.h */,
+				F6E4A9C612A902A300687F79 /* TXLMovingObject.m */,
+				F6E4A9C712A902A300687F79 /* TXLMovingObjectSequence.h */,
+				F6E4A9C812A902A300687F79 /* TXLMovingObjectSequence.m */,
+				F6E4A9D112A902A300687F79 /* TXLStatement.h */,
+				F6E4A9D212A902A300687F79 /* TXLStatement.m */,
+				F6E4A9D312A902A300687F79 /* TXLTerm.h */,
+				F6E4A9D412A902A300687F79 /* TXLTerm.m */,
+				F6C07C04134B02F7003B2464 /* TXLSituation.h */,
+				F6C07C05134B02F7003B2464 /* TXLSituation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6E4A9B312A902A300687F79 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9B412A902A300687F79 /* TXLBoundingBox.h */,
+				F6E4A9B512A902A300687F79 /* TXLBoundingBox.m */,
+				F6E4A9B612A902A300687F79 /* TXLGeometryCollection.h */,
+				F6E4A9B712A902A300687F79 /* TXLGeometryCollection.m */,
+				F6E4A9B812A902A300687F79 /* TXLGeometryTypes.h */,
+				F6E4A9B912A902A300687F79 /* TXLLinestring.h */,
+				F6E4A9BA12A902A300687F79 /* TXLLinestring.m */,
+				F6E4A9BB12A902A300687F79 /* TXLPoint.h */,
+				F6E4A9BC12A902A300687F79 /* TXLPoint.m */,
+				F6E4A9BD12A902A300687F79 /* TXLPolygon.h */,
+				F6E4A9BE12A902A300687F79 /* TXLPolygon.m */,
+				F6E4A9BF12A902A300687F79 /* TXLRing.h */,
+				F6E4A9C012A902A300687F79 /* TXLRing.m */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		F6E4A9D512A902A300687F79 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4A9D612A902A300687F79 /* TXLQueryHandle.h */,
+				F6E4A9D712A902A300687F79 /* TXLQueryHandle.m */,
+				F6E4A9D812A902A300687F79 /* TXLResultSet.h */,
+				F6E4A9D912A902A300687F79 /* TXLResultSet.m */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		F6E4A9DA12A902A300687F79 /* SPARQL */ = {
+			isa = PBXGroup;
+			children = (
+				F6800A56130AD18A003C7B38 /* TXLGraphPattern.h */,
+				F6800A57130AD18A003C7B38 /* TXLGraphPattern.m */,
+				F69179DF12E0796400B1510E /* sparql.lm */,
+				F69179E012E0796400B1510E /* sparql.ym */,
+				F6909F5212E9A08300091CE4 /* TXLSPARQLCompiler.h */,
+				F6909F5312E9A08300091CE4 /* TXLSPARQLCompiler.m */,
+				F6E4A9DF12A902A300687F79 /* TXLQuery.h */,
+				F6E4A9E012A902A300687F79 /* TXLQuery.m */,
+			);
+			path = SPARQL;
+			sourceTree = "<group>";
+		};
+		F6E4AA1412A902B700687F79 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4AA1512A902B700687F79 /* GaiaTest.m */,
+				F6E4AA1812A902B700687F79 /* TXLDatabaseTest.m */,
+				F6E4AA1912A902B700687F79 /* TXLGeometryCollectionTest.m */,
+				F6E4AA1A12A902B700687F79 /* TXLLinestringTest.m */,
+				F6E4AA1D12A902B700687F79 /* TXLPolygonTest.m */,
+				F6E4AA1E12A902B700687F79 /* TXLRingTest.m */,
+				F6E4AA1C12A902B700687F79 /* TXLMovingObjectTest.m */,
+				F6FB898A12B76BC10063E6EB /* TXLMovingObjectSequenceTest.m */,
+				F68008A3130AB80F003C7B38 /* TXLMovingObjectTestData.h */,
+				F68008A4130AB80F003C7B38 /* TXLMovingObjectTestData.m */,
+				F6E4AA1F12A902B700687F79 /* TXLTermTest.m */,
+				F6E4AA1712A902B700687F79 /* TXLContextTest.m */,
+				F69179E312E0798E00B1510E /* TXLSPARQLCompilerTest.m */,
+				F6800A54130AD166003C7B38 /* TXLGraphPatternTest.m */,
+				F6E4AA1B12A902B700687F79 /* TXLManagerTest.m */,
+				F65099C91313FA5E00EF915E /* TXLManagerOperationTest.m */,
+				F69A69E41312CAAE005F5DC5 /* TXLManagerTestUpdateResultSet.m */,
+				5EE029541312AAB9006501C1 /* TXLSpatialSituationImporterTest.m */,
+				5E4E69871333C17100F19CCB /* TXLContextSituationDefinitionTest.m */,
+				5E4E69881333C17100F19CCB /* TXLContextSituationDefinitionWithBlankNodesTest.m */,
+				5E655F38135DBE36000FF1E2 /* TXLContextSituationDefinitionWithIntersectionTest.m */,
+			);
+			name = Tests;
+			path = ../Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4AA2012A902CA00687F79 /* XcodeConfig */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = XcodeConfig;
+			path = ../XcodeConfig;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4AA2112A902D600687F79 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				F6C7E006131D0BE700CA70D7 /* iOSFramework.sh */,
+			);
+			name = Scripts;
+			path = ../Scripts;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4AA2212A902F500687F79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4AA2812A9038E00687F79 /* GHUnit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
+		F6E4AA2312A9030F00687F79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5EB84DE712B8C87B00E8A4DD /* OpenTXLConfig.plist */,
+				F6E4AA3112A903E200687F79 /* OpenTXL Tests-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F6E4AA7912A9050000687F79 /* Tests-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4AA7B12A9052100687F79 /* GHUnitIOSTestMain.m */,
+			);
+			name = "Tests-iOS";
+			path = "../Tests-iOS";
+			sourceTree = SOURCE_ROOT;
+		};
+		F6FB8B3712B788020063E6EB /* Classes-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB8B3812B7884F0063E6EB /* NSDate+dateWithString.h */,
+				F6FB8B3912B7884F0063E6EB /* NSDate+dateWithString.m */,
+			);
+			name = "Classes-iOS";
+			path = "../Classes-iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4A9E112A902A300687F79 /* TXLDatabase.h in Headers */,
+				F6E4A9E312A902A300687F79 /* TXLDBHandle.h in Headers */,
+				F6E4A9E512A902A300687F79 /* TXLManager.h in Headers */,
+				F6E4A9E912A902A300687F79 /* TXLBoundingBox.h in Headers */,
+				F6E4A9EB12A902A300687F79 /* TXLGeometryCollection.h in Headers */,
+				F6E4A9ED12A902A300687F79 /* TXLGeometryTypes.h in Headers */,
+				F6E4A9EE12A902A300687F79 /* TXLLinestring.h in Headers */,
+				F6E4A9F012A902A300687F79 /* TXLPoint.h in Headers */,
+				F6E4A9F212A902A300687F79 /* TXLPolygon.h in Headers */,
+				F6E4A9F412A902A300687F79 /* TXLRing.h in Headers */,
+				F6E4A9F612A902A300687F79 /* TXLContext.h in Headers */,
+				F6E4A9FA12A902A300687F79 /* TXLMovingObject.h in Headers */,
+				F6E4A9FC12A902A300687F79 /* TXLMovingObjectSequence.h in Headers */,
+				F6E4AA0412A902A300687F79 /* TXLRevision.h in Headers */,
+				F6E4AA0612A902A300687F79 /* TXLStatement.h in Headers */,
+				F6E4AA0812A902A300687F79 /* TXLTerm.h in Headers */,
+				F6E4AA0A12A902A300687F79 /* TXLQueryHandle.h in Headers */,
+				F6E4AA0C12A902A300687F79 /* TXLResultSet.h in Headers */,
+				F6E4AA1212A902A300687F79 /* TXLQuery.h in Headers */,
+				F6FB8B3A12B7884F0063E6EB /* NSDate+dateWithString.h in Headers */,
+				5EB84DE512B8C86D00E8A4DD /* TXLPropertiesReader.h in Headers */,
+				F6A4B9C112DB43980053770B /* TXLInteger.h in Headers */,
+				F6909F5412E9A08300091CE4 /* TXLSPARQLCompiler.h in Headers */,
+				F6E2E21A12F03E5300A64A07 /* TXLManager+Revision.h in Headers */,
+				F6E2E21C12F03E5300A64A07 /* TXLManagerDelegateProtocol.h in Headers */,
+				F6AEBE9A135733F800A63206 /* TXLManagerImportOperation.h in Headers */,
+				F68008A1130AB7F3003C7B38 /* NSDate+Interval.h in Headers */,
+				F68008AA130AB8EF003C7B38 /* TXLSnapshot.h in Headers */,
+				F6800A58130AD18A003C7B38 /* TXLGraphPattern.h in Headers */,
+				F65ECFF01314156500CA0E3F /* TXLSpatialSituationImporter.h in Headers */,
+				F65ECFF41314158000CA0E3F /* TXLManager+Importer.h in Headers */,
+				5E3EB93313169B2300974B91 /* NSString+UUID.h in Headers */,
+				F6C07C06134B02F7003B2464 /* TXLSituation.h in Headers */,
+				5E655F35135DBE03000FF1E2 /* TXLManagerUpdateOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		F6C7E04F131D1E1B00CA70D7 /* Build iOS Framework */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = F6C7E054131D1E7100CA70D7 /* Build configuration list for PBXLegacyTarget "Build iOS Framework" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = "Build iOS Framework";
+			passBuildSettingsInEnvironment = 1;
+			productName = "Build iOS Framework";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* OpenTXL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OpenTXL" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+				5ED1420912B7C4EC00A37D69 /* Resources */,
+			);
+			buildRules = (
+				5E0105F2130EAEF400286B71 /* PBXBuildRule */,
+			);
+			dependencies = (
+				F6AEBE9D1357345D00A63206 /* PBXTargetDependency */,
+			);
+			name = OpenTXL;
+			productName = OpenTXL;
+			productReference = D2AAC07E0554694100DB518D /* libOpenTXL.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F6E4AA2E12A903E200687F79 /* OpenTXL Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6E4AA3412A903E300687F79 /* Build configuration list for PBXNativeTarget "OpenTXL Tests" */;
+			buildPhases = (
+				F6E4AA2B12A903E200687F79 /* Resources */,
+				F6E4AA2C12A903E200687F79 /* Sources */,
+				F6E4AA2D12A903E200687F79 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F627556E12ACDD0B009F1081 /* PBXTargetDependency */,
+			);
+			name = "OpenTXL Tests";
+			productName = "OpenTXL Tests";
+			productReference = F6E4AA2F12A903E200687F79 /* OpenTXL Tests.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OpenTXL-iOS" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* OpenTXL */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6E4AB2812A90A1B00687F79 /* libproj */,
+				F6E4AB8C12A925D200687F79 /* libgeos */,
+				F6E4AB9C12A9277C00687F79 /* libspatialite */,
+				D2AAC07D0554694100DB518D /* OpenTXL */,
+				F6E4AA2E12A903E200687F79 /* OpenTXL Tests */,
+				F6C7E04F131D1E1B00CA70D7 /* Build iOS Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5ED1420912B7C4EC00A37D69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB84DE812B8C87B00E8A4DD /* OpenTXLConfig.plist in Resources */,
+				5E01569C131E9BBA001302ED /* prog_1-rain.n3 in Resources */,
+				5E01569D131E9BBA001302ED /* prog_1-sky_cover-overcast.n3 in Resources */,
+				5E01569E131E9BBA001302ED /* prog_1-sky_cover-scattered.n3 in Resources */,
+				5E01569F131E9BBA001302ED /* prog_1-temp-normal.n3 in Resources */,
+				5E0156A0131E9BBA001302ED /* prog_1-temp-warm.n3 in Resources */,
+				5E0156A1131E9BBA001302ED /* prog_1-wind.n3 in Resources */,
+				5E0156A2131E9BBA001302ED /* prog_2-rain.n3 in Resources */,
+				5E0156A3131E9BBA001302ED /* prog_2-sky_cover-overcast.n3 in Resources */,
+				5E0156A4131E9BBA001302ED /* prog_2-sky_cover-scattered.n3 in Resources */,
+				5E0156A5131E9BBA001302ED /* prog_2-temp-normal.n3 in Resources */,
+				5E0156A6131E9BBA001302ED /* prog_2-temp-warm.n3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4AA2B12A903E200687F79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E3EB87C13169A4B00974B91 /* expectedResults in Resources */,
+				5E3EB87D13169A4C00974B91 /* events_in_cities.sq in Resources */,
+				5E3EB87E13169A4C00974B91 /* events_on_tour.sq in Resources */,
+				5E3EB87F13169A4C00974B91 /* graz.n3 in Resources */,
+				5E3EB88013169A4C00974B91 /* salzburg.n3 in Resources */,
+				5E3EB88113169A4C00974B91 /* vienna.n3 in Resources */,
+				5E050EFB132A5D24000FD620 /* prog_1-rain.n3 in Resources */,
+				5E050EFC132A5D24000FD620 /* prog_1-sky_cover-overcast.n3 in Resources */,
+				5E050EFD132A5D24000FD620 /* prog_1-sky_cover-scattered.n3 in Resources */,
+				5E050EFE132A5D24000FD620 /* prog_1-temp-normal.n3 in Resources */,
+				5E050EFF132A5D24000FD620 /* prog_1-temp-warm.n3 in Resources */,
+				5E050F00132A5D24000FD620 /* prog_1-wind.n3 in Resources */,
+				5E3EB88213169A4C00974B91 /* 01-event-graz-1.n3 in Resources */,
+				5E3EB88313169A4C00974B91 /* 02-event-graz-2.n3 in Resources */,
+				5E3EB88413169A4C00974B91 /* 03-event-graz-3.n3 in Resources */,
+				5E3EB88513169A4C00974B91 /* 04-event-graz-4.n3 in Resources */,
+				5E3EB88613169A4C00974B91 /* 05-event-graz-5.n3 in Resources */,
+				5E3EB88713169A4C00974B91 /* 06-event-graz-6.n3 in Resources */,
+				5E3EB88813169A4C00974B91 /* 07-event-graz-7.n3 in Resources */,
+				5E3EB88913169A4C00974B91 /* 08-event-graz-8.n3 in Resources */,
+				5E3EB88A13169A4C00974B91 /* 09-event-graz-9.n3 in Resources */,
+				5E3EB88B13169A4C00974B91 /* 10-event-graz-10.n3 in Resources */,
+				5E3EB88C13169A4C00974B91 /* 11-event-graz-11.n3 in Resources */,
+				5E3EB88D13169A4C00974B91 /* 12-event-graz-12.n3 in Resources */,
+				5E3EB88E13169A4C00974B91 /* 13-event-graz-13.n3 in Resources */,
+				5E3EB88F13169A4C00974B91 /* 14-event-graz-14.n3 in Resources */,
+				5E3EB89013169A4C00974B91 /* 15-event-graz-15.n3 in Resources */,
+				5E3EB89113169A4C00974B91 /* 16-event-salzburg-1.n3 in Resources */,
+				5E3EB89213169A4C00974B91 /* 17-event-salzburg-2.n3 in Resources */,
+				5E3EB89313169A4C00974B91 /* 18-event-salzburg-3.n3 in Resources */,
+				5E3EB89413169A4C00974B91 /* 19-event-salzburg-4.n3 in Resources */,
+				5E3EB89513169A4C00974B91 /* 20-event-salzburg-5.n3 in Resources */,
+				5E3EB89613169A4C00974B91 /* 21-event-salzburg-6.n3 in Resources */,
+				5E3EB89713169A4C00974B91 /* 22-event-salzburg-7.n3 in Resources */,
+				5E3EB89813169A4C00974B91 /* 23-event-salzburg-8.n3 in Resources */,
+				5E3EB89913169A4C00974B91 /* 24-event-salzburg-9.n3 in Resources */,
+				5E3EB89A13169A4C00974B91 /* 25-event-salzburg-10.n3 in Resources */,
+				5E3EB89B13169A4C00974B91 /* 26-event-salzburg-11.n3 in Resources */,
+				5E3EB89C13169A4C00974B91 /* 27-event-salzburg-12.n3 in Resources */,
+				5E3EB89D13169A4C00974B91 /* 28-event-salzburg-13.n3 in Resources */,
+				5E3EB89E13169A4C00974B91 /* 29-event-salzburg-14.n3 in Resources */,
+				5E3EB89F13169A4C00974B91 /* 30-event-salzburg-15.n3 in Resources */,
+				5E3EB8A013169A4C00974B91 /* 31-event-vienna-1.n3 in Resources */,
+				5E3EB8A113169A4C00974B91 /* 32-event-vienna-2.n3 in Resources */,
+				5E3EB8A213169A4C00974B91 /* 33-event-vienna-3.n3 in Resources */,
+				5E3EB8A313169A4C00974B91 /* 34-event-vienna-4.n3 in Resources */,
+				5E3EB8A413169A4C00974B91 /* 35-event-vienna-5.n3 in Resources */,
+				5E3EB8A513169A4C00974B91 /* 36-event-vienna-6.n3 in Resources */,
+				5E3EB8A613169A4C00974B91 /* 37-event-vienna-7.n3 in Resources */,
+				5E3EB8A713169A4C00974B91 /* 38-event-vienna-8.n3 in Resources */,
+				5E3EB8A813169A4C00974B91 /* 39-event-vienna-9.n3 in Resources */,
+				5E3EB8A913169A4C00974B91 /* 40-event-vienna-10.n3 in Resources */,
+				5E3EB8AA13169A4C00974B91 /* 41-event-vienna-11.n3 in Resources */,
+				5E3EB8AB13169A4C00974B91 /* 42-event-vienna-12.n3 in Resources */,
+				5E3EB8AC13169A4C00974B91 /* 43-event-vienna-13.n3 in Resources */,
+				5E3EB8AD13169A4C00974B91 /* 44-event-vienna-14.n3 in Resources */,
+				5E3EB8AE13169A4C00974B91 /* 45-event-vienna-15.n3 in Resources */,
+				5E3EB8AF13169A4C00974B91 /* 46-event-vienna-16.n3 in Resources */,
+				5E3EB8B013169A4C00974B91 /* 47-event-vienna-17.n3 in Resources */,
+				5E3EB8B113169A4C00974B91 /* 48-event-vienna-18.n3 in Resources */,
+				5E3EB8B213169A4C00974B91 /* 49-event-vienna-19.n3 in Resources */,
+				5E3EB8B313169A4C00974B91 /* 50-event-vienna-20.n3 in Resources */,
+				5E3EB8B413169A4C00974B91 /* 51-event-vienna-21.n3 in Resources */,
+				5E3EB8B513169A4C00974B91 /* 52-event-vienna-22.n3 in Resources */,
+				5E3EB8B613169A4C00974B91 /* 53-event-vienna-23.n3 in Resources */,
+				5E3EB8B713169A4C00974B91 /* 54-event-vienna-24.n3 in Resources */,
+				5E3EB8B813169A4C00974B91 /* 55-event-vienna-25.n3 in Resources */,
+				5E3EB8B913169A4C00974B91 /* 56-event-vienna-26.n3 in Resources */,
+				5E3EB8BA13169A4C00974B91 /* 57-event-vienna-27.n3 in Resources */,
+				5E3EB8BB13169A4C00974B91 /* 58-event-vienna-28.n3 in Resources */,
+				5E3EB8BC13169A4C00974B91 /* 59-event-vienna-29.n3 in Resources */,
+				5E3EB8BD13169A4C00974B91 /* 60-event-vienna-30.n3 in Resources */,
+				5E3EB8BE13169A4C00974B91 /* travel-route.n3 in Resources */,
+				5E4E698D1333C18700F19CCB /* construct_events_in_city.sq in Resources */,
+				5E4E6A821333C1A400F19CCB /* construct_events_on_tour.sq in Resources */,
+				5E4E6A831333C1A400F19CCB /* events_in_cities.res in Resources */,
+				5E4E6A841333C1A400F19CCB /* events_on_tour.res in Resources */,
+				5E4E6A851333C1A400F19CCB /* tour-events.sq in Resources */,
+				5E244471133BA2DD008587AF /* select-events-in-city.sq in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F6E4AB2712A90A1B00687F79 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\nPACKAGE_NAME=proj-4.7.0.tar.gz\nPACKAGE=\"$PROJECT_DIR/../Packages/$PACKAGE_NAME\"\nPACKAGE_DIR=\"$TEMP_DIR/proj-4.7.0\"\n\nSRC_DIR=$PACKAGE_DIR/src\n\nfor ARCH in $ARCHS\ndo\n    BUILD_ARCHS=\"$BUILD_ARCHS -arch $ARCH\"\ndone\n\n\n# Defines to set up environment\nexport CC=$PLATFORM_DEVELOPER_BIN_DIR/gcc\nexport LD=$PLATFORM_DEVELOPER_BIN_DIR/ld\nexport CPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport CXX=$PLATFORM_DEVELOPER_BIN_DIR/g++\nexport AR=$PLATFORM_DEVELOPER_BIN_DIR/ar\nexport LIBTOOL=$PLATFORM_DEVELOPER_BIN_DIR/libtool\nexport AS=$PLATFORM_DEVELOPER_BIN_DIR/as\nexport NM=$PLATFORM_DEVELOPER_BIN_DIR/nm\nexport CXXCPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport RANLIB=$PLATFORM_DEVELOPER_BIN_DIR/ranlib\n\nexport OPTFLAG=\"-O${OPT}\"\nexport COMMONFLAGS=\"${BUILD_ARCHS} -pipe $OPTFLAG -gdwarf-2 -no-cpp-precomp -mthumb -isysroot ${SDKROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET}\"\nexport LDFLAGS=\"${COMMONFLAGS} -L${HOME}${SDKROOT}/usr/lib\"\nexport CFLAGS=\"${COMMONFLAGS} -fvisibility=hidden\"\nexport CXXFLAGS=\"${COMMONFLAGS} -fvisibility=hidden -fvisibility-inlines-hidden\"\n\n\nunpack () {\nmkdir -p \"$PACKAGE_DIR\" || exit 1\npushd \"$TEMP_DIR\"\ntar -xzf \"$PACKAGE\" || exit 1\npopd\n}\n\nbuild () {\npushd \"$PACKAGE_DIR\"\n./configure --prefix=$TARGET_BUILD_DIR --host=arm-apple-darwin9 --enable-shared=no --disable-dependency-tracking || exit 1\nmake || exit 1\nmake install || exit 1\npopd\n}\n\n##\n## Main\n##\n\nunpack\nbuild\n\nexit 0";
+		};
+		F6E4AB8B12A925D200687F79 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\nPACKAGE_NAME=geos-3.2.2.tar.bz2\nPACKAGE=\"$PROJECT_DIR/../Packages/$PACKAGE_NAME\"\nPACKAGE_DIR=\"$TEMP_DIR/geos-3.2.2\"\n\nSRC_DIR=$PACKAGE_DIR/src\n\nfor ARCH in $ARCHS\ndo\n    BUILD_ARCHS=\"$BUILD_ARCHS -arch $ARCH\"\ndone\n\n\n# Defines to set up environment\nexport CC=$PLATFORM_DEVELOPER_BIN_DIR/gcc\nexport LD=$PLATFORM_DEVELOPER_BIN_DIR/ld\nexport CPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport CXX=$PLATFORM_DEVELOPER_BIN_DIR/g++\nexport AR=$PLATFORM_DEVELOPER_BIN_DIR/ar\nexport LIBTOOL=$PLATFORM_DEVELOPER_BIN_DIR/libtool\nexport AS=$PLATFORM_DEVELOPER_BIN_DIR/as\nexport NM=$PLATFORM_DEVELOPER_BIN_DIR/nm\nexport CXXCPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport RANLIB=$PLATFORM_DEVELOPER_BIN_DIR/ranlib\n\nexport OPTFLAG=\"-O${OPT}\"\nexport COMMONFLAGS=\"${BUILD_ARCHS} -pipe $OPTFLAG -gdwarf-2 -no-cpp-precomp -mthumb -isysroot ${SDKROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET}\"\nexport LDFLAGS=\"${COMMONFLAGS} -L${HOME}${SDKROOT}/usr/lib\"\nexport CFLAGS=\"${COMMONFLAGS} -fvisibility=hidden\"\nexport CXXFLAGS=\"${COMMONFLAGS} -fvisibility=hidden -fvisibility-inlines-hidden\"\n\n\nunpack () {\nmkdir -p \"$PACKAGE_DIR\" || exit 1\npushd \"$TEMP_DIR\"\ntar -xzf \"$PACKAGE\" || exit 1\npopd\n}\n\nbuild () {\npushd \"$PACKAGE_DIR\"\n./configure --prefix=$TARGET_BUILD_DIR --host=arm-apple-darwin9 --enable-shared=no --disable-dependency-tracking || exit 1\nmake || exit 1\nmake install || exit 1\npopd\n}\n\n##\n## Main\n##\n\nunpack\nbuild\n\nexit 0";
+		};
+		F6E4AB9B12A9277C00687F79 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nPACKAGE_NAME=libspatialite-amalgamation-2.4.0.tar.gz\nPACKAGE=\"$PROJECT_DIR/../Packages/$PACKAGE_NAME\"\nPACKAGE_DIR=\"$TEMP_DIR/libspatialite-amalgamation-2.4.0\"\n\nSRC_DIR=$PACKAGE_DIR/src\n\nfor ARCH in $ARCHS\ndo\n    BUILD_ARCHS=\"$BUILD_ARCHS -arch $ARCH\"\ndone\n\n\n# Defines to set up environment\nexport CC=$PLATFORM_DEVELOPER_BIN_DIR/gcc\nexport LD=$PLATFORM_DEVELOPER_BIN_DIR/ld\nexport CPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport CXX=$PLATFORM_DEVELOPER_BIN_DIR/g++\nexport AR=$PLATFORM_DEVELOPER_BIN_DIR/ar\nexport LIBTOOL=$PLATFORM_DEVELOPER_BIN_DIR/libtool\nexport AS=$PLATFORM_DEVELOPER_BIN_DIR/as\nexport NM=$PLATFORM_DEVELOPER_BIN_DIR/nm\nexport CXXCPP=$PLATFORM_DEVELOPER_BIN_DIR/cpp\nexport RANLIB=$PLATFORM_DEVELOPER_BIN_DIR/ranlib\n\nexport OPTFLAG=\"-O${OPT}\"\nexport COMMONFLAGS=\"${BUILD_ARCHS} -pipe $OPTFLAG -gdwarf-2 -no-cpp-precomp -mthumb -isysroot ${SDKROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET} -I${BUILT_PRODUCTS_DIR}/include\"\nexport LDFLAGS=\"-Z ${COMMONFLAGS} -L${HOME}${SDKROOT}/usr/lib -L${BUILT_PRODUCTS_DIR}/lib -lstdc++\"\nexport CFLAGS=\"${COMMONFLAGS} -fvisibility=hidden\"\nexport CXXFLAGS=\"${COMMONFLAGS} -fvisibility=hidden -fvisibility-inlines-hidden\"\n\n\nunpack () {\nmkdir -p \"$PACKAGE_DIR\" || exit 1\npushd \"$TEMP_DIR\"\ntar -xzf \"$PACKAGE\" || exit 1\npopd\n}\n\nbuild () {\npushd \"$PACKAGE_DIR\"\npatch --silent -i $PROJECT_DIR/../Packages/libspatialite-amalgamation-2.4.0.patch\n./configure --prefix=$TARGET_BUILD_DIR --host=arm-apple-darwin9 --enable-shared=no --disable-dependency-tracking || exit 1\nmake || exit 1\nmake install || exit 1\npopd\n}\n\n##\n## Main\n##\n\nunpack\nbuild\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4A9E212A902A300687F79 /* TXLDatabase.m in Sources */,
+				F6E4A9E412A902A300687F79 /* TXLDBHandle.m in Sources */,
+				F6E4A9E612A902A300687F79 /* TXLManager.m in Sources */,
+				F6E4A9EA12A902A300687F79 /* TXLBoundingBox.m in Sources */,
+				F6E4A9EC12A902A300687F79 /* TXLGeometryCollection.m in Sources */,
+				F6E4A9EF12A902A300687F79 /* TXLLinestring.m in Sources */,
+				F6E4A9F112A902A300687F79 /* TXLPoint.m in Sources */,
+				F6E4A9F312A902A300687F79 /* TXLPolygon.m in Sources */,
+				F6E4A9F512A902A300687F79 /* TXLRing.m in Sources */,
+				F6E4A9F712A902A300687F79 /* TXLContext.m in Sources */,
+				F6E4A9FB12A902A300687F79 /* TXLMovingObject.m in Sources */,
+				F6E4A9FD12A902A300687F79 /* TXLMovingObjectSequence.m in Sources */,
+				F6E4AA0512A902A300687F79 /* TXLRevision.m in Sources */,
+				F6E4AA0712A902A300687F79 /* TXLStatement.m in Sources */,
+				F6E4AA0912A902A300687F79 /* TXLTerm.m in Sources */,
+				F6E4AA0B12A902A300687F79 /* TXLQueryHandle.m in Sources */,
+				F6E4AA0D12A902A300687F79 /* TXLResultSet.m in Sources */,
+				F6E4AA1312A902A300687F79 /* TXLQuery.m in Sources */,
+				F6FB8B3B12B7884F0063E6EB /* NSDate+dateWithString.m in Sources */,
+				5EB84DE612B8C86D00E8A4DD /* TXLPropertiesReader.m in Sources */,
+				F6A4B9C212DB43980053770B /* TXLInteger.m in Sources */,
+				F69179E112E0796400B1510E /* sparql.lm in Sources */,
+				F69179E212E0796400B1510E /* sparql.ym in Sources */,
+				F6909F5512E9A08300091CE4 /* TXLSPARQLCompiler.m in Sources */,
+				F6E2E21B12F03E5300A64A07 /* TXLManager+Revision.m in Sources */,
+				F68008A2130AB7F3003C7B38 /* NSDate+Interval.m in Sources */,
+				F68008AB130AB8EF003C7B38 /* TXLSnapshot.m in Sources */,
+				F6800A59130AD18A003C7B38 /* TXLGraphPattern.m in Sources */,
+				5E0105D8130EAEA800286B71 /* spatialsituation.lm in Sources */,
+				5E0105D9130EAEA800286B71 /* spatialsituation.ym in Sources */,
+				F65ECFF11314156500CA0E3F /* TXLSpatialSituationImporter.m in Sources */,
+				F65ECFF51314158000CA0E3F /* TXLManager+Importer.m in Sources */,
+				5E3EB93413169B2300974B91 /* NSString+UUID.m in Sources */,
+				F6C07C07134B02F7003B2464 /* TXLSituation.m in Sources */,
+				F6AEBE9B135733F800A63206 /* TXLManagerImportOperation.m in Sources */,
+				5E655F37135DBE15000FF1E2 /* TXLManagerUpdateOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6E4AA2C12A903E200687F79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6E4AA7C12A9052100687F79 /* GHUnitIOSTestMain.m in Sources */,
+				F6E4AD1F12A944C100687F79 /* GaiaTest.m in Sources */,
+				F6E4AD2112A944C300687F79 /* TXLContextTest.m in Sources */,
+				F6E4AD2212A944C300687F79 /* TXLDatabaseTest.m in Sources */,
+				F6E4AD2312A944C400687F79 /* TXLGeometryCollectionTest.m in Sources */,
+				F6E4AD2412A944C500687F79 /* TXLLinestringTest.m in Sources */,
+				F6E4AD2512A944C600687F79 /* TXLManagerTest.m in Sources */,
+				F6E4AD2612A944C700687F79 /* TXLMovingObjectTest.m in Sources */,
+				F6E4AD2712A944C700687F79 /* TXLPolygonTest.m in Sources */,
+				F6E4AD2812A944C800687F79 /* TXLRingTest.m in Sources */,
+				F6E4AD2912A944C900687F79 /* TXLTermTest.m in Sources */,
+				F6FB898B12B76BC10063E6EB /* TXLMovingObjectSequenceTest.m in Sources */,
+				F69179E412E0798E00B1510E /* TXLSPARQLCompilerTest.m in Sources */,
+				F68008A5130AB80F003C7B38 /* TXLMovingObjectTestData.m in Sources */,
+				F6800A55130AD166003C7B38 /* TXLGraphPatternTest.m in Sources */,
+				F69A69E51312CAAE005F5DC5 /* TXLManagerTestUpdateResultSet.m in Sources */,
+				F65099CA1313FA5E00EF915E /* TXLManagerOperationTest.m in Sources */,
+				5EE029551312AAB9006501C1 /* TXLSpatialSituationImporterTest.m in Sources */,
+				5E4E69891333C17100F19CCB /* TXLContextSituationDefinitionTest.m in Sources */,
+				5E4E698A1333C17100F19CCB /* TXLContextSituationDefinitionWithBlankNodesTest.m in Sources */,
+				5E655F39135DBE36000FF1E2 /* TXLContextSituationDefinitionWithIntersectionTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F627556E12ACDD0B009F1081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* OpenTXL */;
+			targetProxy = F627556D12ACDD0B009F1081 /* PBXContainerItemProxy */;
+		};
+		F627560B12ACF30C009F1081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6E4AB8C12A925D200687F79 /* libgeos */;
+			targetProxy = F627560A12ACF30C009F1081 /* PBXContainerItemProxy */;
+		};
+		F627560D12ACF30C009F1081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6E4AB2812A90A1B00687F79 /* libproj */;
+			targetProxy = F627560C12ACF30C009F1081 /* PBXContainerItemProxy */;
+		};
+		F6AEBE9D1357345D00A63206 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6E4AB9C12A9277C00687F79 /* libspatialite */;
+			targetProxy = F6AEBE9C1357345D00A63206 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/OpenTXL.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OpenTXL_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/lib\"",
+				);
+				PRODUCT_NAME = OpenTXL;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/OpenTXL.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OpenTXL_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/lib\"",
+				);
+				PRODUCT_NAME = OpenTXL;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		F6C7E050131D1E1B00CA70D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build iOS Framework";
+			};
+			name = Debug;
+		};
+		F6C7E051131D1E1B00CA70D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build iOS Framework";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		F6E4AA3212A903E300687F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F6E4AA3312A903E300687F79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "OpenTXL Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "OpenTXL Tests";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		F6E4AB2912A90A1C00687F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = libproj;
+			};
+			name = Debug;
+		};
+		F6E4AB2A12A90A1C00687F79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = libproj;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		F6E4AB8D12A925D200687F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = libgeos;
+			};
+			name = Debug;
+		};
+		F6E4AB8E12A925D200687F79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = libgeos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		F6E4AB9D12A9277C00687F79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = libspatialite;
+			};
+			name = Debug;
+		};
+		F6E4AB9E12A9277C00687F79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = libspatialite;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OpenTXL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OpenTXL-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6C7E054131D1E7100CA70D7 /* Build configuration list for PBXLegacyTarget "Build iOS Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C7E050131D1E1B00CA70D7 /* Debug */,
+				F6C7E051131D1E1B00CA70D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E4AA3412A903E300687F79 /* Build configuration list for PBXNativeTarget "OpenTXL Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E4AA3212A903E300687F79 /* Debug */,
+				F6E4AA3312A903E300687F79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E4AB2B12A90A3A00687F79 /* Build configuration list for PBXAggregateTarget "libproj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E4AB2912A90A1C00687F79 /* Debug */,
+				F6E4AB2A12A90A1C00687F79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E4AB9112A925E400687F79 /* Build configuration list for PBXAggregateTarget "libgeos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E4AB8D12A925D200687F79 /* Debug */,
+				F6E4AB8E12A925D200687F79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6E4ABA112A927A500687F79 /* Build configuration list for PBXAggregateTarget "libspatialite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6E4AB9D12A9277C00687F79 /* Debug */,
+				F6E4AB9E12A9277C00687F79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

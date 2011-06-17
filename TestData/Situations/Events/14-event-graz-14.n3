@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/14> .
+
+@snapshot 2011-07-21T10:00Z : POINT(15.444855514727 47.05781746168501) .
+@snapshot 2011-07-21T20:00Z : POINT(15.444855514727 47.05781746168501) .
+
+[ a events:Event;
+  events:id 14;
+  events:name "Messe Graz";
+  events:begin_time "2011-07-21T10:00Z";
+  events:end_time "2011-07-21T20:00Z";
+  events:category categories:Music;
+  events:description "International Music Fair 2011 Graz.";
+  events:image_url "http://static.panoramio.com/photos/original/24212962.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

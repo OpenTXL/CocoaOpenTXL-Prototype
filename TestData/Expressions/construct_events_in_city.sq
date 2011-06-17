@@ -1,0 +1,16 @@
+PREFIX events: <http://schema.opentxl.org/events#> 
+PREFIX cities: <http://schema.opentxl.org/cities#>
+PREFIX cityEvents: <http://schema.opentxl.org/cityEvents#>
+
+CONSTRUCT {
+     [cityEvents:eventInCity "Salzburg"] .
+}
+FROM <txl://opentxl.org/events>
+FROM <txl://opentxl.org/cities>
+
+WHERE {
+    [ a events:Event] .
+    [ a cities:City;
+  		cities:name "Salzburg"] .
+
+}

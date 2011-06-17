@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/2> .
+
+@snapshot 2011-07-20T20:00Z : POINT(15.437586 47.074080) .
+@snapshot 2011-07-20T21:00Z : POINT(15.437586 47.074080) .
+
+[ a events:Event;
+  events:id 2;
+  events:name "Uhrturm";
+  events:begin_time "2011-07-20T20:00Z";
+  events:end_time "2011-07-20T21:00Z";
+  events:category categories:Music;
+  events:description "Freiluftkonzert vor dem Uhrturm.";
+  events:image_url "http://static.panoramio.com/photos/original/47920905.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

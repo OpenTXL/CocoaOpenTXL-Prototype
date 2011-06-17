@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Project-iOS/OpenTXL-iOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:../../../../../../Users/tobias/Documents/Projekte/ISST/CocoaOpenTXL/Project-MacOSX/OpenTXL-MacOSX.xcodeproj">
+   </FileRef>
+   <Group
+      location = "container:../../../../../../Users/tobias/Documents/Projekte/ISST/CocoaOpenTXL/Documentation"
+      name = "Documentation">
+      <Group
+         location = "group:Images"
+         name = "Images">
+         <FileRef
+            location = "group:moving-region.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A1.1.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A1.2.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A1.3.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A1.4.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A2.1.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A2.2.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A2.3.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A2.4.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A3.1.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A3.2.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-A3.3.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B1.1.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B1.2.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B1.3.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B2.1.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B2.2.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B2.3.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B2.4.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-B2.5.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-Empty.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData-Timeline.png">
+         </FileRef>
+         <FileRef
+            location = "group:MovingObjectTestData.graffle">
+         </FileRef>
+         <FileRef
+            location = "group:OpenTXL-Architecture.png">
+         </FileRef>
+         <FileRef
+            location = "group:OpenTXL-Node.png">
+         </FileRef>
+         <FileRef
+            location = "group:OpenTXL-Situationnetwork.png">
+         </FileRef>
+         <FileRef
+            location = "group:OpenTXL.graffle">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Architecture.md">
+      </FileRef>
+      <FileRef
+         location = "group:DatabaseSchema.md">
+      </FileRef>
+      <FileRef
+         location = "group:Datamodel.md">
+      </FileRef>
+      <FileRef
+         location = "group:MovingObjectTestData.md">
+      </FileRef>
+      <FileRef
+         location = "group:Operations.md">
+      </FileRef>
+      <FileRef
+         location = "group:Querying.md">
+      </FileRef>
+      <FileRef
+         location = "group:SituationDefinition.md">
+      </FileRef>
+      <FileRef
+         location = "group:Usage.md">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Packages"
+      name = "Packages">
+      <FileRef
+         location = "group:geos-3.2.2.tar.bz2">
+      </FileRef>
+      <FileRef
+         location = "group:libspatialite-amalgamation-2.4.0.patch">
+      </FileRef>
+      <FileRef
+         location = "group:libspatialite-amalgamation-2.4.0.tar.gz">
+      </FileRef>
+      <FileRef
+         location = "group:proj-4.7.0.tar.gz">
+      </FileRef>
+   </Group>
+</Workspace>

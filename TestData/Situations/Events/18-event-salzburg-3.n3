@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/18> .
+
+@snapshot 2011-07-17T11:30Z : POINT(13.04380439875366 47.81342751880955) .
+@snapshot 2011-07-17T13:00Z : POINT(13.04380439875366 47.81342751880955) .
+
+[ a events:Event;
+  events:id 18;
+  events:name "Salzburg Hauptbahnhof";
+  events:begin_time "2011-07-17T11:30Z";
+  events:end_time "2011-07-17T13:00Z";
+  events:category categories:Architecture;
+  events:description "Geschichte des Bahnhofs";
+  events:image_url "http://static.panoramio.com/photos/original/38432215.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

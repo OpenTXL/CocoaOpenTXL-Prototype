@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/21> .
+
+@snapshot 2011-07-17T20:30Z : POINT(13.02384365291737 47.80606587446339) .
+@snapshot 2011-07-17T22:30Z : POINT(13.02384365291737 47.80606587446339) .
+	
+[ a events:Event;
+  events:id 21;
+  events:name "Bundesgymnasium Zaunergasse";
+  events:begin_time "2011-07-17T20:30Z";
+  events:end_time "2011-07-17T22:30Z";
+  events:category categories:Music;
+  events:description "Geigenkonzert des Maturajahrgangs im Gymnasium.";
+  events:image_url "http://opentxl.org/events/salzburg/images/6.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

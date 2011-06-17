@@ -1,0 +1,218 @@
+==================================================
+SALZBURG 17.07.2011
+
+--------------------------------------------------
+PROGNOSIS 1
+00:00-23:59:	warm
+==> Schönwetter
+--------------------------------------------------
+#1 .. #15
+
+
+
+--------------------------------------------------
+PROGNOSIS 2
+00:00-19:59:	warm
+==> Schönwetter
+
+20:00-23:59:	medium
+==> Outdoorwetter
+--------------------------------------------------
+#1
+#3
+#6 .. #15
+
+#4 excluded due to: after 20:00 Outdoorwetter, needs Schönwetter
+#5 excluded due to: after 20:00 Outdoorwetter, needs Schönwetter
+
+
+
+
+==================================================
+VIENNA 18.07.2011
+
+--------------------------------------------------
+PROGNOSIS 1
+00:00-18:59:	warm		entire city
+==> Schönwetter
+
+19:00-23:59:	warm		east only
+==> Schönwetter
+
+19:00-23:59:	medium		west only
+19:00-23:59:	scattered	west only
+==> Outdoorwetter
+--------------------------------------------------
+#1
+#3
+#5
+#7
+#9
+#11
+#15
+#17
+#19
+#21
+#23
+#25
+#27
+#29
+
+#13 excluded due to: after 20:00 Outdoorwetter in West, needs Schönwetter
+
+
+--------------------------------------------------
+PROGNOSIS 2
+00:00-23:59:	medium		entire city
+00:00-14:59:	scattered	entire city
+15:00-23:59:	overcast	entire city
+==> Outdoorwetter
+--------------------------------------------------
+
+#3
+#5
+#9
+#11
+#15
+#17
+#21
+#23
+#27
+#29
+
+#1
+#7
+#13
+#19
+#25 excluded due to: Outdoorwetter, needs Schönwetter
+
+
+
+==================================================
+VIENNA 19.07.2011
+
+
+--------------------------------------------------
+PROGNOSIS 1
+00:00-23:59:	medium		entire city
+00:00-23:59:	overcast	entire city
+00:00-23:59:	rain		entire city
+==> Allwetter
+--------------------------------------------------
+
+#6
+#12
+#18
+#24
+#30
+
+
+#2
+#8
+#14
+#20
+#26 excluded due to: Allwetter, needs Schönwetter
+
+#4
+#10
+#16
+#22
+#28 excluded due to: Allwetter, needs Outdoorwetter
+
+--------------------------------------------------
+PROGNOSIS 2
+00:00-23:59:	medium		entire city
+00:00-23:59:	overcast	entire city
+==> Outdoorwetter
+
+13:00-14:59:	rain		1/4 from west
+==> Allwetter
+
+15:00-16:59:	rain		2/4 from west
+==> Allwetter
+
+17:00-18:59:	rain		3/4 from west
+==> Allwetter
+
+19:00-23:59:	rain		4/4 from west
+==> Allwetter
+--------------------------------------------------
+#6
+#12
+#16
+#18
+#24
+#30
+
+
+#2
+#8
+#14
+#20
+#26 excluded due to: Outdoorwetter|Allwetter, needs Schönwetter
+
+#4 
+#10 excluded due to: after 15:00 Allwetter, needs Outdoorwetter
+#22 excluded due to: after 17:00 Allwetter, needs Outdoorwetter, event 16:00-18:00
+#28 excluded due to: after 17:00 Allwetter, needs Outdoorwetter
+
+
+
+==================================================
+GRAZ 20.07.2011
+
+--------------------------------------------------
+PROGNOSIS 1 AND 2 (!!!)
+00:00-23:59:	medium
+00:00-23:59:	overcast
+00:00-23:59:	rain
+==> Allwetter
+--------------------------------------------------
+#5
+#6
+
+#1
+#2
+#7 excluded due to: Allwetter, needs Schönwetter
+
+#3
+#4 excluded due to: Allwetter, needs Outdoorwetter
+
+
+==================================================
+GRAZ 21.07.2011
+
+--------------------------------------------------
+PROGNOSIS 1
+00:00-23:59:	medium
+00:00-23:59:	overcast
+00:00-23:59:	strong
+==> Outdoorwetter
+--------------------------------------------------
+#9
+#10
+#11
+#12
+#15
+
+#8
+#13
+#14 excluded due to: Outdoorwetter|Allwetter, needs Schönwetter
+
+
+
+--------------------------------------------------
+PROGNOSIS 2
+00:00-23:59:	medium
+00:00-23:59:	scattered
+==> Outdoorwetter
+--------------------------------------------------
+#9
+#10
+#11
+#12
+#15
+
+#8
+#13
+#14 excluded due to: Outdoorwetter|Allwetter, needs Schönwetter

@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/53> .
+
+@snapshot 2011-07-18T17:00Z : POINT(16.37843104251688 48.21435027526936) .
+@snapshot 2011-07-18T19:00Z : POINT(16.37843104251688 48.21435027526936) .
+
+[ a events:Event;
+  events:id 53;
+  events:name "Dianabad";
+  events:begin_time "2011-07-18T17:00Z";
+  events:end_time "2011-07-18T19:00Z";
+  events:category categories:Architecture;
+  events:description "Erlebnisbad";
+  events:image_url "http://opentxl.org/events/vienna/images/23.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

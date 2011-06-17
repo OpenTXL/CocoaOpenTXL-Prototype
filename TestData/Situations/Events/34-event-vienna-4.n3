@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/34> .
+
+@snapshot 2011-07-19T20:00Z : POINT(16.34306307007454 48.22506222393811) .
+@snapshot 2011-07-19T22:00Z : POINT(16.34306307007454 48.22506222393811) .
+
+[ a events:Event;
+  events:id 34;
+  events:name "Konzertcafe Schmid Hansl";
+  events:begin_time "2011-07-19T20:00Z";
+  events:end_time "2011-07-19T22:00Z";
+  events:category categories:Music;
+  events:description "Das Konzertcafe Schmid Hansl befindet sich im 18. Wiener Gemeindebezirk und ist eines der aeltesten und bekanntesten Wiener-Kaffeehaeuser. Es ist heute wie damals eine Institution für das Wienerlied und Buehne für Jazz- und Blues";
+  events:image_url "http://opentxl.org/events/vienna/images/4.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

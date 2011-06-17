@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/23> .
+
+@snapshot 2011-07-17T11:00Z : POINT(13.04383647901959 47.80534050343807) .
+@snapshot 2011-07-17T13:00Z : POINT(13.04383647901959 47.80534050343807) .
+
+[ a events:Event;
+  events:id 23;
+  events:name "Mirabelgarten";
+  events:begin_time "2011-07-17T11:00Z";
+  events:end_time "2011-07-17T13:00Z";
+  events:category categories:Music;
+  events:description "Freiluftkonzert";
+  events:image_url "http://static.panoramio.com/photos/original/26270251.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

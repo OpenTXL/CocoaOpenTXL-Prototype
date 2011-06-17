@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/12> .
+
+@snapshot 2011-07-21T14:00Z : POINT(15.43819098434132 47.07836481083032) .
+@snapshot 2011-07-21T16:00Z : POINT(15.43819098434132 47.07836481083032) .
+
+[ a events:Event;
+  events:id 12;
+  events:name "Schloßbergbuehne";
+  events:begin_time "2011-07-21T14:00Z";
+  events:end_time "2011-07-21T16:00Z";
+  events:category categories:Music;
+  events:description "Konzert auf dem Schlossberg.";
+  events:image_url "http://static.panoramio.com/photos/original/44928456.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

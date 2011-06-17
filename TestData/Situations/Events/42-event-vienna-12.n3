@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/42> .
+
+@snapshot 2011-07-19T20:00Z : POINT(16.34186446813527 48.19659863603256) .
+@snapshot 2011-07-19T23:30Z : POINT(16.34186446813527 48.19659863603256) .
+
+[ a events:Event;
+  events:id 42;
+  events:name "Mokador Coffee Shop";
+  events:begin_time "2011-07-19T20:00Z";
+  events:end_time "2011-07-19T23:30Z";
+  events:category categories:Music;
+  events:description "Saxophon";
+  events:image_url "http://opentxl.org/events/vienna/images/12.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

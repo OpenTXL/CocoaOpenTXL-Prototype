@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/50> .
+
+@snapshot 2011-07-19T14:00Z : POINT(16.36281804788441 48.22159451594357) .
+@snapshot 2011-07-19T16:00Z : POINT(16.36281804788441 48.22159451594357) .
+
+[ a events:Event;
+  events:id 50;
+  events:name "Liechtenstein Museum";
+  events:begin_time "2011-07-19T14:00Z";
+  events:end_time "2011-07-19T16:00Z";
+  events:category categories:Music;
+  events:description "Chorkonzert";
+  events:image_url "http://static.panoramio.com/photos/original/30491814.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

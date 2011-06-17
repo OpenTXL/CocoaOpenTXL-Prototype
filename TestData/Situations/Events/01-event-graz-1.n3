@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/1> .
+
+@snapshot 2011-07-20T10:00Z : POINT(15.40302705189357 47.08912723635675) .
+@snapshot 2011-07-20T13:00Z : POINT(15.40302705189357 47.08912723635675) .
+
+[ a events:Event;
+  events:id 1;
+  events:name "Hubertushoehe";
+  events:begin_time "2011-07-20T10:00Z";
+  events:end_time "2011-07-20T13:00Z";
+  events:category categories:Architecture;
+  events:description "Wanderung ueber die Hubertushoehe mit Besuch der Burg.";
+  events:image_url "http://static.panoramio.com/photos/original/28811571.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/54> .
+
+@snapshot 2011-07-19T18:00Z : POINT(16.35875237964278 48.2098270706763) .
+@snapshot 2011-07-19T20:00Z : POINT(16.35875237964278 48.2098270706763) .
+
+[ a events:Event;
+  events:id 54;
+  events:name "Burgtheater";
+  events:begin_time "2011-07-19T18:00Z";
+  events:end_time "2011-07-19T20:00Z";
+  events:category categories:Music;
+  events:description "Die Zauberfloete";
+  events:image_url "http://static.panoramio.com/photos/original/700380.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

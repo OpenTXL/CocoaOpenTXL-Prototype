@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/55> .
+
+@snapshot 2011-07-18T19:00Z : POINT(16.37718549400609 48.20810545972124) .
+@snapshot 2011-07-18T21:00Z : POINT(16.37718549400609 48.20810545972124) .
+
+[ a events:Event;
+  events:id 55;
+  events:name "Wollzeile";
+  events:begin_time "2011-07-18T19:00Z";
+  events:end_time "2011-07-18T21:00Z";
+  events:category categories:Architecture;
+  events:description "Architektur entlang der Wollzeile auf dem Weg zum Stephansplatz";
+  events:image_url "http://static.panoramio.com/photos/original/37950049.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

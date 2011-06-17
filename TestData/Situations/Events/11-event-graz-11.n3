@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/11> .
+
+@snapshot 2011-07-21T13:00Z : POINT(15.438908 47.066662) .
+@snapshot 2011-07-21T15:00Z : POINT(15.438908 47.066662) .
+
+[ a events:Event;
+  events:id 11;
+  events:name "Joanneumring";
+  events:begin_time "2011-07-21T13:00Z";
+  events:end_time "2011-07-21T15:00Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch die Innenstadt.";
+  events:image_url "http://static.panoramio.com/photos/original/44830917.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

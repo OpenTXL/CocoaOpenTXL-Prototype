@@ -1,0 +1,13 @@
+PREFIX events: <http://schema.opentxl.org/events#> 
+PREFIX tour: <http://schema.opentxl.org/tour#> 
+
+SELECT ?event_id
+FROM <txl://opentxl.org/events/>
+FROM <txl://localhost/>
+WHERE {
+    [ a events:Event;
+      events:id ?event_id;
+      events:category ?category ] .
+    [ a tour:Tour;
+      tour:interest ?category ] .
+}

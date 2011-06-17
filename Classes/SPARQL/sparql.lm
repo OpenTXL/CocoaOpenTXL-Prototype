@@ -1,0 +1,494 @@
+%{
+//
+//  sparql.lm
+//  OpenTXL
+//
+//  Created by Eleni Tsigka on 29.11.10.
+//  Copyright 2010 Fraunhofer ISST. All rights reserved.
+//
+//  This file is part of OpenTXL.
+//	
+//  OpenTXL is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//	
+//  OpenTXL is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with OpenTXL. If not, see <http://www.gnu.org/licenses/>.
+//
+
+//#import "sparql.tab.h"
+#import "TXLSPARQLCompiler.h"
+#import "TXLTerm.h"
+#import "TXLDatabase.h"
+#import "TXLManager.h"
+	
+/*
+ ** When in the lexer you have to access param through the extra data.
+ */
+#define PARAM	sparql_get_extra(yyscanner)
+	
+/*
+ ** We want to read from a the buffer in param so we have to redefine the
+ ** YY_INPUT macro (see section 10 of the flex manual 'The generated scanner')
+ */
+#define YY_INPUT(b,r,s) (r = sparql_YYINPUT(b,s,PARAM))
+
+
+%}
+
+/*
+ ** We want the scanner to be reentrant, therefore generate no global variables.
+ ** That is why we use the 'reentrant' option.
+ ** 'bison-bridge' is used to create a bison compatible scanner and share yylval
+ */
+%option reentrant bison-bridge
+%option prefix="sparql_"
+%option extra-type="TXLSPARQLCompiler *"
+%option noyywrap
+%option nounput
+
+%x ID PREF LONGLITERAL1 LONGLITERAL2 WHERECON 
+
+/* definitions */
+
+/* [85] PN_CHARS_BASE ::= [A-Z] | [a-z] | [#x00C0-#x00D6] | [#x00D8-#x00F6] |
+ *   [#x00F8-#x02FF] | [#x0370-#x037D] | [#x037F-#x1FFF] |
+ *   [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] |
+ *   [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] |
+ *   [#x10000-#xEFFFF]
+ * 
+ * This is an XML 1.1 NameStartChar
+ *   http://www.w3.org/TR/2004/REC-xml11-20040204/#NT-NameStartChar
+ * except
+ *   No '_' allowed.
+ */
+PN_CHARS_BASE_SAFE [A-Za-z\x80-\xFF]{-}[;.,_\[\]^/^]
+
+/* [86] PN_CHARS_U ::= PN_CHARS_BASE | '_'
+ * This is an XML 1.1 NameStartChar
+ *   http://www.w3.org/TR/2004/REC-xml11-20040204/#NT-NameStartChar
+ */
+PN_CHARS_U {PN_CHARS_BASE_SAFE}|"_" 
+
+/* [87]  VARNAME ::= ( PN_CHARS_U | _ ) 
+ *   ( PN_CHARS_U | [0-9] | #x00B7 | [#x0300-#x036F] | [#x203F-#x2040] )*
+ *
+ * This is an Namespaces in XML 1.1 Name except:
+ *   No '.' allowed.
+ *   No '-' allowed.
+ */
+VARNAME ({PN_CHARS_U}|[0-9])({PN_CHARS_U}|[0-9])*
+
+/* [88]  PN_CHARS ::= 
+ *   PN_CHARS_U | '-' | [0-9] | #x00B7 | [#x0300-#x036F] | [#x203F-#x2040]
+ *
+ * This is XML 1.1 NameChar
+ *   http://www.w3.org/TR/2004/REC-xml11-20040204/#NT-NameChar
+ * except:
+ *   No '.' allowed.
+ */
+PN_CHARS {PN_CHARS_U}|"-"|[0-9]
+
+/* [89]  PN_PREFIX ::= PN_CHARS_BASE ((PN_CHARS|".")* PN_CHARS)?
+ *
+ * This is an Namespaces in XML 1.1 Name except:
+ *   No '_' allowed as the first character.
+ *   No '.' allowed as the last character.
+ */
+PN_PREFIX {PN_CHARS_BASE_SAFE}(({PN_CHARS}|".")*{PN_CHARS})?
+
+/* [90]  PN_LOCAL ::= PN_CHARS_U ((PN_CHARS|".")* PN_CHARS)?
+ *
+ * This is an Namespaces in XML 1.1 Name except:
+ *   No '.' allowed as the last character.
+ */
+PN_LOCAL ({PN_CHARS_U}|[0-9])(({PN_CHARS}|".")*{PN_CHARS})?
+
+/* rq23 [67] QNAME_NS ::= PN_PREFIX? ':'
+ * Inlined into in rule <PREF>{PN_PREFIX}":" below 
+ */
+
+/* rq23 [68] PNAME_LN ::= PN_PREFIX? ':' PN_LOCAL? */
+PNAME_LN {PN_PREFIX}?":"{PN_LOCAL}
+
+/* rq23 [69] BNODE_LABEL (renamed to BLANK_NODE_LABEL) ::= '_:' PN_LOCAL */
+BLANK_NODE_LABEL "_:"{PN_LOCAL}
+
+QUOTEDURI <([^<>"{}|^`\\]{-}[\x00-\x20])*>
+			 
+INTEGER [0-9]+
+DECIMAL [0-9]+"."[0-9]*|"."[0-9]+
+DOUBLE [0-9]+"."[0-9]*{EXPONENT}|"."([0-9])+{EXPONENT}|([0-9])+{EXPONENT}
+EXPONENT [eE][+-]?[0-9]+
+
+ECHAR "\\"[tbnrf\"']
+
+LANGTAG "@"[a-zA-Z]+("-"[a-zA-Z0-9]+)*
+
+
+/* Rules */
+%%
+
+
+%{
+	int c;
+	NSNumber* sparql_createAndSaveGraphPattern(NSError **error);
+%}
+
+
+"//"[^\r\n]*(\r\n|\r|\n)	{ /* Objective-c comment */
+	;
+}
+
+"/*"	{ 
+	;
+}
+
+\r\n|\r|\n     { 
+	; 
+}
+
+[\ \t\v]+   { /* eat up other whitespace */
+	;
+}
+
+[Ss][Ee][Ll][Ee][Cc][Tt] {
+	PARAM.partOfQuery = kTXLQueryPartSelectAsk;
+	return SELECT; }
+[Pp][Rr][Ee][Ff][Ii][Xx] { BEGIN(PREF);
+	PARAM.partOfQuery = kTXLQueryPartPrefix;
+	return PREFIX; }
+[Bb][Aa][Ss][Ee] { 
+	PARAM.partOfQuery = kTXLQueryPartBase;
+	return BASE; 
+}
+[Aa][Ss][Kk] { 
+	PARAM.partOfQuery = kTXLQueryPartSelectAsk;
+	return ASK; 
+}
+[Cc][Oo][Nn][Ss][Tt][Rr][Uu][Cc][Tt] { 
+	PARAM.partOfQuery = kTXLQueryPartConstruct;
+	return CONSTRUCT; 
+}
+[Ff][Rr][Oo][Mm] { 
+	PARAM.partOfQuery = kTXLQueryPartFrom;
+	return FROM; 
+}
+[Ww][Hh][Ee][Rr][Ee] { 
+	BEGIN(WHERECON);
+	PARAM.partOfQuery = kTXLQueryPartWhere;
+	return WHERE; 
+}
+[Uu][Nn][Ii][Oo][Nn] { 
+	return UNION; 
+}
+[Oo][Pp][Tt][Ii][Oo][Nn][Aa][Ll] { 
+	return OPTIONAL; 
+}
+[Nn][Oo][Tt][ ][Ee][Xx][Ii][Ss][Tt][Ss] { 
+	return NOT_EXISTS; 
+}
+
+"a" { return A; }
+
+","      { return ','; } 
+"("      { return '('; } 
+")"      { return ')'; } 
+"["      { 
+	return '['; 
+}
+"]"      { 
+	return ']'; 
+}
+"?"  	 { BEGIN(ID); return '?'; }
+"$"  	 { BEGIN(ID); return '$'; }
+
+<WHERECON>"{"      { 
+	BEGIN(INITIAL);		
+	return '{'; 
+} 
+
+"{"      { 
+	// Insert the new graph pattern into the database.
+	NSError *error;
+	NSNumber* newPatternId = sparql_createAndSaveGraphPattern(&error);
+	
+	if(newPatternId){
+		[PARAM.patternIds addObject:newPatternId];
+	} else {
+		PARAM.compilerError = error;
+		sparql_error(PARAM, yyscanner, "");
+		yyterminate();
+	}
+	return '{'; 
+} 
+
+"}"      { 
+	return '}'; 
+} 
+"."      { return '.'; } 
+";"      { return ';'; } 
+
+"*"      { return '*'; }
+"/"      { return '/'; }
+"^^"	 { return DATATYPE_TAG;}
+
+[-+]?{INTEGER}   { 
+	c = *yytext;
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return (c=='+' ? INTEGER_POSITIVE_LITERAL : (c == '-' ? INTEGER_NEGATIVE_LITERAL : INTEGER_LITERAL));
+}
+
+[-+]?{DECIMAL}  { 
+	c = *yytext;
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return (c=='+' ? DECIMAL_POSITIVE_LITERAL : (c == '-' ? DECIMAL_NEGATIVE_LITERAL : DECIMAL_LITERAL));
+}
+
+[-+]?{DOUBLE} {
+	c = *yytext;
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return (c=='+' ? DOUBLE_POSITIVE_LITERAL : (c == '-' ? DOUBLE_NEGATIVE_LITERAL : DOUBLE_LITERAL));
+}
+
+"+"         { return '+'; }
+"-"         { return '-'; }
+
+
+'(([^\x27\x5C\xA\xD])|{ECHAR})*' {   	/* ' */	//literal string inside ''
+	
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the ' '
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+	
+	return STRING_LITERAL_SIMPLE;
+}
+
+
+\"(([^\x22\x5C\xA\xD])|{ECHAR})*\" {	/* " */	//literal string inside ""
+	
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the " "
+    NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+	
+	return STRING_LITERAL_SIMPLE; 
+}
+
+
+{LANGTAG} {
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the '@'
+	textAsString = [textAsString substringFromIndex:1]; 
+	yylval->object = textAsString;
+	
+	return LANGUAGE_TAG;
+}
+
+
+'''				{ 	/* ' */ 			// start of long literal string inside ''
+	BEGIN(LONGLITERAL1); 
+} 
+
+<LONGLITERAL1>(('|'')?([^\x27\x5C]|{ECHAR}))*	{   /* '*/  // typed literal string - with ''
+	
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return STRING_LITERAL_SIMPLE; 
+}
+
+<LONGLITERAL1>'''	{ /* ' */  		// eng of long literal string inside ''
+	BEGIN(INITIAL);
+}
+
+<LONGLITERAL1>(.|\n)	{ 
+	BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+	
+	NSString *messageAsString = [NSString stringWithFormat:@"syntax error at %s - '''string was not terminated", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	sparql_error(PARAM, yyscanner, message);
+	yyterminate();  
+}
+
+
+\"\"\"				{ /* " */ 			// start of long literal string inside ""
+	BEGIN(LONGLITERAL2); 
+}
+	
+<LONGLITERAL2>((\"|\"\")?([^\x22\x5C]|{ECHAR}))*	{ 		/* " */		 // long literal string inside ""
+	
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	
+	return STRING_LITERAL_SIMPLE; 
+}
+
+<LONGLITERAL2>\"\"\"	{ 				/* " */ 			// end of long literal string inside ""
+	BEGIN(INITIAL);
+}
+
+<LONGLITERAL2>(.|\n)	{ 
+	BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+	
+	NSString *messageAsString = [NSString stringWithFormat:@"syntax error at %s - \"\"\"string was not terminated", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	sparql_error(PARAM, yyscanner, message);
+	yyterminate();  
+}
+
+
+[Tt][Rr][Uu][Ee]	{ 
+	yylval->object = [TXLTerm termWithBool:YES];
+	return BOOLEAN_LITERAL; 
+}
+
+[Ff][Aa][Ll][Ss][Ee]	{ 
+	yylval->object = [TXLTerm termWithBool:YES];
+	return BOOLEAN_LITERAL; 
+}
+
+
+<ID>{VARNAME}	{ 
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	BEGIN(INITIAL);
+	return IDENTIFIER; 
+}
+
+
+<ID>(.|\n)	{	
+	BEGIN(INITIAL);
+	sparql_error(PARAM, yyscanner, "SPARQL syntax error - missing variable name after ?");
+	yyterminate();  
+}
+
+
+<PREF,WHERECON>[\ \t\v]+ { /* eat up leading whitespace */ 
+	;
+}
+
+
+<PREF>{PN_PREFIX}":"	{ 
+	//BEGIN(INITIAL);
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	textAsString = [textAsString substringToIndex:([textAsString length]-1)];
+	yylval->object = textAsString;
+	
+	return IDENTIFIER; 
+}
+
+
+<PREF>{QUOTEDURI}   {  // IRIs in PREFIX: it is recognized separately because here the BASE prefix should not be used.
+	BEGIN(INITIAL);
+	
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	
+	// Remove the '<' '>' part of the IRI.
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+	
+	return URI_LITERAL; 
+}
+
+
+<PREF>":"	{ 
+	//BEGIN(INITIAL);
+	yylval->object = nil;
+	return IDENTIFIER; 
+}
+
+<PREF>(.|\n)	{ BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+	
+	NSString *messageAsString = [NSString stringWithFormat:@"SPARQL syntax error at '%s'", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	sparql_error(PARAM, yyscanner, message);
+	yyterminate();
+}
+
+{BLANK_NODE_LABEL}	{	
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	textAsString = [textAsString substringFromIndex:2];
+	yylval->object = textAsString;
+	
+	return BLANK_LITERAL;
+}
+
+{PNAME_LN}	{  // prefixed names
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	yylval->object = textAsString;
+	
+	return PNAME_LITERAL;
+}
+
+{QUOTEDURI}   {  // IRIs in the CONSTRUCT, FROM, WHERE and BASE clause
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];	
+
+	// Remove the '<' '>' part of the IRI.
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	
+	// Only if we are in the CONSTRUCT or WHERE clause add the BASE prefix, if there is one.
+	if ( (PARAM.partOfQuery == kTXLQueryPartWhere) || (PARAM.partOfQuery == kTXLQueryPartConstruct) ) {
+		if([PARAM.prefixes objectForKey:@"base"]){
+			textAsString = [NSString stringWithFormat:@"%@%@", [PARAM.prefixes objectForKey:@"base"], textAsString];		
+		}
+	}
+	yylval->object = textAsString;
+
+	return URI_LITERAL; 
+}
+				 
+			 
+\#[^\r\n]*(\r\n|\r|\n)	{ /* # comment */
+	;
+}
+
+<INITIAL,ID,PREF,WHERECON,LONGLITERAL1,LONGLITERAL2>.		{ 
+	if(!*yytext)
+		return EOF;
+	
+	NSString *messageAsString = [NSString stringWithFormat:@"SPARQL syntax error at %s", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];	
+	sparql_error(PARAM, yyscanner, message);
+	yyterminate();
+}
+
+%%
+/* User code */
+			 
+NSNumber* sparql_createAndSaveGraphPattern(NSError **error){
+				 
+	// Create a graph pattern and save it to the database.
+	TXLDatabase *database = [[TXLManager sharedManager] database];
+	NSArray *result;
+	
+	result = [database executeSQL:@"INSERT INTO txl_query_pattern DEFAULT VALUES"
+							error:error];
+		
+	if (result == nil) {
+		return nil;
+	} else{
+		return [NSNumber numberWithUnsignedInteger:database.lastInsertRowid];		
+	} 
+}

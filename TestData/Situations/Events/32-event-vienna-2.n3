@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/32> .
+
+@snapshot 2011-07-19T20:00Z : POINT(16.34800836072136 48.2341364956871) .
+@snapshot 2011-07-19T21:00Z : POINT(16.34800836072136 48.2341364956871) .
+
+[ a events:Event;
+  events:id 32;
+  events:name "Waehringerpark";
+  events:begin_time "2011-07-19T20:00Z";
+  events:end_time "2011-07-19T21:00Z";
+  events:category categories:Music;
+  events:description "Freiluftkonzert im Waehringerpark";
+  events:image_url "http://static.panoramio.com/photos/original/31373259.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

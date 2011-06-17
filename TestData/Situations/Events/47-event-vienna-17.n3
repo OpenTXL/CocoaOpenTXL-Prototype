@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/47> .
+
+@snapshot 2011-07-18T11:00Z : POINT(16.373298 48.225810) .
+@snapshot 2011-07-18T13:00Z : POINT(16.373298 48.225810) .
+
+[ a events:Event;
+  events:id 47;
+  events:name "Flakturm Augarten";
+  events:begin_time "2011-07-18T11:00Z";
+  events:end_time "2011-07-18T13:00Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch den Turm";
+  events:image_url "http://static.panoramio.com/photos/original/25274726.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

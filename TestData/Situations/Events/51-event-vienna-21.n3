@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/51> .
+
+@snapshot 2011-07-18T15:00Z : POINT(16.37843017616157 48.22055186369228) .
+@snapshot 2011-07-18T17:00Z : POINT(16.37843017616157 48.22055186369228) .
+
+[ a events:Event;
+  events:id 51;
+  events:name "Augartenpalais (Wiener Saengerknaben)";
+  events:begin_time "2011-07-18T15:00Z";
+  events:end_time "2011-07-18T17:00Z";
+  events:category categories:Architecture;
+  events:description "Besichtigung der Raeumlichkeiten der Wiener Saengerknaben";
+  events:image_url "http://opentxl.org/events/vienna/images/21.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

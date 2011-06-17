@@ -1,0 +1,657 @@
+%{
+//
+//  spatialsituation.ym
+//  opentxl-data-importer
+//
+//  Created by Eleni Tsigka on 08.02.11.
+//
+//  Copyright 2010 Fraunhofer ISST. All rights reserved.
+//
+//  This file is part of OpenTXL.
+//	
+//  OpenTXL is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//	
+//  OpenTXL is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with OpenTXL. If not, see <http://www.gnu.org/licenses/>.
+//
+	
+#include <stdio.h>
+#include <string.h>
+#import "TXLSpatialSituationImporter.h"	
+#import "TXLTerm.h"
+#import "TXLContext.h"	
+#import "TXLSnapshot.h"
+#import "TXLMovingObject.h"
+#import "TXLGeometryCollection.h"
+#import "TXLStatement.h"
+#import "TXLManager.h"
+#import "TXLDatabase.h"
+	
+%}
+
+/*
+ ** 'pure_parser' tells bison to use no global variables and create a
+ ** reentrant parser.
+ */
+%pure_parser
+%name-prefix="spatialsituation_"
+%file-prefix="spatialsituation"
+%defines
+
+%union {
+	id object;
+}
+
+%parse-param {TXLSpatialSituationImporter *param}
+%parse-param {void *scanner}
+%lex-param {yyscan_t *scanner}
+%error-verbose
+
+
+%{
+int		spatialsituation_lex(YYSTYPE *, void *);
+%}
+
+/* terminal declarations */
+/* word symbols */
+%token SP_BASE SP_PREFIX KEYWORDS FOR_ALL FOR_SOME HAS IS OF SP_A GREATER_THAN_OR_EQUAL LESS_THAN_OR_EQUAL DATATYPE_TAG
+%token CONTEXT SNAPSHOT
+
+
+
+/* expression delimiters */
+%token ',' '.' ';' '!' '^' '(' ')' '[' ']' '{' '}' '@'
+
+/* Literals and ... */
+// These are NSString objects
+%token <object> PREFIX_LABEL
+%token <object> LANGUAGE_CODE
+%token <object> BARENAME_LITERAL
+%token <object> QNAME_LITERAL
+%token <object> QUICK_VARIABLE
+%token <object> EXPLICIT_URI_LITERAL
+%token <object> SP_INTEGER_LITERAL SP_DECIMAL_LITERAL SP_DOUBLE_LITERAL SP_RATIONAL_LITERAL STRING_LITERAL
+%token <object> TIMESTAMP_LITERAL
+%token <object> GEOMETRY_LITERAL
+
+// These are TXLTerm objects
+%token <object> BOOL_LITERAL 
+
+/* non terminal declarations */
+
+// TXLTerm objects
+%type <object> literal symbol numericliteral verb subject object expression pathitem
+
+// NSMutableArray objects
+%type <object> objecttail propertylisttail propertylist
+
+
+
+
+%%
+/* grammar rules */
+
+
+
+document: statements_optional
+{
+	// The snapshots for the moving object of this spatial situation
+	// are assumed to be given in the right order. No sorting
+	// is done because the case of a nil timestamp cannot be included in the comparison.
+	
+	// Create the moving object
+	
+	// If there are no snapshots, given for the spatial situation
+	// then this means that the spatial situation is always and everywhere valid.
+	if([param.snapshots count] == 0){
+		param.mo = [TXLMovingObject omnipresentMovingObject];
+	} 
+	// If there is only one snapshot, given for the spatial situation
+	// without any timestamp specified then this means that 
+	// the spatial situation is always in this geometry valid.
+	else if( ([param.snapshots count] == 1) && 
+			([(TXLSnapshot *)[param.snapshots objectAtIndex:0] timestamp] == nil) && 
+			([(TXLSnapshot *)[param.snapshots objectAtIndex:0] geometry] != nil) ){
+		param.mo = [TXLMovingObject movingObjectWithGeometry:[(TXLSnapshot *)[param.snapshots objectAtIndex:0] geometry]];
+	} 
+	// If there are only two snapshots, given for the spatial situation
+	// without any geometry specified then this means that 
+	// the spatial situation is everywhere in this interval valid.
+	else if( ([param.snapshots count] == 2) && 
+			([(TXLSnapshot *)[param.snapshots objectAtIndex:0] geometry] == nil) && 
+			([(TXLSnapshot *)[param.snapshots objectAtIndex:0] timestamp] != nil) && 
+			([(TXLSnapshot *)[param.snapshots objectAtIndex:1] geometry] == nil) &&
+ 			([(TXLSnapshot *)[param.snapshots objectAtIndex:1] timestamp] != nil) ){
+		param.mo = [TXLMovingObject movingObjectWithBegin:[(TXLSnapshot *)[param.snapshots objectAtIndex:0] timestamp]
+													  end:[(TXLSnapshot *)[param.snapshots objectAtIndex:1] timestamp]];
+	}
+	// If there are more than one snapshots.
+	else if([param.snapshots count] > 0){
+		param.mo = [TXLMovingObject movingObjectWithSnapshots:param.snapshots];
+	}	
+}
+;
+
+statements_optional: statement '.' statements_optional
+{
+	// DO NOTHING
+}
+|
+{
+	// DO NOTHING
+}
+;
+
+formulacontent: statementlist
+{
+	// NOT IMPLEMENTED
+}
+;
+
+statementlist: statement statementtail
+{
+	// DO NOTHING
+}
+|
+{
+	// DO NOTHING
+}
+;
+
+statementtail: '.' statementlist
+{
+	// DO NOTHING
+}
+|
+{
+	// DO NOTHING
+}
+;
+
+statement: declaration
+{
+	// DO NOTHING
+}
+| existential
+{
+	// NOT IMPLEMENTED
+}
+| simpleStatement
+{
+	// DO NOTHING
+}
+| universal
+{
+	// NOT IMPLEMENTED	
+}
+;
+
+universal: FOR_ALL symbol_csl
+{
+	// NOT IMPLEMENTED
+}
+;
+
+existential: FOR_SOME symbol_csl
+{
+	// NOT IMPLEMENTED
+}
+;
+
+declaration: SP_BASE EXPLICIT_URI_LITERAL 
+{
+	if ([param.prefixes objectForKey:@"base"] == nil){
+		// Trim any spaces.
+		NSString *uriLiteral = [(NSString *)$2 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		[param.prefixes setObject:uriLiteral forKey:@"base"];
+		
+	} else{
+		spatialsituation_error(param, scanner, "BASE can be defined only once!");
+		YYABORT;
+	}	
+}
+| KEYWORDS barename_csl
+{
+	// NOT IMPLEMENTED	
+}
+| SP_PREFIX PREFIX_LABEL EXPLICIT_URI_LITERAL 
+{
+	if ([param.prefixes objectForKey:(NSString *)$2] == nil){
+		// Trim any spaces.
+		NSString *uriLiteral = [(NSString *)$3 stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		[param.prefixes setObject:uriLiteral forKey:(NSString *)$2];
+		
+	} else{
+		const char *message = [[NSString stringWithFormat:@"PREFIX %s can be defined only once.", (NSString *)$2] cStringUsingEncoding:NSUTF8StringEncoding];
+		spatialsituation_error(param, scanner, message);
+		YYABORT;
+	}
+		
+}
+| CONTEXT EXPLICIT_URI_LITERAL 
+{
+	// Context for the spatial situation can be defined only once:
+	if (param.context) {
+		spatialsituation_error(param, scanner, "The Context for the spatial situation can be defined only once!");
+		YYABORT;
+	} else {
+			// The method - [TXLManager contextForProtocol:host:path:&error:] create and store only the context components 
+			// which have not been yet stored in the database. After this process the TXLContext object is assigned a valid value fot the primary key.
+		
+		NSURL *ctxUrl = [NSURL URLWithString:(NSString *)$2];
+		
+		NSString *protocol = ctxUrl.scheme;
+		NSMutableString *host = [NSMutableString string];
+		
+		if ([ctxUrl.user length] > 0) {
+			[host appendFormat:@"%@@", ctxUrl.user];
+		}
+		
+		[host appendString:ctxUrl.host];
+		
+		if (ctxUrl.port != 0) {
+			[host appendFormat:@":%d", ctxUrl.port];
+		}
+		
+		NSMutableArray *pathComponents = [NSMutableArray array];
+		// Remove the "/" path component.
+		for(NSString *component in ctxUrl.pathComponents) {
+			if (![component isEqualToString:@"/"]) {
+				[pathComponents addObject:component];
+			}
+		}
+		
+		NSError *error;
+		TXLContext *context = [[TXLManager sharedManager] contextForProtocol:protocol
+																		host:host
+																		path:pathComponents
+																	   error:&error];
+		if (context == nil) {
+			param.context = nil;
+			param.compilerError = error;
+			spatialsituation_error(param, scanner, "");
+			YYABORT;
+			
+		} else {
+			param.context = context;		
+		}	
+	}
+}
+| SNAPSHOT TIMESTAMP_LITERAL ':' GEOMETRY_LITERAL
+{
+	// Parse the date.	
+	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+	[dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm'Z'"];
+	
+	NSDate *snapshotDate = [dateFormatter dateFromString:(NSString *)$2];
+	[param.snapshots addObject:[TXLSnapshot snapshotWithTimestamp:snapshotDate
+														 geometry:[TXLGeometryCollection geometryFromWKT:$4]]];
+}
+| SNAPSHOT ':' GEOMETRY_LITERAL
+{
+	[param.snapshots addObject:[TXLSnapshot snapshotWithTimestamp:nil
+														 geometry:[TXLGeometryCollection geometryFromWKT:$3]]];
+}
+| SNAPSHOT TIMESTAMP_LITERAL
+{
+	// Parse the date.	
+	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+	[dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm'Z'"];
+	
+	NSDate *snapshotDate = [dateFormatter dateFromString:(NSString *)$2];
+	[param.snapshots addObject:[TXLSnapshot snapshotWithTimestamp:snapshotDate
+														 geometry:nil]];
+}
+;
+
+simpleStatement: subject propertylist
+{
+	// Create TXLStatements for all predicates and objects, with the same subject.
+	TXLTerm *subject = $1;
+	NSMutableArray *predicateList = $2;
+	
+	for (NSMutableDictionary *predicateObjectDict in predicateList) {
+		
+		TXLTerm *predicate = [predicateObjectDict objectForKey:@"predicate"];
+		NSMutableArray *objectList = [predicateObjectDict objectForKey:@"object_list"];
+		
+		for (TXLTerm *object in objectList) {
+			
+			TXLStatement *statement = [TXLStatement statementWithSubject:subject 
+															   predicate:predicate 
+																  object:object];
+			[param.statementList addObject:statement];
+		}
+	}
+}
+;
+
+propertylist: verb object objecttail propertylisttail
+{
+	// Create a list containing the objects (TXLTerm objects) for verb predicate.
+	NSMutableArray *objectList = $3;
+	if(!objectList || ([objectList count] == 0) ){
+		
+		objectList = [NSMutableArray arrayWithObject:$2];
+	} else{
+		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:$2];
+		[array addObjectsFromArray:objectList];
+		objectList = array;
+	}
+	
+	// Create a dictionary containing this predicate and the corresponding object list. 
+	NSMutableDictionary *predicateObjectDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+												$1, @"predicate",
+												objectList, @"object_list", nil];
+	
+	// Create a list with the dictionaries for the properties and objects.
+	if(!$4 || ([(NSMutableArray *)$4 count] == 0) ){
+		$$ = [NSMutableArray arrayWithObject:predicateObjectDict];
+		
+	} else{		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:predicateObjectDict];
+		[array addObjectsFromArray:$4];
+		$$ = array;
+	}
+}
+|
+{
+	$$ = nil;
+}
+;
+
+propertylisttail: ';' propertylist
+{
+	$$ = $2;
+}
+|
+{
+	$$ = nil;
+}
+;
+
+objecttail: ',' object objecttail
+{
+	// Create a list containing the objects (TXLTerm objects).
+	if(!$3 || ([(NSMutableArray *)$3 count] == 0) ){
+		
+		$$ = [NSMutableArray arrayWithObject:$2];
+	} else{
+		
+		NSMutableArray *array = [NSMutableArray arrayWithObject:$2];
+		[array addObjectsFromArray:$3];
+		$$ = array;
+	}
+}
+|
+{
+	$$ = nil;
+}
+;
+
+verb: expression
+{
+	$$ = $1;
+}
+| LESS_THAN_OR_EQUAL
+{
+	// NOT IMPLEMENTED
+}
+| '='
+{
+	// NOT IMPLEMENTED	
+}
+| GREATER_THAN_OR_EQUAL
+{
+	// NOT IMPLEMENTED	
+}
+| SP_A
+{
+	$$ = [TXLTerm termWithIRI:@"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"];
+}
+| HAS expression
+{
+	// NOT IMPLEMENTED	
+}
+| IS expression OF
+{
+	// NOT IMPLEMENTED	
+}
+;
+
+subject: expression
+{
+	$$ = $1;
+}
+;
+
+object: expression
+{
+	$$ = $1;
+}
+;
+
+expression: pathitem pathtail
+{
+	$$ = $1;
+}
+;
+
+pathtail: '!' expression
+{
+	// NOT IMPLEMENTED	
+}
+| '^' expression
+{
+	// NOT IMPLEMENTED	
+}
+|
+{
+	// NOT IMPLEMENTED
+}
+;
+
+pathitem: BOOL_LITERAL
+{
+	// Boolean literal is created by the scanner.
+	$$ = (TXLTerm *)$1;
+}
+| literal
+{
+	$$ = (TXLTerm *)$1; 
+}
+| numericliteral
+{
+	$$ = (TXLTerm *)$1; 
+}
+| QUICK_VARIABLE
+{
+	// NOT IMPLEMENTED
+}
+| symbol
+{
+	$$ = (TXLTerm *)$1; 	
+}
+| '(' pathlist ')'
+{
+	// NOT IMPLEMENTED
+}
+| '[' propertylist ']'
+{
+	// Create a TXLTerm for the blank node with a nil name, 
+	// which leads in an assignment of a unique UUID as a name.
+	TXLTerm *blankNodeSubject = [TXLTerm termWithBlankNode:nil];
+	
+	// Create TXLStatements for all predicates and objects, with the same subject.
+	NSMutableArray *predicateList = $2;
+	
+	for (NSMutableDictionary *predicateObjectDict in predicateList) {
+		
+		TXLTerm *predicate = [predicateObjectDict objectForKey:@"predicate"];
+		NSMutableArray *objectList = [predicateObjectDict objectForKey:@"object_list"];
+		
+		for (TXLTerm *object in objectList) {
+			
+			TXLStatement *statement = [TXLStatement statementWithSubject:blankNodeSubject 
+															   predicate:predicate 
+																  object:object];
+			[param.statementList addObject:statement];
+		}
+	}
+	// Store the blank node term for later use.
+	$$ = blankNodeSubject;
+	
+}
+| '{' formulacontent '}'
+{
+	// NOT IMPLEMENTED
+}
+;
+
+pathlist: expression pathlist
+{
+	// NOT IMPLEMENTED
+}
+|
+{
+	// NOT IMPLEMENTED
+}
+;
+
+symbol: EXPLICIT_URI_LITERAL
+{	
+	// Add the BASE prefix
+	NSString *basePrefix = @"";
+	if([param.prefixes objectForKey:@"base"]){
+		basePrefix = (NSString *)[param.prefixes objectForKey:@"base"];
+	}
+
+	$$ = [TXLTerm termWithIRI:[NSString stringWithFormat:@"%@%@", basePrefix, (NSString *)$1]];
+}
+| QNAME_LITERAL
+{
+	// Replace prefix with the complete resource.
+	NSRange range = [(NSString *)$1 rangeOfString:@":"];
+
+	NSString *iri = @"";
+	NSString *localName = @"";
+	if (range.location != NSNotFound) {
+		NSString *prefix = [(NSString *)$1 substringToIndex:range.location];
+		localName = [(NSString *)$1 substringFromIndex:(range.location + range.length)];
+
+		if ([param.prefixes objectForKey:prefix]) {
+			iri = [param.prefixes objectForKey:prefix];
+		}else {
+			const char *message = [[NSString stringWithFormat:@"Prefix %@ of the literal %@, was not found in spatial situation's defined prefixes.", prefix, (NSString *)$1] cStringUsingEncoding:NSUTF8StringEncoding];
+			spatialsituation_error(param, scanner, message);
+			YYABORT;
+		}
+	} else {
+		localName = (NSString *)$1;
+	}
+
+	$$ = [TXLTerm termWithIRI:[NSString stringWithFormat:@"%@%@", iri, localName]];
+}
+;
+
+numericliteral: SP_DECIMAL_LITERAL
+{
+	$$ = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+}
+| SP_DOUBLE_LITERAL
+{
+	$$ = [TXLTerm termWithDouble:[(NSString *)$1 doubleValue]];
+}
+| SP_INTEGER_LITERAL
+{
+	$$ = [TXLTerm termWithInteger:[(NSString *)$1 integerValue]];
+}
+| SP_RATIONAL_LITERAL
+{
+	// NOT IMPLEMENTED
+}
+;
+
+literal: STRING_LITERAL LANGUAGE_CODE
+{
+	// The '@' was removed by the parser.
+	$$ = [TXLTerm termWithLiteral:$1
+						 language:$2];
+}
+| STRING_LITERAL DATATYPE_TAG symbol
+{
+	// symbol contains already a TXLTerm
+	$$ = [TXLTerm termWithLiteral:$1 
+						 dataType:$3];	
+}
+| STRING_LITERAL
+{
+	$$ = [TXLTerm termWithLiteral:$1];	
+}
+;
+
+barename_csl: BARENAME_LITERAL barename_csl_tail
+{
+	// NOT IMPLEMENTED
+}
+|
+{
+	// NOT IMPLEMENTED
+}
+;
+
+barename_csl_tail: ',' BARENAME_LITERAL barename_csl_tail
+{
+	// NOT IMPLEMENTED	
+}
+|
+{
+	// NOT IMPLEMENTED	
+}
+;
+
+symbol_csl: symbol symbol_csl_tail
+{
+	// NOT IMPLEMENTED	
+}
+|
+{
+	// NOT IMPLEMENTED	
+}
+;
+
+symbol_csl_tail: ',' symbol symbol_csl_tail
+{
+	// NOT IMPLEMENTED	
+}
+|
+{
+	// NOT IMPLEMENTED	
+}
+;
+
+
+%%
+
+void spatialsituation_error(TXLSpatialSituationImporter *compiler, void *scanner, const char* s){
+	// raise syntax error
+	if(!compiler.compilerError){
+		NSDictionary *error_dict = [NSDictionary dictionaryWithObject:NSLocalizedString([NSString stringWithCString:s encoding:NSUTF8StringEncoding], nil) 
+															   forKey:NSLocalizedDescriptionKey];
+		compiler.compilerError = [NSError errorWithDomain:TXLSpatialSituationImporterErrorDomain
+											 code:SPATIAL_SITUATION_COMPILER_ERROR_SYNTAX_ERROR
+										 userInfo:error_dict];
+		
+	}
+}

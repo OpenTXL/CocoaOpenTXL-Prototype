@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/3> .
+
+@snapshot 2011-07-20T10:00Z : POINT(15.40527879185758 47.06723287392369) .
+@snapshot 2011-07-20T13:30Z : POINT(15.40527879185758 47.06723287392369) .
+
+[ a events:Event;
+  events:id 3;
+  events:name "Reininghaus";
+  events:begin_time "2011-07-20T10:00Z";
+  events:end_time "2011-07-20T13:30Z";
+  events:category categories:Architecture;
+  events:description "Besichtigung der ehemaligen Brauereigebaeude.";
+  events:image_url "http://static.panoramio.com/photos/original/1347007.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

@@ -1,0 +1,388 @@
+%{
+//
+//  spatialsituation.lm
+//  opentxl-data-importer
+//
+//  Created by Eleni Tsigka on 08.02.11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+//  Copyright 2010 Fraunhofer ISST. All rights reserved.
+//
+//  This file is part of OpenTXL.
+//	
+//  OpenTXL is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU Lesser General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//	
+//  OpenTXL is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU Lesser General Public License for more details.
+//
+//  You should have received a copy of the GNU Lesser General Public License
+//  along with OpenTXL. If not, see <http://www.gnu.org/licenses/>.
+//	
+	
+//#import "spatialsituation.tab.h"
+#import "TXLSpatialSituationImporter.h"
+#import "TXLTerm.h"
+	
+/*
+ ** When in the lexer you have to access param through the extra data.
+ */
+#define PARAM	spatialsituation_get_extra(yyscanner)
+	
+/*
+ ** We want to read from a the buffer in param so we have to redefine the
+ ** YY_INPUT macro (see section 10 of the flex manual 'The generated scanner')
+ */
+#define YY_INPUT(b,r,s) (r = spatialsituation_YYINPUT(b,s,PARAM))
+
+
+%}
+
+/*
+ ** We want the scanner to be reentrant, therefore generate no global variables.
+ ** That is why we use the 'reentrant' option.
+ ** 'bison-bridge' is used to create a bison compatible scanner and share yylval
+ */
+%option reentrant bison-bridge
+%option prefix="spatialsituation_"
+%option extra-type="TXLSpatialSituationImporter *"
+%option noyywrap
+%option nounput
+
+%x QUICKVAR PREF LONGLITERAL1 LONGLITERAL2
+
+/* definitions */
+
+PN_CHARS_BASE_SAFE [A-Za-z\x80-\xFF]{-}[;.,_\[\]^/^]
+PN_CHARS_U {PN_CHARS_BASE_SAFE}|"_" 
+PN_CHARS {PN_CHARS_U}|"-"|[0-9]
+
+PREFIXLABEL {PN_CHARS_BASE_SAFE}(({PN_CHARS}|".")*{PN_CHARS})?
+PN_LOCAL ({PN_CHARS_U}|[0-9])(({PN_CHARS}|".")*{PN_CHARS})?
+
+QNAME {PREFIXLABEL}?":"{PN_LOCAL}
+QUICKVARIABLE ({PN_CHARS_U}|[0-9])({PN_CHARS_U}|[0-9])*
+		   
+LANGCODE "@"[a-zA-Z]+("-"[a-zA-Z0-9]+)*
+
+INTEGER [-+]?[0-9]+
+UNSIGNEDINTEGER [0-9]+
+DECIMAL [-+]?[0-9]+("."[0-9]+)?
+UNSIGNEDDECIMAL [0-9]+("."[0-9]+)?
+DOUBLE [-+]?[0-9]+("."[0-9]+)?([eE][-+]?[0-9]+)
+
+POINTTAG [Pp][Oo][Ii][Nn][Tt]
+LINESTRINGTAG [Ll][Ii][Nn][Ee][Ss][Tt][Rr][Ii][Nn][Gg]
+POLYGONTAG [Pp][Oo][Ll][Yy][Gg][Oo][Nn]
+MULTIPOINTTAG [Mm][Uu][Ll][Tt][Ii][Pp][Oo][Ii][Nn][Tt]
+MULTILINESTRINGTAG [Mm][Uu][Ll][Tt][Ii][Ll][Ii][Nn][Ee][Ss][Tt][Rr][Ii][Nn][Gg]
+MULTIPOLYGONTAG [Mm][Uu][Ll][Tt][Ii][Pp][Oo][Ll][Yy][Gg][Oo][Nn]
+GEOMETRYCOLLECTIONTAG [Gg][Ee][Oo][Mm][Ee][Tt][Rr][Yy][Cc][Oo][Ll][Ll][Ee][Cc][Tt][Ii][Oo][Nn]
+
+GEOMETRYEXPR {POINTTAG}|{LINESTRINGTAG}|{POLYGONTAG}|{MULTIPOINTTAG}|{MULTILINESTRINGTAG}|{MULTIPOLYGONTAG}|{GEOMETRYCOLLECTIONTAG}
+COORDINATES [)(., 0-9]*
+GEOMETRY {GEOMETRYEXPR}"("{COORDINATES}")"
+																																	  
+TIMESTAMP ([0-9]+)"-"([0-9]+)"-"([0-9]+)("T"([0-9]+)":"([0-9]+)"Z")
+
+EXPLICITURI <([^<>"{}|^`\\]{-}[\x00-\x20])*>
+
+ECHAR "\\"[tbnrf\"']
+			   
+	 
+/* Rules */ 
+%%
+
+"//"[^\r\n]*(\r\n|\r|\n)	{ /* Objective-c comment */
+	;
+}
+
+"/*"	{ 
+	;
+}
+
+\r\n|\r|\n     { 
+	; 
+}
+
+[\ \t\v]+   { /* eat up other whitespace */
+	;
+}
+	  
+[@][Bb][Aa][Ss][Ee] { 
+	return SP_BASE; 
+}
+		
+[@][Pp][Rr][Ee][Ff][Ii][Xx] { 
+	BEGIN(PREF);
+	return SP_PREFIX; 
+}
+
+[@][Kk][Ee][Yy][Ww][Oo][Rr][Dd][Ss] {
+    return KEYWORDS; 
+}
+		   
+[@][Ff][Oo][Rr][Aa][Ll][Ll] {
+   return FOR_ALL; 
+}
+
+[@][Ff][Oo][Rr][Ss][Oo][Mm][Ee] {
+   return FOR_SOME; 
+}
+
+[@][Hh][Aa][Ss] {
+   return HAS; 
+}
+		   
+[@][Ii][Ss] {
+	return IS; 
+}
+		   
+[@][Oo][Ff] {
+   return OF; 
+}
+		   
+[@][Cc][Oo][Nn][Tt][Ee][Xx][Tt] {
+   return CONTEXT; 
+}
+		   
+[@][Ss][Nn][Aa][Pp][Ss][Hh][Oo][Tt] {
+   	return SNAPSHOT; 
+}
+
+[=][>] {
+	return GREATER_THAN_OR_EQUAL;
+}
+
+[<][=] {
+	return LESS_THAN_OR_EQUAL;
+}
+	   
+"a"		 { return SP_A; }
+","      { return ','; } 
+"."      { return '.'; } 
+";"      { return ';'; } 
+"!"      { return '!'; } 
+"("      { return '('; } 
+")"      { return ')'; } 
+"["      { return '['; }
+"]"      { return ']'; }
+"{"      { return '{'; }
+"}"      { return '}'; }
+":"      { return ':'; }
+		   
+"@"  	 { return '@'; }
+"^"  	 { return '^'; }
+"?"  	 { BEGIN(QUICKVAR); return '?'; }
+"^^"	 { return DATATYPE_TAG;}
+
+{INTEGER}   { 
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return SP_INTEGER_LITERAL;
+}
+		 		 		 
+{DECIMAL}  { 
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return SP_DECIMAL_LITERAL;
+}
+		 
+{DOUBLE} {
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return SP_DOUBLE_LITERAL;
+}
+
+{INTEGER}"/"{UNSIGNEDINTEGER} {
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return SP_RATIONAL_LITERAL;
+}
+		
+{GEOMETRY}	{
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return GEOMETRY_LITERAL;
+}
+		
+{TIMESTAMP}	{
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return TIMESTAMP_LITERAL; 
+}
+
+	
+'(([^\x27\x5C\xA\xD])|{ECHAR})*' {   	/* ' */	//literal string inside ''
+				   
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the ' '
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+				   
+	return STRING_LITERAL;
+}
+			   
+			   
+\"(([^\x22\x5C\xA\xD])|{ECHAR})*\" {	/* " */	//literal string inside ""
+			   
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the " "
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+			   
+	return STRING_LITERAL; 
+}
+			   
+{LANGCODE} {
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// remove the '@'
+	textAsString = [textAsString substringFromIndex:1]; 
+	yylval->object = textAsString;
+				   
+	return LANGUAGE_CODE;
+}
+			   
+'''				{ 	/* ' */ 			// start of long literal string inside ''
+	BEGIN(LONGLITERAL1); 
+} 
+			   
+<LONGLITERAL1>(('|'')?([^\x27\x5C]|{ECHAR}))*	{   /* '*/  // typed literal string - with ''
+					   
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return STRING_LITERAL; 
+}
+							   
+<LONGLITERAL1>'''	{ /* ' */  		// eng of long literal string inside ''
+	BEGIN(INITIAL);
+}
+							   
+<LONGLITERAL1>(.|\n)	{ 
+	BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+								   
+	NSString *messageAsString = [NSString stringWithFormat:@"syntax error at %s - '''string was not terminated", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	spatialsituation_error(PARAM, yyscanner, message);
+	yyterminate();  
+}
+							   
+							   
+\"\"\"				{ /* " */ 			// start of long literal string inside ""
+	BEGIN(LONGLITERAL2); 
+}
+							   
+<LONGLITERAL2>((\"|\"\")?([^\x22\x5C]|{ECHAR}))*	{ 		/* " */		 // long literal string inside ""
+					   
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+  	return STRING_LITERAL; 
+}
+											   
+<LONGLITERAL2>\"\"\"	{ 				/* " */ 			// end of long literal string inside ""
+	BEGIN(INITIAL);
+}
+											   
+<LONGLITERAL2>(.|\n)	{ 
+	BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+												   
+	NSString *messageAsString = [NSString stringWithFormat:@"syntax error at %s - \"\"\"string was not terminated", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	spatialsituation_error(PARAM, yyscanner, message);
+	yyterminate();  
+}
+											   
+											   
+[Tt][Rr][Uu][Ee]	{ 
+	yylval->object = [TXLTerm termWithBool:YES];
+	return BOOL_LITERAL; 
+}
+		
+[Ff][Aa][Ll][Ss][Ee]	{ 
+	yylval->object = [TXLTerm termWithBool:YES];
+	return BOOL_LITERAL; 
+}
+
+<QUICKVAR>{QUICKVARIABLE}	{ 
+	BEGIN(INITIAL);
+
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// Remove the '?' at the beginning of the quick variable.
+	textAsString = [textAsString substringFromIndex:1];
+	yylval->object = textAsString;
+	
+	return QUICK_VARIABLE;
+}
+		
+<QUICKVAR>(.|\n)	{	
+	BEGIN(INITIAL);
+	spatialsituation_error(PARAM, yyscanner, "SPARQL syntax error - missing variable name after ?");
+	yyterminate();  
+}
+
+<PREF>[\ \t\v]+ { /* eat up leading whitespace */ 
+	;
+}
+			   
+<PREF>{PREFIXLABEL}":"	{ 
+	BEGIN(INITIAL);
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	// Remove the ':' at the end of the prefix label
+	textAsString = [textAsString substringToIndex:([textAsString length]-1)];
+	yylval->object = textAsString;
+	
+	return PREFIX_LABEL; 
+}
+
+		
+<PREF>(.|\n)	{ BEGIN(INITIAL);
+	if(!*yytext)
+		return EOF;
+			
+	NSString *messageAsString = [NSString stringWithFormat:@"SPARQL syntax error at '%s'", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];
+	spatialsituation_error(PARAM, yyscanner, message);
+	yyterminate();
+}
+		
+{QNAME}	{  
+	yylval->object = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	return QNAME_LITERAL;
+}
+		
+{EXPLICITURI}   {  
+	NSString *textAsString = [NSString stringWithCString:yytext encoding:NSUTF8StringEncoding];
+	
+	// Remove the '<' '>' part of the IRI.
+	NSRange theRange;
+	theRange.location = 1;
+	theRange.length = [textAsString length]-2;
+	textAsString = [textAsString substringWithRange:theRange];
+	yylval->object = textAsString;
+	
+	return EXPLICIT_URI_LITERAL; 
+}
+		 
+\#[^\r\n]*(\r\n|\r|\n)	{ /* # comment */
+	;
+}
+			 
+<INITIAL,QUICKVAR,PREF,LONGLITERAL1,LONGLITERAL2>.		{ 
+	if(!*yytext)
+		return EOF;
+		 
+	NSString *messageAsString = [NSString stringWithFormat:@"SPARQL syntax error at %s", yytext];
+	const char *message = [messageAsString cStringUsingEncoding:NSUTF8StringEncoding];	
+	spatialsituation_error(PARAM, yyscanner, message);
+	yyterminate();
+}
+			 
+			 
+%%
+/* User code */

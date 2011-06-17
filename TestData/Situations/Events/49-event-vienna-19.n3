@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/49> .
+
+@snapshot 2011-07-18T13:00Z : POINT(16.37921853989685 48.22675474243067) .
+@snapshot 2011-07-18T15:00Z : POINT(16.37921853989685 48.22675474243067) .
+
+[ a events:Event;
+  events:id 49;
+  events:name "Augarten";
+  events:begin_time "2011-07-18T13:00Z";
+  events:end_time "2011-07-18T15:00Z";
+  events:category categories:Architecture;
+  events:description "Spaziergang durch den Augarten";
+  events:image_url "http://static.panoramio.com/photos/original/16412857.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

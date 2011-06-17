@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/8> .
+
+@snapshot 2011-07-21T10:00Z : POINT(15.436695 47.072302) .
+@snapshot 2011-07-21T12:00Z : POINT(15.436695 47.072302) .
+
+[ a events:Event;
+  events:id 8;
+  events:name "Sackgasse";
+  events:begin_time "2011-07-21T10:00Z";
+  events:end_time "2011-07-21T12:00Z";
+  events:category categories:Music;
+  events:description "Straßenmusik in der Sackgasse.";
+  events:image_url "http://static.panoramio.com/photos/original/15433800.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .

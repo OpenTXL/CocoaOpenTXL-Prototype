@@ -1,0 +1,7 @@
+PREFIX tour: <http://schema.opentxl.org/tour#> 
+
+SELECT ?event_id
+FROM <txl://localhost/tour-events/>
+WHERE {
+     <txl://localhost/tour/1> tour:tourEvent ?event_id .
+}

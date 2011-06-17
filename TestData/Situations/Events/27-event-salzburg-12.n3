@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/27> .
+
+@snapshot 2011-07-17T16:30Z : POINT(13.03329595122923 47.79817690487785) .
+@snapshot 2011-07-17T18:50Z : POINT(13.03329595122923 47.79817690487785) .
+
+[ a events:Event;
+  events:id 27;
+  events:name "Club b.lack";
+  events:begin_time "2011-07-17T16:30Z";
+  events:end_time "2011-07-17T18:50Z";
+  events:category categories:Architecture;
+  events:description "Katakomben des Clubs";
+  events:image_url "http://opentxl.org/events/salzburg/images/12.jpg";
+  suitability:suitable_by suitabilities:AllWeather] .

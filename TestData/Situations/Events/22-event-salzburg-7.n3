@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/22> .
+
+@snapshot 2011-07-17T20:30Z : POINT(13.03210685551792 47.80621380730416) .
+@snapshot 2011-07-18T23:00Z : POINT(13.03210685551792 47.80621380730416) .
+
+[ a events:Event;
+  events:id 22;
+  events:name "Muellnerbraeu Salzburg";
+  events:begin_time "2011-07-17T20:30Z";
+  events:end_time "2011-07-18T23:00Z";
+  events:category categories:Architecture;
+  events:description "Fuehrung durch die Brauerei und das Gelaende";
+  events:image_url "http://static.panoramio.com/photos/original/36233470.jpg";
+  suitability:suitable_by suitabilities:OutdoorWeather] .

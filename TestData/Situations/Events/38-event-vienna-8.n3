@@ -1,0 +1,19 @@
+@prefix events: <http://schema.opentxl.org/events#> .
+@prefix suitability: <http://schema.opentxl.org/suitability#> .
+@prefix categories: <http://schema.opentxl.org/categories#> .
+@prefix suitabilities: <http://schema.opentxl.org/suitabilities#> .
+
+@context <txl://opentxl.org/events/38> .
+
+@snapshot 2011-07-19T20:00Z : POINT(16.34330576019483 48.21036016731271) .
+@snapshot 2011-07-19T21:00Z : POINT(16.34330576019483 48.21036016731271) .
+
+[ a events:Event;
+  events:id 38;
+  events:name "Hamerlingpark";
+  events:begin_time "2011-07-19T20:00Z";
+  events:end_time "2011-07-19T21:00Z";
+  events:category categories:Music;
+  events:description "Freiluftkonzert im Park";
+  events:image_url "http://static.panoramio.com/photos/original/46244680.jpg";
+  suitability:suitable_by suitabilities:NiceWeather] .
