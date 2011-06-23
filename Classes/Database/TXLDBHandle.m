@@ -53,7 +53,7 @@
 #pragma mark -
 #pragma mark Prepared Statement
 
-- (sqlite3_stmt *)dequeueResusableStatementForSQL:(NSString *)sql {
+- (sqlite3_stmt *)dequeueReusableStatementForSQL:(NSString *)sql {
 	@synchronized (preparedStatements) {
 
 		// from prepared statements get array for
@@ -72,7 +72,7 @@
 	}
 }
 
-- (void)enqueueResusableStatement:(sqlite3_stmt *)st forSQL:(NSString *)sql {
+- (void)enqueueReusableStatement:(sqlite3_stmt *)st forSQL:(NSString *)sql {
     
     // reset the prepared statement object back to its
     // initial state, ready to be re-executed
