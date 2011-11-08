@@ -38,7 +38,7 @@
 #pragma mark -
 #pragma mark Prepared Statement
 
-- (sqlite3_stmt *)dequeueResusableStatementForSQL:(NSString *)sql;
-- (void)enqueueResusableStatement:(sqlite3_stmt *)st forSQL:(NSString *)sql;
+- (sqlite3_stmt *)dequeueReusableStatementForSQL:(NSString *)sql;
+- (void)enqueueReusableStatement:(sqlite3_stmt *)st forSQL:(NSString *)sql;
 
 @end

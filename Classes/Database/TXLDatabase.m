@@ -223,7 +223,7 @@ int sqlite3_blocking_step(sqlite3_stmt *pStmt);
     sqlite3_stmt *statement = NULL;
     
 	// try retrieving a prepared statement, may be nil, if not previously enqueued
-	statement = [self.dbHandle dequeueResusableStatementForSQL:sql];
+	statement = [self.dbHandle dequeueReusableStatementForSQL:sql];
 	
 	if (statement == nil) {
 		// no statement was retrieved
@@ -251,7 +251,7 @@ int sqlite3_blocking_step(sqlite3_stmt *pStmt);
                        error:error]) {
         // Could not bind argument to the statement.
         // Enqueue sattement for later use.
-        [self.dbHandle enqueueResusableStatement:statement
+        [self.dbHandle enqueueReusableStatement:statement
                                           forSQL:sql];
         return NO;
     };
@@ -293,7 +293,7 @@ int sqlite3_blocking_step(sqlite3_stmt *pStmt);
 
     // Enqueue statement where it is placed in the pool of prepared statements
     // and also reset to be enabled for reuse.
-    [self.dbHandle enqueueResusableStatement:statement
+    [self.dbHandle enqueueReusableStatement:statement
                                       forSQL:sql];
     
     // Check if an error occured
